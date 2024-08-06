@@ -1,4 +1,4 @@
-Hello <%= @user %>, <%= @email %>
+Hello <%= @email %>
 <%= link_to "Sign in", new_user_session_path %>
 <%= link_to "Sign out", destroy_user_session_path, data: { "turbo-method": :delete } %>
 <%= link_to "Edit", edit_user_registration_path %>
