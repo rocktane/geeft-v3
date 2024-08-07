@@ -1,0 +1,44 @@
+<div class="body-container">
+  <div class="primary-container" data-controller="save-gift">
+    <%= link_to dashboard_path, class: "btn-back" do %>
+      <i class="fa-solid fa-chevron-left"></i> Retour
+    <% end %>
+
+    <%= render 'shared/gifts_list_show_gift' %>
+
+      <% if @user == @gift.user %>
+        <div class="gift-comment">
+          <%= form_with(url: gift_path, method: :patch) do |f| %>
+            <h2>Une modification à effectuer ?</h2>
+            <div class="form-comment">
+              <%= f.text_field :comment, as: :text, placeholder: "Moins de coffrets, plus d'ateliers" %>
+              <%= f.button(type: 'submit', class: 'btn btn__theme btn-square btn-purple') do %>
+                <div class="btn__content">
+                  <%= image_tag('send.svg', alt: "Envoyer") %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% text = @event.id ? "Ajouter cette liste à l'évènement" : 'Créer un évènement avec cette liste' %>
+      <% svg_icon = image_tag('new-event.svg', alt: 'Ajouter') %>
+      <% data_attributes = {
+        data: {
+          env: Rails.env,
+          gift_id: @gift.id,
+          action: "click->save-gift#save",
+          save_gift_target: "saveList"
+        },
+        class: "btn btn__theme btn-green"
+      } %>
+      <% data_attributes[:data][:event_id] = @event.id if @event.id %>
+      <%= link_to new_gift_event_path(@gift), data_attributes do %>
+        <div class="btn__content">
+          <%= raw("#{svg_icon} #{text}") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

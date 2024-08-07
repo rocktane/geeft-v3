@@ -10,7 +10,7 @@
     <div class="date-and-recurrent">
       <div class="secondary-container date-section date-show">
         <% date = params[:date] || Date.today %>
-        <%= f.text_field :date, value: date, class: 'no-box-input date-show', as: :string, data: { controller: "calendar" } %>
+        <%= f.text_field :date, value: date, required: true, class: 'no-box-input date-show', as: :string, data: { controller: "calendar" } %>
         <%= image_tag('calendar.svg') %>
       </div>
 
@@ -25,7 +25,7 @@
 
       <div class="secondary-container">
         <h3>Nom de l'évènement</h3>
-        <%= f.text_field :name, class: 'no-box-input', placeholder: "Anniversaire de ..." %>
+        <%= f.text_field :name, required: true, class: 'no-box-input', placeholder: "Anniversaire de ..." %>
       </div>
 
       <div class="secondary-container">
@@ -69,10 +69,6 @@
             <% end %>
           </ul>
       </div>
-      <% else %>
-      <%= link_to new_gift_path do %>
-        <%= image_tag('close-gift.svg', alt: 'gift') %>
-      <% end %>
     <% end %>
 
 

@@ -22,14 +22,6 @@
       <%= @event.name %>
     </div>
 
-    <% if @event.url.present? %>
-      <div class="secondary-container">
-        <h3>Lien</h3>
-        <% url = @event.url.gsub(/https?:\/\/(www\.)?/, "") %>
-        <%= link_to url, @event.url, target: :_blank %>
-      </div>
-    <% end %>
-
     <% if @event.description.present? %>
       <div class="secondary-container">
         <h3>Description</h3>
@@ -37,6 +29,13 @@
       </div>
     <% end %>
 
+    <% if @event.url.present? %>
+      <div class="secondary-container">
+        <h3>Lien</h3>
+        <% url = @event.url.gsub(/https?:\/\/(www\.)?/, "") %>
+        <%= link_to url, @event.url, target: :_blank %>
+      </div>
+    <% end %>
 
     <div class="gifts-event">
         <% if @event.gift.present? %>

@@ -229,3 +229,8 @@ label[for="event_recurrent"] {
   align-items: center;
   gap: 0.5em;
 }
+
+.fa-solid.fa-magnifying-glass {
+  transform: scale(-1, 1);
+  pointer-events: none;
+}

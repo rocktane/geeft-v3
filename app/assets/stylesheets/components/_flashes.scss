@@ -1,18 +1,16 @@
 .flashes,
 #error_explanation {
   position: absolute;
-  top: 55px;
+  top: 100px;
   right: 12px;
   display: grid;
   align-items: end;
   grid-gap: 1em;
 }
 
-.flashes li {
+.flashes li,
+#error_explanation li {
   padding: 16px 24px;
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
   background: $secondary-color;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
