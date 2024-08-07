@@ -1,0 +1,43 @@
+<% if @events.empty? %>
+  <div class="event-container-dashboard">
+    <div class="event-dashboard-title">
+      Aucun évènement à venir
+    </div>
+    <div class="event-dashboard-description">
+      <div>Vous n'avez pas encore créé d'évènement.</div>
+      <div>Créez-en un pour voir ce que vous pouvez faire.</div>
+    </div>
+  </div>
+<% else %>
+  <% @future_events.each do |event| %>
+    <div class="event-container-dashboard">
+      <%= link_to event_path(event) do %>
+        <div class="event-dashboard-title">
+          <% day = event.date.strftime("%d") %>
+          <% year = event.date.strftime("%Y") %>
+          <%= event.name %> - le <%= day %> <%= french_month(event.date) %> <%= year %>
+        </div>
+      <% end %>
+        <div class="event-dashboard-description">
+          <div><%= event.description %></div>
+        </div>
+        <div class="action-buttons">
+
+          <%= link_to event_path(event), class: "btn btn-dashboard btn__theme btn-green" do %>
+            <div class="btn__content">
+              <%= image_tag('eye.svg' , alt:'Voir +')  %>
+              Voir en détails
+            </div>
+          <% end %>
+
+          <%= link_to "#", class: "btn btn-dashboard btn__theme btn-purple" do %>
+            <div class="btn__content">
+              <%= image_tag('share.svg', alt: 'Partager') %>
+              Partager
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+  <% end %>
+<% end %>

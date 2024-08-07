@@ -1,0 +1,29 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-right {
+  width: 100%;
+  margin-left: 2.6em;
+  position: relative;
+}
+
+.horizontal-line {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  height: 4px;
+  width: 200px;
+  background-color: $primary-color;
+  border-radius: 99px;
+  margin: 1.5em auto;
+}
+
+@media (max-width: 800px) {
+  .dashboard-right {
+    display: none;
+  }
+}

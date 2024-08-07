@@ -1,0 +1,7 @@
+<% if flash.any? %>
+  <ul class="flashes">
+    <% flash.each do |key, value| %>
+        <li class=<%= key %>><%= value %></li>
+    <% end %>
+  </ul>
+<% end %>

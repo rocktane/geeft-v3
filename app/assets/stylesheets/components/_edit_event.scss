@@ -1,0 +1,25 @@
+input.date-show {
+  width: 6.8em;
+  // height: 100%;
+  display: flex;
+  border-radius: 0.45em;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff3e1;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+a.input-button i {
+  color: $primary-color;
+}
+
+.gifts-event {
+  h3 {
+    font-size: 1.5em;
+    font-family: $headers-font;
+    color: $primary-color;
+    margin: 1em 0 0.5em 0;
+  }
+}
