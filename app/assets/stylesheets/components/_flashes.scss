@@ -1,0 +1,69 @@
+.flashes,
+#error_explanation {
+  position: absolute;
+  top: 55px;
+  right: 12px;
+  display: grid;
+  align-items: end;
+  grid-gap: 1em;
+}
+
+.flashes li {
+  padding: 16px 24px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  background: $secondary-color;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  right: 2em;
+  font-family: $body-font;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  width: max-content;
+  justify-self: end;
+  cursor: default;
+  animation: slideInOut 10s ease-in-out forwards;
+}
+
+.flash:has(.alert),
+.flash:has(.notice),
+.flash:has(.success),
+.flash:has(.warning) {
+  border: 2px solid $primary-color;
+}
+
+.flash:has(.danger) {
+  border: 2px solid $red-color;
+  color: $red-color;
+}
+
+.field_with_errors {
+  display: inline;
+}
+.field_with_errors br {
+  display: none;
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.flashes li:hover {
+  animation-play-state: paused;
+}

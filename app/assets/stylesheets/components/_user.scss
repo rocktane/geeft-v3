@@ -1,0 +1,90 @@
+// CSS des pages New et Edit de User
+
+.info-user{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  width: 20em;
+
+  & label {
+    display: none;
+
+  }
+
+  & h3 {
+    font-family: $headers-font;
+    color: $primary-color;
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+  }
+
+  & p {
+    font-family: $body-font;
+    font-style: italic;
+    font-size: 0.7em;
+    color: $primary-color;
+    margin-bottom: 0.3em;
+  }
+
+  & input {
+    font-family: $body-font;
+    font-size: 1em;
+    color: $primary-color;
+    width: 100%;
+    padding: 0.5em;
+    border: 3px solid $primary-color;
+    background-color: $secondary-color;
+    border-radius: var(--border-radius);
+    box-shadow: var(--container-shadow);
+  }
+
+  & ::placeholder {
+    color: $primary-color;
+    opacity: 58%;
+
+  }
+
+  & .hint {
+    font-family: $body-font;
+    font-size: 0.8em;
+    color: $primary-color;
+    margin-top: 0.3em;
+  }
+  }
+
+
+
+.form-inputs {
+  width: 20em;
+  margin-top: 1em;
+}
+
+.switch-link {
+  margin-top: 1em;
+  font-family: $body-font;
+  color: $primary-color;
+  display: flex;
+
+  & a {
+    margin-left: 0.5em;
+    color: $primary-color;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: $accent-color;
+    }
+
+  }
+
+
+}
+
+
+
+
+@media (max-width: 768px) {
+  .info-user {
+    width: 100%;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="navbar">
+
+  <!-- Bouton Back Mobile -->
+  <%= link_to :back, class: 'chevron-mobile' do %>
+    <i class="fa-solid fa-chevron-left"></i>
+  <% end %>
+
+  <div class="navbar-left">
+    <%= link_to image_tag('geeft-logo-mobile.svg', alt: 'Geeft logo'), root_path %>
+    <!-- Voir Helper Navbar Titles -->
+    <h1> <%= navbar_title %> </h1>
+  </div>
+
+
+  <div class="dropdown-menu">
+    <details id="menu-details">
+      <summary>
+        <%= image_tag('menu.svg', alt: 'Menu', class:'menu') %>
+      </summary>
+      <ul>
+        <li>
+          <%= link_to dashboard_path do %>
+            <%= image_tag('calendar.svg', alt: 'Calendar', class:'menu-items') %>
+            Calendrier
+          <% end %>
+        </li>
+        <li>
+          <%= link_to edit_user_registration_path do  %>
+            <%= image_tag('user.svg', alt: 'User', class:'menu-items') %>
+            Profil
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+            <%= image_tag('logout', alt: 'Log-Out', class:'menu-items') %>
+            Déconnexion
+          <% end %>
+        </li>
+      </ul>
+    </details>
+  </div>
+</div>

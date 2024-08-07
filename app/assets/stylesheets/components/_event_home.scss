@@ -1,0 +1,55 @@
+ul,
+li {
+  list-style-type: none;
+}
+
+// Container Evenements Home
+.event-container-home {
+  font-family: $body-font;
+  background-color: $secondary-color;
+  border: 3px solid $primary-color;
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: 1em;
+  margin: 1em 0 0.5em 0em;
+  box-shadow: var(--container-shadow);
+  & h1 {
+    font-family: $headers-font;
+    color: $primary-color;
+    font-size: 1.1em;
+  }
+  & a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+}
+
+.event-infos-home {
+  font-family: $body-font;
+  color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1em;
+  margin: 0.5em 0 0.5em 0em;
+}
+
+.event-date {
+  background-color: $accent-color;
+  padding: 0.25em 0.5em;
+  color: white;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .event-container-home {
+    width: 100%;
+    & h1 {
+      font-size: 1em;
+    }
+  }
+
+  .event-infos-home {
+    font-size: 1em;
+  }
+}

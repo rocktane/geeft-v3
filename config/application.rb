@@ -6,10 +6,17 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module TestDevise
+module GeeftV3
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
+
+		# Ajout des fonts locales
+		config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+		# French as default locale
+		config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+		config.i18n.default_locale = :fr
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
