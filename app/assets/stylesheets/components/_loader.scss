@@ -5,19 +5,20 @@
   transform: translate(-50%, -50%);
   z-index: 9998;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 100dvw;
-  height: 100dvh;
-  display: flex;
+  width: 100vw;
+  height: 100vh;
+  // display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  // display: none;
+  display: none;
 }
 
 .loader-circle {
   width: 15px;
   height: 15px;
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   animation: loading 1.5s cubic-bezier(0.8, 0.5, 0.2, 1.4) infinite;
 }
 
@@ -58,4 +59,9 @@
 }
 .circle-8 {
   animation-delay: 0.8s;
+}
+
+.blurred {
+  filter: blur(2px); /* Ajustez l'intensité du flou */
+  pointer-events: none; /* Désactive les interactions avec le contenu flouté */
 }

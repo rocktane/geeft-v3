@@ -24,7 +24,7 @@ class Gift < ApplicationRecord
         model: ENV["MODEL"],
         messages: [{
           role: "user",
-          content: "Je veux une liste de trente cadeaux pour #{relationship}. Cette personne est de sexe #{genre}, elle est âgée de #{age} ans et aime #{list_of_interests}. Le cadeau sera offert à l'occasion de #{occasion}. Mon budget est de #{budget} euros. Je veux que le résultat soit intégré dans une liste sans ta propre réponse. Sois concis, je veux juste les cadeaux sans explications."
+          content: "Je veux une liste numérotée de trente cadeaux pour #{relationship}. Cette personne est de sexe #{genre}, elle est âgée de #{age} ans et aime #{list_of_interests}. Le cadeau sera offert à l'occasion de #{occasion}. Mon budget est de #{budget} euros. Je veux que le résultat soit intégré dans une liste numérotéesans ta propre réponse. Sois concis, je veux juste les cadeaux sans explications."
         }]
       })
     response["choices"].first["message"]["content"]
@@ -39,7 +39,7 @@ class Gift < ApplicationRecord
         model: ENV["MODEL"],
         messages: [{
           role: "user",
-          content: "À partir de la liste générée(#{generated_list}), je t'avais demandé une liste de trente cadeaux pour #{relationship} qui est âgée de #{age} ans et est de sexe #{genre}. Ce cadeau sera offert à l'occasion de #{occasion}, je t'avais précisé que cette personne aime #{list_of_interests}. Je veux que tu prennes en compte ce commentaire: #{comment} et que tu me donnes une nouvelle liste numérotée de trente cadeaux. Ta réponse ne doit inclure rien d'autre que cette nouvelle liste numérotée."
+          content: "À partir de la liste générée(#{generated_list}), je t'avais demandé une liste numérotée de trente cadeaux pour #{relationship} qui est âgée de #{age} ans et est de sexe #{genre}. Ce cadeau sera offert à l'occasion de #{occasion}, je t'avais précisé que cette personne aime #{list_of_interests}. Je veux que tu prennes en compte ce commentaire: #{comment} et que tu me donnes une nouvelle liste numérotée de trente cadeaux. Ta réponse ne doit inclure rien d'autre que cette nouvelle liste numérotée."
         }]
       })
     response["choices"].first["message"]["content"]

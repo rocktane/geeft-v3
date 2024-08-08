@@ -152,11 +152,18 @@ span.checkbox input[type="checkbox"],
 .occasion div.input,
 .relationship div.input,
 .interests div.input {
-  box-sizing: border-box;
-  overflow-x: auto;
-  white-space: nowrap;
+  // MOBILE
+  // box-sizing: border-box;
+  // overflow-x: auto;
+  // white-space: nowrap;
+  // padding-bottom: 1em;
+  // padding-left: 1em;
+  // DESKTOP
   padding-bottom: 1em;
   padding-left: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
   &:hover {
     overflow-y: scroll;
   }

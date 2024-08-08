@@ -25,8 +25,8 @@ class GiftsController < ApplicationController
   end
 
   def create
-    @event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
     @gift = Gift.new(gift_params)
+    @event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
     @gift.event = @event
     @gift.user = current_user
     @gift.interests = @gift.interests.compact_blank
@@ -38,15 +38,14 @@ class GiftsController < ApplicationController
       @gift.occasion,
       @gift.interests,
       @gift.relationship
-    )
-                                .split(/\d+\.\s+/).map(&:strip).compact_blank
-    if @gift.save
-      redirect_to gift_path(@gift, event_id: @event)
-    else
-			Rails.logger.error "Error in GiftsController#create: #{@gift.errors.full_messages}"
-			Rails.logger.error "Gift: #{@gift}"
-      render :new
-    end
+    ).split(/\d+\.\s+/).map(&:strip).compact_blank
+		respond_to do |format|
+				if @gift.save
+						format.json { render json: @gift, status: :created }
+				else
+						format.json { render json: @gift.errors, status: :unprocessable_entity }
+				end
+		end
   end
 
   def update
@@ -80,7 +79,7 @@ class GiftsController < ApplicationController
                                  :comment, :user_id, :event_id)
   end
 
-  def set_client
-    $client ||= OpenAI::Client.new
-  end
+	def set_client
+			$client = $client ? $client : OpenAI::Client.new
+	end
 end
