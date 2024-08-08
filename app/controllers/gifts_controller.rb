@@ -18,11 +18,14 @@ class GiftsController < ApplicationController
     end
   end
 
+
+
   def new
     @event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
     @gift = Gift.new
     @gift.event = @event
   end
+
 
   def create
     @gift = Gift.new(gift_params)
