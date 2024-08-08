@@ -1,4 +1,4 @@
-<div class="body-container">
+<div class="body-container" data-controller="loader-request" data-loader-request-target="container">
 
   <div class="btn-back">
     <%= link_to :back, class: "btn-back" do %>
@@ -7,12 +7,14 @@
   </div>
 
   <% model_to_use = [@event, @gift] || @gift %>
-  <%= simple_form_for(model_to_use, url: gifts_path(event_id: @event), html: { class: "criteria-form"})  do |f| %>
+  <%= simple_form_for(model_to_use, url: gifts_path(event_id: @event),
+    html: { class: "criteria-form"},
+    data: { loader_request_target: "form", action: "submit->loader-request#checkForm"})  do |f| %>
 
     <div class="age-genre">
 
       <div class="new-form-section age" data-controller="age-buttons">
-        <%= f.label :age, class: "criteria-title", required: false %>
+        <%= f.label :age, class: "criteria-title", required: true %>
         <div class="age-user">
             <button type="button" class="age-btn" data-action="click->age-buttons#minusOne">
               <i class="fa-solid fa-minus"></i>
@@ -29,7 +31,7 @@
         <%= f.label :genre, "Genre", class: "criteria-title" %>
         <div class="genders">
           <% genders = ["female", "neutral","male"] %>
-          <%= f.input :genre, collection: genders, as: :radio_buttons, label: false, required: false do %>
+          <%= f.input :genre, collection: genders, required: true, as: :radio_buttons, label: false do %>
             <div class="radio-buttons">
               <% genders.each do |genre| %>
                 <div class="radio-button <%= genre %>">
@@ -114,15 +116,4 @@
     </div>
 
   <% end %>
-</div>
-
-<div class="loader-wrapper">
-  <span class="loader-circle circle-1"></span>
-  <span class="loader-circle circle-2"></span>
-  <span class="loader-circle circle-3"></span>
-  <span class="loader-circle circle-4"></span>
-  <span class="loader-circle circle-5"></span>
-  <span class="loader-circle circle-6"></span>
-  <span class="loader-circle circle-7"></span>
-  <span class="loader-circle circle-8"></span>
 </div>
