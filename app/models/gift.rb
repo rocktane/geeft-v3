@@ -33,7 +33,9 @@ class Gift < ApplicationRecord
             - Ne proposez pas de vaisselle ou de produits similaires (ex. ensemble de verres).
             - Évitez les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'.
             - Les propositions doivent être précises et bien adaptées aux intérêts mentionnés. Par exemple, si l'intérêt est la photographie, proposez des équipements ou accessoires photographiques pertinents (ex : trépied de voyage, sac à dos avec compartiment pour appareil photo).
-            - Ta réponse doit consister uniquement en une nouvelle liste numérotée de trente cadeaux. Chaque cadeau doit OBLIGATOIREMENT être sur une nouvelle ligne et numéroté de 1 à 30. Aucun autre texte ne doit être inclus.
+
+            Réponse :
+            - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus.
           PROMPT
         }]
       }
@@ -50,15 +52,16 @@ class Gift < ApplicationRecord
         messages: [{
           role: 'user',
           content: <<~PROMPT
-            À partir de la liste générée(#{generated_list}), je t'avais demandé une liste de trente cadeaux pour #{relationship} qui est âgée de #{age} ans et est de sexe #{genre}. Ce cadeau sera offert à l'occasion de #{occasion}, je t'avais précisé que cette personne aime #{list_of_interests}. Je veux que tu prennes en compte ce commentaire: #{comment} et que tu me donnes une nouvelle liste numérotée de trente cadeaux. Mon budget est de #{budget} euros.
-
-            Veuillez suivre ces précisions :
-            - Ne proposez pas de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD ou de produits avec des motifs spécifiques.
+            Je t'avais demandé une liste de trente cadeaux pour #{relationship} qui est âgée de #{age} ans et est de sexe #{genre}. Ce cadeau sera offert à l'occasion de #{occasion}, je t'avais précisé que cette personne aime #{list_of_interests}. Je veux que tu prennes en compte ce commentaire: #{comment} et que tu me donnes une nouvelle liste numérotée de trente cadeaux. Mon budget est de #{budget} euros.
+            Précisions :
+            - Ne proposez pas de mugs, porte-clés, cartes cadeaux, abonnements, supports de livres, lampes de lecture, jeux de société de type escape room, CD, ou produits avec des motifs spécifiques.
             - Si vous proposez des marque-pages, assurez-vous qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or).
-            - Ne proposez pas de vaisselle ou de produits similaires (ex. ensemble de verres).
-            - Évitez les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'.
-            - Les propositions doivent être précises et bien adaptées aux intérêts mentionnés. Par exemple, si l'intérêt est la photographie, proposez des équipements ou accessoires photographiques pertinents (ex : trépied de voyage, sac à dos avec compartiment pour appareil photo).
-            - Ta réponse doit consister uniquement en une nouvelle liste numérotée de trente cadeaux. Chaque cadeau doit OBLIGATOIREMENT être sur une nouvelle ligne et numéroté de 1 à 30. Aucun autre texte ne doit être inclus.
+            - Ne proposez pas de vaisselle ou produits similaires (ex : ensemble de verres).
+            - Évitez les adjectifs tels que 'tendance', 'élégant', 'pratique', 'stylé', 'confortable', 'de qualité'.
+            - Proposez des cadeaux précis et adaptés aux intérêts mentionnés.
+
+            Réponse :
+            - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus.
           PROMPT
         }]
       }
