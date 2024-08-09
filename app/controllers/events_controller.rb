@@ -15,19 +15,19 @@ class EventsController < ApplicationController
 
   def dashboard
     @events = Event.where(user: current_user).order(:date)
-		if !@events.empty?
-			@today = Date.today
-			@range = (@today.year..@today.next_year(10).year).to_a
-			@events_dates = @events.map { |event| event.date.strftime('%Y-%m-%d') }
-			start_date = [@events.first.date.beginning_of_month, Date.today.beginning_of_month].min
-			end_date = [@events.last.date.beginning_of_month, @today.next_year(10).beginning_of_month].max
-			@all_months = (start_date..end_date).map(&:beginning_of_month).uniq
-			@future_events = Event.where(user: current_user).where('date >= ?', @today).order(:date)
-			@events_by_month = @all_months.map do |month|
-				unless @events.select { |e| e.date.beginning_of_month == month }.nil?
-					[month, @events.select { |e| e.date.beginning_of_month == month }]
-				end
-			end.to_h
+    if !@events.empty?
+      @today = Date.today
+      @range = (@today.year..@today.next_year(10).year).to_a
+      @events_dates = @events.map { |event| event.date.strftime('%Y-%m-%d') }
+      start_date = [@events.first.date.beginning_of_month, Date.today.beginning_of_month].min
+      end_date = [@events.last.date.beginning_of_month, @today.next_year(10).beginning_of_month].max
+      @all_months = (start_date..end_date).map(&:beginning_of_month).uniq
+      @future_events = Event.where(user: current_user).where('date >= ?', @today).order(:date)
+      @events_by_month = @all_months.map do |month|
+        unless @events.select { |e| e.date.beginning_of_month == month }.nil?
+          [month, @events.select { |e| e.date.beginning_of_month == month }]
+        end
+      end.to_h
     end
   end
 
@@ -127,7 +127,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :date, :recurrent, :description, :url,
-			:user_id, :gift_id, :event_id, gift_attributes: [:generated_list], gift_list: [])
+                                  :user_id, :gift_id, :event_id, gift_attributes: [:generated_list], gift_list: [])
   end
 
   def set_event
