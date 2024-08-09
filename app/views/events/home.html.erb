@@ -11,7 +11,6 @@
 </div>
 
 <div class="body-container">
-  <%# Home Logged OUT %>
   <div class="home-page-logged-out">
     <% if @user == "guest" %>
       <div class="geeft-presentation">
@@ -20,43 +19,39 @@
       </div>
 
       <div class="home-buttons">
-        <%= link_to new_user_registration_path, class: "btn btn__theme btn-home btn-green" do %>
+        <%= link_to new_user_registration_path, class: "btn__theme btn-home btn-green" do %>
           <div class="btn__content">
-            <%= image_tag('signup.svg', alt: 'Inscription') %>
+            <%#= image_tag('signup.svg', alt: 'Inscription') %>
             Inscription
           </div>
         <% end %>
-        <%= link_to new_user_session_path, class: "btn btn__theme btn-home btn-purple" do %>
+        <%= link_to new_user_session_path, class: "btn__theme btn-home btn-purple" do %>
           <div class="btn__content">
             <%= image_tag('signin.svg', alt: 'Connexion') %>
             Connexion
           </div>
         <% end %>
-      </div>
     </div>
-
     <% else %>
-      <%# Home Logged IN %>
-      <%= render 'shared/event_home' %>
-      <div class="home-buttons">
-          <%= link_to dashboard_path, class: "btn btn-home btn__theme btn-green" do%>
-          <div class="btn__content">
-            <%= image_tag('calendar2.svg', alt: 'Calendrier') %>
-            Calendrier
-          </div>
-        <% end %>
+       <%= render 'shared/event_home' %>
+          <div class="home-buttons">
+            <%= link_to dashboard_path, class: "btn btn-home btn__theme btn-green" do%>
+              <div class="btn__content">
+                <%= image_tag('calendar2.svg', alt: 'Calendrier') %>
+                Calendrier
+              </div>
+            <% end %>
 
-        <%= link_to new_gift_path, class: "btn btn-home btn__theme btn-purple" do %>
-          <div class="btn__content">
-            <%= image_tag('close-gift.svg', alt: 'Cadeau') %>
-            Créer une liste cadeau
+            <%= link_to new_gift_path, class: "btn btn-home btn__theme btn-purple" do %>
+              <div class="btn__content">
+                <%= image_tag('close-gift.svg', alt: 'Cadeau') %>
+                Créer une liste cadeau
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
 
-      <div class="btn-mobile">
-        <%= link_to raw("<i class=\"fa-solid fa-gift\"></i>"), new_gift_path %>
-      </div>
+          <div class="btn-mobile">
+            <%= link_to raw("<i class=\"fa-solid fa-gift\"></i>"), new_gift_path %>
+          </div>
     <% end %>
-  </div>
 </div>

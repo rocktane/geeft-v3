@@ -22,24 +22,6 @@
   margin: 1.5em auto;
 }
 
-.dashboard {
-  display: flex;
-  width: 100%;
-  height: 100vh; /* Hauteur totale de la vue */
-}
-
-// .left-pane, .right-pane {
-//   overflow-y: auto; /* Ajoute un défilement vertical */
-//   padding-bottom: 5em;
-// }
-
-.left-pane{
-  overflow-y: auto; /* Ajoute un défilement vertical */
-  padding-bottom: 5em;
-}
-
-
-
 @media (max-width: 800px) {
   .dashboard-right {
     display: none;
