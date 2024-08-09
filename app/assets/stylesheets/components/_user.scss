@@ -1,5 +1,4 @@
-// CSS des pages New et Edit de User
-
+// CSS Users
 .info-user{
   display: flex;
   flex-direction: column;
@@ -50,6 +49,20 @@
   }
 }
 
+
+.show-input {
+  font-family: $body-font;
+  font-size: 1em;
+  color: $primary-color;
+  width: 100%;
+  padding: 0.5em;
+  border: 2px solid $primary-color;
+  background-color: $secondary-color;
+  border-radius: var(--border-radius);
+  box-shadow: var(--container-shadow);
+}
+
+
 .remember-me {
   display: flex;
   align-items: center;
@@ -93,11 +106,7 @@
     }
 
   }
-
-
 }
-
-
 
 
 
