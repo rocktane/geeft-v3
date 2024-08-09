@@ -50,6 +50,22 @@
   }
 }
 
+.remember-me {
+  display: flex;
+  align-items: center;
+  & label {
+    font-family: $body-font;
+    font-size: 0.8em;
+    color: $primary-color;
+  }
+
+  & input {
+    margin-right: 0.5em;
+    width: 1em;
+    height: 1em;
+  }
+}
+
 .container-inputs {
   margin-bottom: 1em;
 
