@@ -3,7 +3,7 @@
 .info-user{
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5em;
+  margin: 0.5em 0 0.5em 0;
   width: 20em;
 
   & label {
@@ -11,10 +11,7 @@
 
   }
 
-  & h3 {
-    font-family: $headers-font;
-    color: $primary-color;
-    font-size: 1.2em;
+  & h2 {
     margin-bottom: 0.3em;
   }
 
@@ -32,7 +29,7 @@
     color: $primary-color;
     width: 100%;
     padding: 0.5em;
-    border: 3px solid $primary-color;
+    border: 2px solid $primary-color;
     background-color: $secondary-color;
     border-radius: var(--border-radius);
     box-shadow: var(--container-shadow);
@@ -41,18 +38,22 @@
   & ::placeholder {
     color: $primary-color;
     opacity: 58%;
+    font-style: italic;
 
   }
 
-  & .hint {
+  & em {
     font-family: $body-font;
     font-size: 0.8em;
     color: $primary-color;
     margin-top: 0.3em;
   }
-  }
+}
 
+.container-inputs {
+  margin-bottom: 1em;
 
+}
 
 .form-inputs {
   width: 20em;
@@ -79,6 +80,7 @@
 
 
 }
+
 
 
 
