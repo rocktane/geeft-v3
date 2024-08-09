@@ -7,7 +7,7 @@ class Gift < ApplicationRecord
   validates :relationship, presence: true
 
   OCCASIONS = %w[Noël Anniversaire Saint-Valentin Fêtes\ des\ parents Fête\ des\ grands-mères Pot\ de\ départ
-              Crémaillère Baptème Mariage Aïd\ el\ Fitr Bar-Mitzvah Bat-Mitzvah Baby\ shower
+              Crémaillère Baptème Mariage Bar-Mitzvah Bat-Mitzvah Baby\ shower
               EVJF EVG Remise\ de\ diplôme Juste\ comme\ ça]
   INTERESTS = %w[Musique Sport Nature Art Voyage Lecture Cuisine Technologie Mode Bien-être Cosmétique Humour Cinéma
               Jardinage Jeux-vidéo Langues\ étrangères Astronomie Bricolage Danse Théatre Spectacle Histoire
@@ -58,7 +58,7 @@ class Gift < ApplicationRecord
             - Si vous proposez des marque-pages, assurez-vous qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or).
             - Ne proposez pas de vaisselle ou produits similaires (ex : ensemble de verres).
             - Évitez les adjectifs tels que 'tendance', 'élégant', 'pratique', 'stylé', 'confortable', 'de qualité'.
-            - Proposez des cadeaux précis et adaptés aux intérêts mentionnés.
+            - Les propositions doivent être précises et bien adaptées aux intérêts mentionnés. Par exemple, si l'intérêt est la photographie, proposez des équipements ou accessoires photographiques pertinents (ex : trépied de voyage, sac à dos avec compartiment pour appareil photo).
 
             Réponse :
             - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus.
