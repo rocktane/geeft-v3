@@ -1,9 +1,3 @@
-ul,
-li {
-  list-style-type: none;
-}
-
-// Container Evenements Home
 .event-container-home {
   font-family: $body-font;
   background-color: $secondary-color;
@@ -13,21 +7,47 @@ li {
   padding: 1em;
   margin: 1em 0 0.5em 0em;
   box-shadow: var(--container-shadow);
+  // & h1 {
+  //   font-family: $headers-font;
+  //   color: $primary-color;
+  //   font-size: 20px;
+  // }
   & a {
     color: $primary-color;
     text-decoration: none;
   }
+  .no-event {
+    font-family: $body-font;
+    color: $primary-color;
+    font-size: 1.1em;
+    margin: 0.5em 0 0.5em 0em;
+    padding: 0.5em;
+    position: relative;
+  }
 }
 
-.event-infos-home {
+.event-infos-home li {
   font-family: $body-font;
   color: $primary-color;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1em;
-  margin: 0.5em 0 0.5em 0em;
+  font-size: 18px;
+  margin: 0.2em 0 0.2em 0em;
+  padding: 0.5em;
+  position: relative;
+  border-left: 3px solid transparent;
+  transition: border-left 0.5s ease-in-out, padding-left 0.3s ease-in-out;
+  &:hover {
+    // border-left-color: $accent-color;
+    border-left: 3px solid $accent-color;
+    padding-left: 1em;
+  }
+  .event-infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
+
+
 
 .event-date {
   background-color: $accent-color;
