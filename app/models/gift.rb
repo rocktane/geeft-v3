@@ -25,17 +25,17 @@ class Gift < ApplicationRecord
         messages: [{
           role: 'user',
           content: <<~PROMPT
-            Je veux une liste de trente cadeaux pour #{relationship}. Cette personne est de sexe #{genre}, elle est âgée de #{age} ans et aime #{list_of_interests}. Le cadeau sera offert à l'occasion de #{occasion}. Mon budget est de #{budget} euros.
+            Je veux une liste de trente cadeaux pour #{relationship} qui est de sexe #{genre} et qui a  #{age} ans, ces centres d'intêrets sont : #{list_of_interests}.
+            Le cadeau sera offert à l'occasion de #{occasion} et mon budget est de #{budget} euros. J'ai besoin de ton aide pour trouver des idées de cadeaux en suivant scrupuleusement les consignes suivantes :
 
-            Veuillez suivre ces précisions :
-            - Ne proposez pas de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD ou de produits avec des motifs spécifiques.
-            - Si vous proposez des marque-pages, assurez-vous qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or).
-            - Ne proposez pas de vaisselle ou de produits similaires (ex. ensemble de verres).
-            - Évitez les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'.
-            - Les propositions doivent être précises et bien adaptées aux intérêts mentionnés. Par exemple, si l'intérêt est la photographie, proposez des équipements ou accessoires photographiques pertinents (ex : trépied de voyage, sac à dos avec compartiment pour appareil photo).
+            - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus
+            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de gants de jardinage
+            - Ne jamais ajouter de produits avec des motifs spécifiques (floral, animal, etc.)            - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
+            - Ne propose jamais de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
+            - Évite les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'
+            - Les propositions doivent être précises et bien adaptées aux intérêts mentionnés. Par exemple, si l'intérêt est la photographie, proposez des équipements ou accessoires photographiques pertinents (ex : trépied de voyage, sac à dos avec compartiment pour appareil photo)
 
-            Réponse :
-            - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus.
+            Je compte sur toi, merci d'avance pour ton aide !
           PROMPT
         }]
       }
@@ -52,16 +52,19 @@ class Gift < ApplicationRecord
         messages: [{
           role: 'user',
           content: <<~PROMPT
-            Je t'avais demandé une liste de trente cadeaux pour #{relationship} qui est âgée de #{age} ans et est de sexe #{genre}. Ce cadeau sera offert à l'occasion de #{occasion}, je t'avais précisé que cette personne aime #{list_of_interests}. Je veux que tu prennes en compte ce commentaire: #{comment} et que tu me donnes une nouvelle liste numérotée de trente cadeaux. Mon budget est de #{budget} euros.
-            Précisions :
-            - Ne proposez pas de mugs, porte-clés, cartes cadeaux, abonnements, supports de livres, lampes de lecture, jeux de société de type escape room, CD, ou produits avec des motifs spécifiques.
-            - Si vous proposez des marque-pages, assurez-vous qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or).
-            - Ne proposez pas de vaisselle ou produits similaires (ex : ensemble de verres).
-            - Évitez les adjectifs tels que 'tendance', 'élégant', 'pratique', 'stylé', 'confortable', 'de qualité'.
-            - Les propositions doivent être précises et bien adaptées aux intérêts mentionnés. Par exemple, si l'intérêt est la photographie, proposez des équipements ou accessoires photographiques pertinents (ex : trépied de voyage, sac à dos avec compartiment pour appareil photo).
+            Je veux une liste de trente cadeaux pour #{relationship} qui est de sexe #{genre} et qui a  #{age} ans, ces centres d'intêrets sont : #{list_of_interests}.
+            Le cadeau sera offert à l'occasion de #{occasion} et mon budget est de #{budget} euros. J'ai besoin de ton aide pour trouver des idées de cadeaux en suivant scrupuleusement les consignes suivantes :
 
-            Réponse :
-            - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus.
+            - Prendre en compte ce commentaire : "#{comment}" et ajuster les propositions en conséquence
+            - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus
+            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de gants de jardinage
+            - Ne jamais ajouter de produits avec des motifs spécifiques (floral, animal, etc.)
+            - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
+            - Ne propose jamais de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
+            - Évite les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'
+            - Les propositions doivent être précises et bien adaptées aux intérêts mentionnés. Par exemple, si l'intérêt est la photographie, proposez des équipements ou accessoires photographiques pertinents (ex : trépied de voyage, sac à dos avec compartiment pour appareil photo)
+
+            Je compte sur toi, merci d'avance pour ton aide !
           PROMPT
         }]
       }
