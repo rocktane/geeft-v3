@@ -3,39 +3,42 @@
     <%= link_to '< Retour', :back %>
   </div>
 
-  <div class="form-inputs">
-    <div class="container-inputs">
-      <div class="info-user">
-        <h2> Email </h2>
-        <div class="show-input">
-          <%= @user.email %>
+  <div class="form-mobile">
+    <div class="form-inputs">
+      <div class="container-inputs">
+        <div class="info-user">
+          <h2> Email </h2>
+          <div class="show-input">
+            <%= @user.email %>
+          </div>
+        </div>
+
+        <div class="info-user">
+          <h2> Nom d'utilisateur </h2>
+          <div class="show-input">
+            <%= @user.username %>
+          </div>
+        </div>
+
+        <div class="info-user">
+          <h2> Date d'anniversaire </h2>
+          <div class="show-input">
+            <%= @user.birthday.strftime("%d/%m/%Y") %>
+          </div>
         </div>
       </div>
 
-      <div class="info-user">
-        <h2> Nom d'utilisateur </h2>
-        <div class="show-input">
-          <%= @user.username %>
-        </div>
+      <div class="btn__theme">
+        <%= link_to edit_user_registration_path(current_user) do %>
+          <div class="btn__content btn btn-green">
+            <%= image_tag('pen.svg', alt: 'Edit', class: 'icon') %>
+            <span class="text">Modifier</span>
+          </div>
+        <% end %>
       </div>
-
-      <div class="info-user">
-        <h2> Date d'anniversaire </h2>
-        <div class="show-input">
-          <%= @user.birthday.strftime("%d/%m/%Y") %>
-        </div>
-      </div>
-    </div>
-
-    <div class="btn__theme">
-      <%= link_to edit_user_registration_path(current_user) do %>
-        <div class="btn__content btn btn-green">
-          <%= image_tag('pen.svg', alt: 'Edit', class: 'icon') %>
-          <span class="text">Modifier</span>
-        </div>
-      <% end %>
     </div>
   </div>
+
 
 
 

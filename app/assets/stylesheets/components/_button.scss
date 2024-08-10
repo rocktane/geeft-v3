@@ -82,10 +82,7 @@
   }
 }
 
-// .cancel-account {
-//   margin-top: 0.5em;
 
-// }
 
 .cancel-user {
   display: flex;
@@ -188,7 +185,7 @@ a.btn-back {
   display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   // Bouton mobile
   .btn-mobile {
     position: fixed;

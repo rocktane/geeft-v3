@@ -50,7 +50,6 @@
 
 }
 
-
 .show-input {
   font-family: $body-font;
   font-size: 1em;
@@ -62,7 +61,6 @@
   border-radius: var(--border-radius);
   box-shadow: var(--container-shadow);
 }
-
 
 .remember-me {
   display: flex;
@@ -108,3 +106,12 @@
 
   }
 }
+
+
+
+  @media (max-width: 1024px) {
+    .form-inputs {
+      width: 100%;
+    }
+
+  }
