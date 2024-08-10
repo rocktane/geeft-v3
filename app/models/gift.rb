@@ -29,7 +29,7 @@ class Gift < ApplicationRecord
             Le cadeau sera offert à l'occasion de #{occasion} et mon budget est de #{budget} euros. J'ai besoin de ton aide pour trouver des idées de cadeaux en suivant scrupuleusement les consignes suivantes :
 
             - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux, chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30, Aucun autre texte ne doit être inclus
-            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de gants de jardinage
+            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage
             - Ne jamais ajouter de produits avec des motifs spécifiques (floral, animal, etc.)
             - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
             - Ne propose jamais de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
@@ -53,12 +53,13 @@ class Gift < ApplicationRecord
         messages: [{
           role: 'user',
           content: <<~PROMPT
-            Je veux une liste de trente cadeaux pour #{relationship} qui est de sexe #{genre} et qui a  #{age} ans, ces centres d'intêrets sont : #{list_of_interests}.
+            Je veux une liste de trente cadeaux pour #{relationship} qui est de sexe #{genre} et qui a  #{age}, voila son message : #{comment}
+            Si cela peut t'aider, ces centres d'intêrets sont : #{list_of_interests} qui doivent représenter maximum 50% des cadeaux, le commentaiire est le plus important.
             Le cadeau sera offert à l'occasion de #{occasion} et mon budget est de #{budget} euros, J'ai besoin de ton aide pour trouver des idées de cadeaux en suivant scrupuleusement les consignes suivantes :
 
-            - Prendre en compte ce commentaire : "#{comment}" et ajuster les propositions en conséquence
+            - Prendre en compte ce commentaire : #{comment} et ajuster les propositions en conséquence
             - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus
-            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de gants de jardinage
+            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage
             - Ne jamais ajouter de produits avec des motifs spécifiques (floral, animal, etc.)
             - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
             - Ne propose jamais de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
