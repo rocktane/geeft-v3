@@ -4,7 +4,9 @@
   </div>
 
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: { user_id: current_user.id } }) do |f| %>
+
+
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="form-inputs">
       <div class="container-inputs">
@@ -64,37 +66,31 @@
         </div>
       </div>
 
-      <!--
-      <div class="actions">
-        <%= f.submit "Update" %>
-      </div>
-      -->
-
       <div class="btn__theme">
-        <%= button_tag(type: 'submit') do %>
+        <%= button_tag(type: 'submit', data: { controller: "redirect-edit", action: "redirect-edit#redirectToShow" } ) do %>
           <div class="btn__content btn btn-green">
             <%= image_tag('signup.svg', alt: 'Inscription') %>
             <span class="text">Mettre à jour</span>
           </div>
         <% end %>
       </div>
+
   <% end %>
     </div>
 
+
+
     <div class="cancel-user">
-    <div class="btn-cancel">
-      <div class="btn__theme">
-        <%= button_to registration_path(resource_name), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" } do %>
-          <div class="btn__content btn btn-cancel btn-red">
-            <%= image_tag('bin.svg', alt: 'Supprimer le compte', class: 'icon') %>
-            <span class="text">Supprimer mon compte</span>
-          </div>
-        <% end %>
+      <div class="btn-cancel">
+        <div class="btn__theme">
+          <%= button_to registration_path(resource_name), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" } do %>
+            <div class="btn__content btn btn-cancel btn-red">
+              <%= image_tag('bin.svg', alt: 'Supprimer le compte', class: 'icon') %>
+              <span class="text">Supprimer mon compte</span>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-    </div>
-
-
-
 
 </div>
