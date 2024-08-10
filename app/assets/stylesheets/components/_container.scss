@@ -72,27 +72,6 @@ div[contenteditable] {
   width: 200px;
 }
 
-@media (max-width: 768px) {
-  .primary-container {
-    margin: 1em 0 0 0;
-    width: 100%;
-    & h2 {
-      display: block;
-    }
-    & .title {
-      display: block;
-      font-family: $headers-font;
-      color: $primary-color;
-      font-size: 1.5em;
-      margin-bottom: 1em;
-    }
-  }
-
-  .body-container {
-    padding: 2em;
-  }
-}
-
 .main {
   overflow: hidden;
   position: absolute;
@@ -125,4 +104,22 @@ div[contenteditable] {
 
 .is-animating {
   transition: transform 200ms;
+}
+
+@media (max-width: 1150px) {
+  // .primary-container {
+  //   margin: 1em 0 0 0;
+  //   width: 100%;
+  //   & .title {
+  //     display: block;
+  //     font-family: $headers-font;
+  //     color: $primary-color;
+  //     font-size: 1.5em;
+  //     margin-bottom: 1em;
+  //   }
+  // }
+  .body-container {
+    display: flex;
+    justify-content: center;
+  }
 }
