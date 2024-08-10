@@ -3,7 +3,6 @@
   font-family: $headers-font;
   margin-top: 0.5em;
   font-size: 1.1em;
-  // border: none;
   border-radius: var(--border-radius);
   display: inline-block;
   text-decoration: none;
@@ -11,9 +10,6 @@
   text-align: center;
   width: 100%;
   margin-top: 0.5em;
-  // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  // transition: background-color 0.3s ease-in-out 0.1s,
-  //   color 0.3s ease-in-out 0.1s;
   border: none;
 
   &:hover {
@@ -22,16 +18,12 @@
 }
 
 .btn__theme {
-  // border-radius: 8px;
-  // margin: 40px auto;
   transition: background-color 300ms ease, box-shadow 300ms ease;
   animation: btn__scale-down 600ms ease;
   &:hover {
     cursor: pointer;
     transform: scale(1.05);
     animation: btn__scale-up 600ms ease;
-    // box-shadow: 0 5px 20px rgba(0, 70, 67, 0.2);
-    // background-color: $primary-color;
   }
   & button {
     cursor: pointer;
@@ -88,6 +80,25 @@
   &:hover {
     box-shadow: 0 5px 20px rgba(184, 54, 54, 0.2);
   }
+}
+
+// .cancel-account {
+//   margin-top: 0.5em;
+
+// }
+
+.cancel-user {
+  display: flex;
+  width: 20em;
+}
+.btn-cancel {
+  margin-top: 0.5em;
+  font-size: 12px;
+  width: 100%;
+  & .icon {
+    width: 1.3em;
+  }
+
 }
 
 // Bouton carré
