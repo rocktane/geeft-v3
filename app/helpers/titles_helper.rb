@@ -12,6 +12,8 @@ module TitlesHelper
         registrations_titles
       when "passwords"
         passwords_titles
+      when "users"
+        "> Profil"
     end
   end
 end

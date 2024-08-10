@@ -2,7 +2,7 @@
 .btn {
   font-family: $headers-font;
   margin-top: 0.5em;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: var(--border-radius);
   display: inline-block;
   text-decoration: none;
@@ -80,6 +80,13 @@
   &:hover {
     box-shadow: 0 5px 20px rgba(184, 54, 54, 0.2);
   }
+}
+
+.btn-home {
+  font-family: $headers-font;
+  color: $primary-color;
+  font-size: 20px;
+  margin-left: 0em;
 }
 
 
@@ -196,6 +203,7 @@ a.btn-back {
   .btn-square {
     top: 0;
   }
+  
 
 
 

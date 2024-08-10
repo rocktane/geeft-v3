@@ -1,4 +1,3 @@
-// Style Dekstop
 .navbar {
   background-color: $secondary-color;
   font-family: $headers-font;
@@ -113,9 +112,12 @@ details ul li:hover::after {
     display: none;
   }
 
-  body.home-page .navbar {
+  .no-navbar .navbar {
     display: none;
   }
+
+
+
   .navbar {
     height: 10em;
   }
@@ -124,7 +126,7 @@ details ul li:hover::after {
     display: block;
     font-size: 2.4em;
     color: $primary-color;
-    margin-left: 1.3em;
+    margin-left: 0.4em;
   }
 
   .navbar-left {
@@ -137,6 +139,10 @@ details ul li:hover::after {
     & h1 {
       display: none;
     }
+  }
+
+  .menu {
+    margin-right: 1em;
   }
 
   .navbar-right {
