@@ -1,18 +1,23 @@
-<div class="mobile-homepage">
-  <%= link_to raw("<i class=\"fa-regular fa-calendar\"></i>"), dashboard_path %>
-
-  <div class="top-page-mobile">
-    <%= link_to image_tag('geeft-logo-mobile.svg', alt: 'Geeft logo'), root_path %>
-  </div>
-
-  <div class="menu">
-    <i class="fa-solid fa-bars"></i>
-  </div>
-</div>
-
 <div class="body-container">
-  <div class="home-page-logged-out">
+
+  <div class="home-page">
     <% if @user == "guest" %>
+    <div class="logged-out-content">
+        <div class="content">
+            <h1>Make it easy!</h1>
+            <p>Simplifiez la gestion de vos événements et offrez le cadeau parfait</p>
+            <div class="btn__theme">
+              <%= link_to new_user_registration_path, class: "btn__theme btn btn-green" do %>
+                <div class="btn__content">
+                  <%=image_tag('signup.svg', alt: 'Inscription')%>
+                  Inscription
+                </div>
+              <% end %>
+            </div>
+        </div>
+    </div>
+
+    <!--
       <div class="geeft-presentation">
         <h2 class="home-subtitle">Bienvenue sur geeft, la plateforme pour ne plus se prendre la tête avec les cadeaux</h2>
         <p class="presentation-text">Grâce à geeft, l'appli rend la quête du cadeau parfait super facile. Il suffit de partager quelques infos clés, comme l'âge ou le budget, et hop, Geeft te propose une sélection d'idées personnalisées et originales qui devraient t'inspirer et assurer la joie de tes proches.</p>
@@ -32,6 +37,11 @@
           </div>
         <% end %>
     </div>
+    -->
+
+
+
+
     <% else %>
        <%= render 'shared/event_home' %>
           <div class="home-buttons">
