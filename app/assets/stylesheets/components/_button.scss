@@ -2,7 +2,7 @@
 .btn {
   font-family: $headers-font;
   margin-top: 0.5em;
-  font-size: 1.1em;
+  font-size: 18px;
   border-radius: var(--border-radius);
   display: inline-block;
   text-decoration: none;
@@ -82,6 +82,12 @@
   }
 }
 
+.btn-home {
+  font-family: $headers-font;
+  color: $primary-color;
+  font-size: 20px;
+  margin-left: 0em;
+}
 
 
 .cancel-user {
@@ -109,23 +115,6 @@
   margin: 0;
 }
 
-// Boutons HomePage Log-in/out
-.btn-home {
-  margin-top: 0.3em;
-  font-family: $headers-font;
-  font-size: 1.5em;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  padding: 0.5em;
-  // justify-content: center;
-  display: flex;
-  width: 50%;
-
-  & img {
-    width: 1.5em;
-    gap: 0.5em;
-  }
-}
 
 // Bouton retour sur chaque page
 .btn-back {
@@ -185,7 +174,16 @@ a.btn-back {
   display: none;
 }
 
-@media (max-width: 1150px) {
+.btn-back-mobile {
+  display: none;
+}
+
+.btn-login {
+  margin-right: 3em;
+
+}
+
+@media (max-width: 1024px) {
   // Bouton mobile
   .btn-mobile {
     position: fixed;
@@ -198,21 +196,24 @@ a.btn-back {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: var(--container-shadow);
 
-    & i {
-      font-size: 2em;
-      margin: 0.5em;
+    & .icon-mobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    & img {
+      width: 50px;
+    }
+
   }
 
   .btn-square {
     top: 0;
   }
 
-  .btn-home {
-    width: 6.5em;
-    font-size: 1.4em;
-  }
 
   .btn-calendar {
     display: none;
@@ -220,6 +221,10 @@ a.btn-back {
 
   .btn-back {
     display: none;
+  }
+
+  .btn-back-mobile {
+    display: block;
   }
 
   .btn-desktop {

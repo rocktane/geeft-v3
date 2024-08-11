@@ -4,6 +4,7 @@
   </div>
 
   <div class="form-mobile">
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: { user_id: current_user.id } }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="form-inputs">

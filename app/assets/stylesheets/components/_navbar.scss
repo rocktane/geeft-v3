@@ -1,4 +1,3 @@
-// Style Dekstop
 .navbar {
   background-color: $secondary-color;
   font-family: $headers-font;
@@ -9,7 +8,7 @@
   height: 90px;
 }
 
-.chevron-mobile {
+.home-navbar {
   display: none;
 }
 
@@ -25,13 +24,6 @@
   }
 }
 
-.navbar-right {
-  margin-right: 1.5em;
-  font-size: 2.4em;
-  color: $primary-color;
-  display: flex;
-  align-items: center;
-}
 
 details summary {
   list-style: none;
@@ -39,7 +31,7 @@ details summary {
   cursor: pointer;
 }
 
-.menu {
+.icon-navbar {
   width: 3em;
   margin-right: 3em;
 }
@@ -108,23 +100,18 @@ details ul li:hover::after {
 
 
 // Style Mobile
-@media (max-width: 1150px) {
+@media (max-width: 1024px) {
   .title {
     display: none;
   }
 
-  body.home-page .navbar {
+  .no-navbar .navbar {
     display: none;
   }
+
   .navbar {
     height: 10em;
-  }
-
-  .chevron-mobile {
-    display: block;
-    font-size: 2.4em;
-    color: $primary-color;
-    margin-left: 1.3em;
+    padding: 1em;
   }
 
   .navbar-left {
@@ -139,7 +126,44 @@ details ul li:hover::after {
     }
   }
 
-  .navbar-right {
-    margin-right: 0.7em;
+  .home-navbar {
+    background-color: $secondary-color;
+    font-family: $headers-font;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 14em;
+    padding: 1em;
+
+  }
+
+  .icon-navbar {
+    width: 50px;
+    margin: 0;
+
+  }
+
+  .logo-mobile {
+    margin: 0 O.5em;
+    position: relative;
+    z-index: 1;
+
+    & .logo-geeft {
+      width: 12.3em;
+      height: auto;
+    }
+
+    & .text-logo {
+      position: absolute;
+      z-index: 2;
+      top: 126px;
+      left: 53px;
+      color: $primary-color;
+      text-decoration: none;
+      font-style: italic;
+      font-family: $logo-font;
+      font-size: 19.8px;
+    }
   }
 }
