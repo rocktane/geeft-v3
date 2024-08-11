@@ -121,13 +121,18 @@ div[contenteditable] {
   .body-container {
     display: flex;
     flex-direction: column;
-    padding: 0;
+    align-items: center;
   }
 
   .bc-home {
     min-height: calc(100vh - 0px);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    & a {
+      color: inherit;
+    }
 
   }
-
-
 }
