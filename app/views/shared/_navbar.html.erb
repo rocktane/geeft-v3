@@ -7,18 +7,20 @@
 
   <div class="navbar-left">
     <%= link_to image_tag('geeft-logo.svg', alt: 'Geeft logo'), root_path %>
+    <!-- Voir Helper Navbar Titles -->
     <div class="title"><%= navbar_title %></div>
   </div>
 
-  <% if current_user.nil? %>
+  <% if @user == "guest" %>
     <%= link_to new_user_session_path do %>
       <div class="btn__theme btn-login">
-        <div class="btn-green btn btn__content ">
+        <div class="btn-green btn btn__content">
           <%= image_tag('signin.svg', alt: 'User') %>
           Connexion
         </div>
       </div>
     <% end %>
+
   <% else %>
     <div class="dropdown-menu">
       <details id="menu-details">
@@ -33,9 +35,16 @@
             <% end %>
           </li>
           <li>
-            <%= link_to user_path(current_user) do %>
-              <%= image_tag('user.svg', alt: 'User', class:'menu-items') %>
-              Profil
+            <% if current_user.nil? %>
+              <%= link_to new_user_session_path do %>
+                <%= image_tag('signin2.svg', alt: 'User', class:'menu-items') %>
+                Connexion
+              <% end %>
+            <% else %>
+              <%= link_to user_path(current_user) do %>
+                <%= image_tag('user.svg', alt: 'User', class:'menu-items') %>
+                Profil
+              <% end %>
             <% end %>
           </li>
           <li>
