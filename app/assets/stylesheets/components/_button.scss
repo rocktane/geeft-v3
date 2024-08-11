@@ -90,7 +90,6 @@
 }
 
 
-
 .cancel-user {
   display: flex;
   width: 20em;
@@ -175,12 +174,16 @@ a.btn-back {
   display: none;
 }
 
+.btn-back-mobile {
+  display: none;
+}
+
 .btn-login {
   margin-right: 3em;
 
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1024px) {
   // Bouton mobile
   .btn-mobile {
     position: fixed;
@@ -203,8 +206,6 @@ a.btn-back {
   .btn-square {
     top: 0;
   }
-  
-
 
 
   .btn-calendar {
@@ -213,6 +214,10 @@ a.btn-back {
 
   .btn-back {
     display: none;
+  }
+
+  .btn-back-mobile {
+    display: block;
   }
 
   .btn-desktop {

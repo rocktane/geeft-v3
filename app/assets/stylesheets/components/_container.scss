@@ -106,7 +106,7 @@ div[contenteditable] {
   transition: transform 200ms;
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1024px) {
   // .primary-container {
   //   margin: 1em 0 0 0;
   //   width: 100%;
@@ -120,6 +120,14 @@ div[contenteditable] {
   // }
   .body-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    padding: 0;
   }
+
+  .bc-home {
+    min-height: calc(100vh - 0px);
+
+  }
+
+
 }

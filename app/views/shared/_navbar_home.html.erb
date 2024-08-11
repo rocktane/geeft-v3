@@ -1,7 +1,7 @@
 <div class="home-navbar">
 
     <%= link_to dashboard_path do %>
-      <%= image_tag('calendar.svg', alt: 'Calendar', class:'icon-homepage') %>
+      <%= image_tag('calendar.svg', alt: 'Calendar', class:'icon-navbar') %>
     <% end %>
 
 
@@ -14,14 +14,14 @@
 
     <% if @user == "guest" %>
       <%= link_to new_user_session_path do %>
-        <%= image_tag('signin2.svg', alt: 'Login', class: 'icon-homepage') %>
+        <%= image_tag('signin2.svg', alt: 'Login', class: 'icon-navbar') %>
       <% end %>
     <% else %>
 
     <div class="dropdown-menu">
       <details id="menu-details">
         <summary>
-          <%= image_tag('menu.svg', alt: 'Menu', class:'menu') %>
+          <%= image_tag('menu.svg', alt: 'Menu', class:'icon-navbar') %>
         </summary>
         <ul>
           <li>

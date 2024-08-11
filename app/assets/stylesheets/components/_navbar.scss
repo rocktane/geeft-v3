@@ -12,11 +12,6 @@
   display: none;
 }
 
-
-.chevron-mobile {
-  display: none;
-}
-
 .navbar-left {
   display: flex;
   justify-content: space-between;
@@ -36,7 +31,7 @@ details summary {
   cursor: pointer;
 }
 
-.menu {
+.icon-navbar {
   width: 3em;
   margin-right: 3em;
 }
@@ -105,7 +100,7 @@ details ul li:hover::after {
 
 
 // Style Mobile
-@media (max-width: 1150px) {
+@media (max-width: 1024px) {
   .title {
     display: none;
   }
@@ -116,13 +111,7 @@ details ul li:hover::after {
 
   .navbar {
     height: 10em;
-  }
-
-  .chevron-mobile {
-    display: block;
-    font-size: 2.4em;
-    color: $primary-color;
-    margin-left: 0.4em;
+    padding: 1em;
   }
 
   .navbar-left {
@@ -137,11 +126,6 @@ details ul li:hover::after {
     }
   }
 
-  .menu {
-    margin: 0;
-    width: 68px;
-  }
-
   .home-navbar {
     background-color: $secondary-color;
     font-family: $headers-font;
@@ -150,12 +134,14 @@ details ul li:hover::after {
     align-items: center;
     width: 100%;
     height: 20em;
-    padding: 2em;
+    padding: 0 0.5em;
 
-    .icon-homepage {
-      width: 68px;
+  }
 
-    }
+  .icon-navbar {
+    width: 60px;
+    margin: 0;
+
   }
 
   .logo-mobile {
@@ -164,7 +150,7 @@ details ul li:hover::after {
     z-index: 1;
 
     & .logo-geeft {
-      width: 250px;
+      width: 12.3em;
       height: auto;
     }
 

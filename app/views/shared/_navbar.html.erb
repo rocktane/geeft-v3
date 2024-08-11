@@ -1,9 +1,12 @@
+
 <div class="navbar">
 
   <!-- Bouton Back Mobile -->
-  <%= link_to :back, class: 'chevron-mobile' do %>
-    <i class="fa-solid fa-chevron-left"></i>
-  <% end %>
+  <div class="btn-back-mobile">
+    <%= link_to :back do %>
+      <%= image_tag('back.svg', alt: 'Retour', class:'icon-navbar') %>
+    <% end %>
+  </div>
 
   <div class="navbar-left">
     <%= link_to image_tag('geeft-logo.svg', alt: 'Geeft logo'), root_path %>
@@ -25,7 +28,7 @@
     <div class="dropdown-menu">
       <details id="menu-details">
         <summary>
-          <%= image_tag('menu.svg', alt: 'Menu', class:'menu') %>
+          <%= image_tag('menu.svg', alt: 'Menu', class:'icon-navbar') %>
         </summary>
         <ul>
           <li>
