@@ -138,11 +138,13 @@ details ul li:hover::after {
   }
 
   .menu {
-    margin-right: 1em;
+    margin: 0;
+    width: 68px;
   }
 
   .home-navbar {
     background-color: $secondary-color;
+    font-family: $headers-font;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,37 +152,32 @@ details ul li:hover::after {
     height: 20em;
     padding: 2em;
 
-    & img {
-      width: 100%;
-      height: 4em;
+    .icon-homepage {
+      width: 68px;
+
+    }
+  }
+
+  .logo-mobile {
+    margin: 0 O.5em;
+    position: relative;
+    z-index: 1;
+
+    & .logo-geeft {
+      width: 250px;
+      height: auto;
     }
 
-
+    & .text-logo {
+      position: absolute;
+      z-index: 2;
+      top: 155px;
+      left: 62px;
+      color: $primary-color;
+      text-decoration: none;
+      font-style: italic;
+      font-family: $logo-font;
+      font-size: 24.8px;
+    }
   }
-}
-
-.logo-mobile {
-  margin: 0 O.5em;
-  position: relative;
-  z-index: 1;
-
-  & .logo-geeft {
-    width: 250px;
-    height: auto;
-  }
-
-  & .text-logo {
-    position: absolute;
-    z-index: 2;
-    top: 155px;
-    left: 62px;
-    color: $primary-color;
-    text-decoration: none;
-    font-style: italic;
-    font-family: $logo-font;
-    font-size: 24.8px;
-  }
-
-
-
 }
