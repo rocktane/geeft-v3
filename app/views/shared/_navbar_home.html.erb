@@ -1,0 +1,18 @@
+<div class="home-navbar">
+    <%= link_to dashboard_path do %>
+      <%= image_tag('calendar.svg', alt: 'Calendar') %>
+    <% end %>
+
+    <div class="logo-mobile">
+      <%= link_to root_path do %>
+        <%= image_tag('geeft-logo.svg', alt: 'Home', class: 'logo-geeft') %>
+        <div class="text-logo">Touve le cadeau parfait</div>
+      <% end %>
+    </div>
+
+    <% if @user == "guest" %>
+      <%= link_to new_user_session_path do %>
+        <%= image_tag('signin2.svg', alt: 'Login') %>
+      <% end %>
+    <% end %>
+</div>

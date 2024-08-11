@@ -14,6 +14,11 @@
 }
 
 @font-face {
+  font-family: "Oregano-Regular";
+  src: asset-url("Oregano-Regular.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Syncopate";
   src: asset-url("Syncopate.ttf") format("truetype");
 }
@@ -21,6 +26,7 @@
 $body-font: "ABeeZee-Regular";
 $headers-font: "Otomanopee";
 $accent-font: "Syncopate";
+$logo-font: "Oregano-Regular";
 
 .title {
   font-family: $headers-font;

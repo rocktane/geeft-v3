@@ -8,6 +8,11 @@
   height: 90px;
 }
 
+.home-navbar {
+  display: none;
+}
+
+
 .chevron-mobile {
   display: none;
 }
@@ -24,13 +29,6 @@
   }
 }
 
-.navbar-right {
-  margin-right: 1.5em;
-  font-size: 2.4em;
-  color: $primary-color;
-  display: flex;
-  align-items: center;
-}
 
 details summary {
   list-style: none;
@@ -143,7 +141,46 @@ details ul li:hover::after {
     margin-right: 1em;
   }
 
-  .navbar-right {
-    margin-right: 0.7em;
+  .home-navbar {
+    background-color: $secondary-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20em;
+    padding: 1em;
+
+    & img {
+      width: 100%;
+      height: 6em;
+    }
+
+
   }
+}
+
+.logo-mobile {
+  margin: 0 O.5em;
+  position: relative;
+  z-index: 1;
+
+  & .logo-geeft {
+    width: 250px;
+    height: auto;
+  }
+
+  & .text-logo {
+    position: absolute;
+    z-index: 2;
+    top: 155px;
+    left: 62px;
+    color: $primary-color;
+    text-decoration: none;
+    font-style: italic;
+    font-family: $logo-font;
+    font-size: 24.8px;
+  }
+
+
+
 }
