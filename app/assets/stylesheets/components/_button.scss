@@ -196,11 +196,18 @@ a.btn-back {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: var(--container-shadow);
 
-    & i {
-      font-size: 2em;
-      margin: 0.5em;
+    & .icon-mobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    & img {
+      width: 50px;
+    }
+
   }
 
   .btn-square {

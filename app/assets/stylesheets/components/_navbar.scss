@@ -133,13 +133,13 @@ details ul li:hover::after {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 20em;
-    padding: 0 0.5em;
+    height: 14em;
+    padding: 1em;
 
   }
 
   .icon-navbar {
-    width: 60px;
+    width: 50px;
     margin: 0;
 
   }
@@ -157,13 +157,13 @@ details ul li:hover::after {
     & .text-logo {
       position: absolute;
       z-index: 2;
-      top: 155px;
-      left: 62px;
+      top: 126px;
+      left: 53px;
       color: $primary-color;
       text-decoration: none;
       font-style: italic;
       font-family: $logo-font;
-      font-size: 24.8px;
+      font-size: 19.8px;
     }
   }
 }

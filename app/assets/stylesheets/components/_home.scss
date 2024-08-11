@@ -36,34 +36,11 @@
   margin-bottom: 20px;
 }
 
-// .geeft-presentation {
-//   & p {
-//     font-family: $body-font;
-//     color: $primary-color;
-//     font-size: 1.2em;
-//     margin: 1em 0 0 0;
-//   }
-// }
-
-
-// .home-title {
-//   font-family: $headers-font;
-//   color: $primary-color;
-//   font-size: 2.5em;
-//   margin-left: 0em;
-// }
-
-// .home-subtitle {
-//   font-family: $headers-font;
-//   color: $primary-color;
-//   font-size: 1.6em;
-//   margin: 1em 0 0 0;
-// }
 @media (max-width: 1024px) {
 
   .home-page {
     width: 90%;
-    max-width: 26em;
+    max-width: 31em;
     margin: 1em;
 
   }
@@ -81,60 +58,5 @@
   .home-buttons {
     display: none;
   }
-
-
-  // .geeft-presentation {
-  //   width: 100%;
-  // }
-
-  // .presentation-text {
-  //   display: none;
-  // }
-
-  // .logged-out-btn-container {
-  //   width: 100%;
-  // }
-
-  // .mobile-homepage {
-  //   display: flex;
-  //   background-color: $secondary-color;
-  //   justify-content: space-between;
-  //   align-items: center;
-  //   & i {
-  //     color: $primary-color;
-  //     font-size: 2em;
-  //     margin: 1em 0.5em 0 0.5em;
-  //   }
-  //   & img {
-  //     width: 88%;
-  //     margin-bottom: 5%;
-  //   }
-
-  //   & a {
-  //     display: flex;
-  //     justify-content: center;
-
-  //   }
-
-  // }
-  // .top-page-mobile {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  // }
-
-    // .slogan-mobile {
-    //   font-family: $body-font;
-    //   color: $primary-color;
-    //   font-size: 1.1em;
-    // }
-
-    // .home-title {
-    //   display: none;
-    // }
-
-    // .home-subtitle {
-    //   font-size: 1.7em;
-    // }
 
 }

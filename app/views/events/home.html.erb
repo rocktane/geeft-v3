@@ -18,28 +18,6 @@
         </div>
     </div>
 
-    <!--
-      <div class="geeft-presentation">
-        <h2 class="home-subtitle">Bienvenue sur geeft, la plateforme pour ne plus se prendre la tête avec les cadeaux</h2>
-        <p class="presentation-text">Grâce à geeft, l'appli rend la quête du cadeau parfait super facile. Il suffit de partager quelques infos clés, comme l'âge ou le budget, et hop, Geeft te propose une sélection d'idées personnalisées et originales qui devraient t'inspirer et assurer la joie de tes proches.</p>
-      </div>
-
-      <div class="home-buttons">
-        <%= link_to new_user_registration_path, class: "btn__theme btn-home btn-green" do %>
-          <div class="btn__content">
-            <%#= image_tag('signup.svg', alt: 'Inscription') %>
-            Inscription
-          </div>
-        <% end %>
-        <%= link_to new_user_session_path, class: "btn__theme btn-home btn-purple" do %>
-          <div class="btn__content">
-            <%= image_tag('signin.svg', alt: 'Connexion') %>
-            Connexion
-          </div>
-        <% end %>
-    </div>
-    -->
-
     <% else %>
        <%= render 'shared/event_home' %>
           <div class="home-buttons">
@@ -59,7 +37,11 @@
           </div>
 
           <div class="btn-mobile">
-            <%= link_to raw("<i class=\"fa-solid fa-gift\"></i>"), new_gift_path %>
+            <%= link_to new_gift_path do %>
+            <div class="icon-mobile">
+                <%= image_tag('close-gift.svg', alt: 'Idées cadeaux') %>
+            </div>
+            <% end %>
           </div>
     <% end %>
 </div>
