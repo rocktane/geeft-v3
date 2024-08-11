@@ -65,32 +65,48 @@
   position: relative;
 }
 .monthly-events {
-  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .upcoming-year {
+  width: 307px;
+  max-width: 31em;
   display: grid;
   grid-gap: 0.5em;
   margin-top: 0.8em;
-  width: 307px;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .annual-calendar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 27em;
+    max-width: 31em;
     height: 100%;
     margin: 0;
+    max-width: unset;
   }
 
 
   .event-infos-calendar {
     font-size: 1em;
   }
+
+  .upcoming-year {
+    width: 100%;
+    max-width: unset;
+
+
+  }
+
+  .monthly-events {
+    width: 90%;
+    max-width: 31em;
+
+
+  }
+
 }

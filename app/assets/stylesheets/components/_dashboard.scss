@@ -3,6 +3,7 @@
   justify-content: center;
   width: 100%;
   height: 100vh; /* Hauteur totale de la vue */
+
 }
 
 .dashboard-right {
@@ -17,6 +18,21 @@
 
 
 @media (max-width: 1024px) {
+
+
+  .left-pane {
+    overflow-y: visible;
+    position: relative;
+    min-height: 100vh
+  }
+
+  .dashboard {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 2em;
+
+  }
+
   .dashboard-right {
     display: none;
   }

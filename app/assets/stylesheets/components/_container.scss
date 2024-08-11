@@ -35,7 +35,6 @@
   font-family: $body-font;
   color: $primary-color;
   font-size: 1em;
-  // overflow: hidden;
   transition: 0.25s ease-in-out;
   box-shadow: var(--container-shadow);
 
@@ -119,9 +118,15 @@ div[contenteditable] {
   //   }
   // }
   .body-container {
+    // min-height: calc(105vh - 0px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0em;
+    padding: 0;
+    padding-top: 1em;
+
+
   }
 
   .bc-home {
