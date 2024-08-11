@@ -150,6 +150,8 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
+  margin: 1em;
 }
 .flatpickr-months .flatpickr-month {
   background: transparent;
@@ -180,7 +182,7 @@
   cursor: pointer;
   position: absolute;
   top: 0;
-  height: 34px;
+  height: 65px;
   padding: 10px;
   z-index: 3;
   color: rgba(0, 0, 0, 0.9);
@@ -236,9 +238,12 @@
 } */
 .flatpickr-months .flatpickr-prev-month svg,
 .flatpickr-months .flatpickr-next-month svg {
-  width: 14px;
-  height: 14px;
-  fill: #004643;
+  width: 32px;
+  height: 44px;
+  background-color: #004643;
+  color: #fff3e1;
+  fill: #fff3e1;
+  border-radius: 10px;
 }
 .flatpickr-months .flatpickr-prev-month svg path,
 .flatpickr-months .flatpickr-next-month svg path {
@@ -322,6 +327,7 @@
   opacity: 1;
 }
 .flatpickr-current-month {
+  font-family: Otomanopee;
   font-size: 135%;
   line-height: inherit;
   font-weight: 300;
