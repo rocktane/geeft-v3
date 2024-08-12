@@ -908,10 +908,11 @@ span.flatpickr-weekday {
     height: 3.5em;
     display: flex;
     align-items: center;
-
-
   }
 
+  .flatpickr-current-month {
+    font-size: 180%;
+  }
 
 
 
