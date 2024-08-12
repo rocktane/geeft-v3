@@ -29,8 +29,9 @@ class Gift < ApplicationRecord
             Le cadeau sera offert à l'occasion de #{occasion} et mon budget est de #{budget} euros. J'ai besoin de ton aide pour trouver des idées de cadeaux en suivant scrupuleusement les consignes suivantes :
 
             - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux, chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30, Aucun autre texte ne doit être inclus
-            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage
+            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage, d'horloge murale
             - Ne jamais ajouter de produits avec des motifs spécifiques (floral, animal, etc.)
+            - Ne jamais ajouter de tournures de phrases comme 'pour...' ça ne sert à rien d'expliquer à quoi ça servirait
             - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
             - Ne propose jamais de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
             - Évite les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'
@@ -59,8 +60,9 @@ class Gift < ApplicationRecord
 
             - Prendre en compte ce commentaire : #{comment} et ajuster les propositions en conséquence
             - La réponse doit consister uniquement en une liste numérotée de 30 cadeaux. Chaque cadeau doit être sur une nouvelle ligne, numéroté de 1 à 30. Aucun autre texte ne doit être inclus
-            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage
+            - Ne propose jamais de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage, d'horloge murale
             - Ne jamais ajouter de produits avec des motifs spécifiques (floral, animal, etc.)
+            - Ne jamais ajouter de tournures de phrases comme 'pour...' ça ne sert à rien d'expliquer à quoi ça servirait
             - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
             - Ne propose jamais de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
             - Évite les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'
