@@ -843,3 +843,19 @@ span.flatpickr-weekday {
     transform: translate3d(0, 0, 0);
   }
 }
+
+
+@media (max-width: 1024px) {
+  .flatpickr-calendar.open,
+  .flatpickr-calendar.inline {
+  max-height: unset;
+  }
+
+  /* .flatpickr-calendar.inline {
+    width: 70vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+
+  } */
+
+}
