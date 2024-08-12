@@ -13,7 +13,7 @@
   line-height: 24px;
   border-radius: 5px;
   position: absolute;
-  width: 307.875px;
+  /* width: 307.875px; */
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -ms-touch-action: manipulation;
@@ -151,9 +151,10 @@
   display: -ms-flexbox;
   display: flex;
   justify-content: center;
-  margin: 1em;
+  margin: 0.7em;
 }
 .flatpickr-months .flatpickr-month {
+  text-transform: capitalize;
   background: transparent;
   /* color: rgba(0, 0, 0, 0.9); */
   color: #004643;
@@ -182,7 +183,7 @@
   cursor: pointer;
   position: absolute;
   top: 0;
-  height: 65px;
+  height: 40px;
   padding: 10px;
   z-index: 3;
   color: rgba(0, 0, 0, 0.9);
@@ -198,6 +199,11 @@
 }
 .flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,
 .flatpickr-months .flatpickr-next-month.flatpickr-prev-month {
+  background-color: #004643;
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0 0 0.7em;
+  border-radius: 10px;
   /*
       /*rtl:begin:ignore*/
   /*
@@ -214,6 +220,11 @@
       /*rtl:end:ignore*/
 .flatpickr-months .flatpickr-prev-month.flatpickr-next-month,
 .flatpickr-months .flatpickr-next-month.flatpickr-next-month {
+  margin: 0.5em 0.7em 0 0;
+  background-color: #004643;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
   /*
       /*rtl:begin:ignore*/
   /*
@@ -238,12 +249,16 @@
 } */
 .flatpickr-months .flatpickr-prev-month svg,
 .flatpickr-months .flatpickr-next-month svg {
-  width: 32px;
-  height: 44px;
-  background-color: #004643;
-  color: #fff3e1;
+  width: 21px;
+  height: 15px;
+  stroke: #fff3e1;
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* background-color: #004643; */
+  /* color: #fff3e1; */
   fill: #fff3e1;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 .flatpickr-months .flatpickr-prev-month svg path,
 .flatpickr-months .flatpickr-next-month svg path {
@@ -327,6 +342,7 @@
   opacity: 1;
 }
 .flatpickr-current-month {
+  display: flex;
   font-family: Otomanopee;
   font-size: 135%;
   line-height: inherit;
@@ -335,7 +351,7 @@
   position: absolute;
   width: 75%;
   left: 12.5%;
-  padding: 7.48px 0 0 0;
+  /* padding: 7.48px 0 0 0; */
   line-height: 1;
   height: 34px;
   display: inline-block;
@@ -348,14 +364,14 @@
   font-weight: 700;
   color: inherit;
   display: inline-block;
-  margin-left: 0.5ch;
+  /* margin-left: 0.5ch; */
   padding: 0;
 }
 .flatpickr-current-month span.cur-month:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 .flatpickr-current-month .numInputWrapper {
-  width: 6ch;
+  width: 4.5ch;
   width: 7ch\0;
   display: inline-block;
 }
