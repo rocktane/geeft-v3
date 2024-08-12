@@ -43,6 +43,11 @@ export default class extends Controller {
         document.dispatchEvent(event);
         const selectedDate = document.querySelector("#new-event");
         selectedDate.href = `/events/new?date=${dateStr}`;
+
+        // J'ai dupliqué le comportement mobile car ça ne fonctionnait pas avec 1 class commune
+        document.dispatchEvent(event);
+        const selectedDateMob = document.querySelector("#new-event-mob");
+        selectedDateMob.href = `/events/new?date=${dateStr}`;
       },
 
       onDayCreate: function (dObj, dStr, fp, dayElem) {

@@ -11,11 +11,7 @@ ul li {
   padding: 1em;
   margin: 1em 0 0.5em 0em;
   box-shadow: var(--container-shadow);
-  // & h1 {
-  //   font-family: $headers-font;
-  //   color: $primary-color;
-  //   font-size: 20px;
-  // }
+
   & a {
     color: $primary-color;
     text-decoration: none;
@@ -63,9 +59,6 @@ ul li {
 @media (max-width: 1024px) {
   .event-container-home {
     width: 100%;
-    & h1 {
-      font-size: 1em;
-    }
   }
 
   .event-infos-home {
