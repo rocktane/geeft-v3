@@ -31,9 +31,9 @@
       <%= f.text_field :name, required: true, class: 'no-box-input', placeholder: "Anniversaire de ..." %>
     </div>
 
-    <div class="secondary-container">
-      <h4><%= f.label :description, "Description" %></h4>
-      <%= f.text_area :description, class: 'no-box-input', placeholder: "Pour le cadeau commun de ..." %>
+    <div class="secondary-container" data-controller="input-sizer">
+      <h4>Description</h4>
+      <%= f.text_area :description, class: 'no-box-input', data: { input_sizer_target: "text" }, placeholder: "Pour le cadeau commun de ..." %>
     </div>
 
     <div class="secondary-container">
