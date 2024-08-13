@@ -4,6 +4,14 @@
       <i class="fa-solid fa-chevron-left"></i> Retour
     <% end %>
 
+    <div>
+      <h2>
+        <%= @event.name %>, le <%= @event.date.strftime('%d/%m/%Y') %>
+      </h2>
+      Cette évènement a lieu tous les ans
+    </div>
+
+
     <div class="top-section">
       <div class="date-section date-show">
         <span id="date"><%= @event.date.strftime('%d/%m/%Y') %></span>

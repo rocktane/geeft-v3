@@ -1,13 +1,11 @@
 <div class="body-container">
-
-<div class="primary-container" data-controller="update-event">
-
-
-  <%= link_to event_path(@event), class: "btn-back" do %>
-    <i class="fa-solid fa-chevron-left"></i> Annuler
-  <% end %>
+  <div class="primary-container" data-controller="update-event">
+    <%= link_to event_path(@event), class: "btn-back" do %>
+      <i class="fa-solid fa-chevron-left"></i> Annuler
+    <% end %>
 
     <%= form_with(model: @event, url: event_path(@event), method: :patch) do |f| %>
+      <div class="container-inputs"></div>
       <div class="top-section">
         <div class="date-and-recurrent">
           <div class="date-section date-edit">
