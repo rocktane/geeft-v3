@@ -202,7 +202,7 @@
   background-color: #004643;
   display: flex;
   align-items: center;
-  margin: 1em 0 0 1em;
+  margin: 0.5em 0 0 0.7em;
   border-radius: 10px;
   /*
       /*rtl:begin:ignore*/
@@ -893,7 +893,12 @@ span.flatpickr-weekday {
 
   .flatpickr-months .flatpickr-prev-month.flatpickr-next-month,
   .flatpickr-months .flatpickr-next-month.flatpickr-next-month {
-  margin: 1em 1em 0 0;
+    margin: 1em 1em 0 0;
+  }
+
+  .flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,
+  .flatpickr-months .flatpickr-next-month.flatpickr-prev-month {
+    margin: 1em 0 0 1em;
   }
 
   .flatpickr-day.today {
@@ -913,6 +918,7 @@ span.flatpickr-weekday {
   .flatpickr-current-month {
     font-size: 180%;
   }
+
 
 
 
