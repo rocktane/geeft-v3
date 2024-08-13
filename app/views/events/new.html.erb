@@ -9,6 +9,7 @@
   -->
   <% model_to_use = [@gift, @event] || @event %>
   <%= form_with(model: model_to_use, url: events_path(gift_id: @gift.id)) do |f| %>
+  <div class="container-inputs">
     <div class="date-and-recurrent">
       <div class="secondary-container date-section date-show" data-controller="icon-calendar" data-action="click->icon-calendar#openCalendar">
         <% date = params[:date] || Date.today %>
@@ -70,6 +71,9 @@
         </ul>
       <% end %>
     </div>
+  </div>
+
+
 
     <div class="btn__theme btn btn-green">
       <%= button_tag(type: 'submit') do %>
