@@ -10,11 +10,13 @@
   width: 100%;
   margin-left: 2.6em;
   position: relative;
+  flex-grow: 1;
+
 }
 
-.left-pane {
-  overflow-y: auto; /* Ajoute un défilement vertical */
-}
+// .left-pane {
+//   overflow-y: auto
+// }
 
 
 @media (max-width: 1024px) {
