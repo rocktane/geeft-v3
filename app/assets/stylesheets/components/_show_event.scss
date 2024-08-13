@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   width: fit-content;
-  padding-left: 0.6em;
+  padding: 0.3em;
+  // padding-left: 0.6em;
   // img {
     //   padding-right: 0.6em;
     //   padding-left: 0.3em;
@@ -24,7 +25,7 @@
   // }
 }
 .date-section {
-  border: 3px solid $primary-color;
+  border: 2px solid $primary-color;
   border-radius: var(--border-radius);
   height: 2.3em;
   width: 7.2em;
@@ -35,9 +36,9 @@
   text-align: center;
 
   img {
-    padding-right: 0.6em;
+    padding-right: 0.2em;
     // padding-left: 0.3em;
-    width: 2.2em;
+    width: 1.8em;
   }
 }
 

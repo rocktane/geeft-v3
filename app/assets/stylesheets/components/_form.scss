@@ -199,12 +199,16 @@ span.checkbox input[type="checkbox"],
 .secondary-container.recurrent {
   display: flex;
   gap: 0.5em;
-  padding: 6px;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  height: 36.8px;
+  margin-top: 0;
+
   & label {
     margin-bottom: 0;
     align-self: center;
     user-select: none;
   }
+
   input:checked {
     ~ label .check {
       border: none;
@@ -220,8 +224,8 @@ span.checkbox input[type="checkbox"],
 
 .check {
   cursor: pointer;
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,12 +233,13 @@ span.checkbox input[type="checkbox"],
   border-radius: 50%;
   background-color: $secondary-color;
   border: 2px solid $primary-color;
+  margin-top: 2.9px;
 }
 
 label[for="event_recurrent"] {
   display: flex;
-  align-items: center;
-  gap: 0.5em;
+  // align-items: center;
+  gap: 0.3em;
 }
 
 .fa-solid.fa-magnifying-glass {

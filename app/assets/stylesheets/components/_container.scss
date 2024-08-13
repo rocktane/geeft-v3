@@ -14,14 +14,16 @@
   // margin: 0 10% auto 20%;
   // position: relative;
   width: 100%;
-  max-width: 30em;
-  & .user-forms-title {
+  max-width: 50em;
+
+  .user-forms-title {
     font-family: $headers-font;
     color: $primary-color;
     font-size: 1.5em;
     margin: 0.5em 0 0.5em 0;
   }
-  & .title {
+
+  .title {
     display: none;
   }
 }
@@ -29,23 +31,21 @@
 .secondary-container {
   margin: 0.5em 0 0 0;
   padding: 0.6em;
-  border: 3px solid $primary-color;
+  border: 2px solid $primary-color;
   border-radius: var(--border-radius);
   background-color: $secondary-color;
   font-family: $body-font;
   color: $primary-color;
   font-size: 1em;
+  overflow: hidden;
   transition: 0.25s ease-in-out;
   box-shadow: var(--container-shadow);
 
-  & h3 {
-    font-family: $body-font;
-    color: $primary-color;
-    font-size: 0.7em;
-    margin: 0em 0 0.5em 0;
+  h4 {
+    margin-bottom: 0.5em;
   }
 
-  & input,
+  input,
   textarea {
     font-family: $body-font;
     font-size: 1em;
@@ -56,9 +56,16 @@
     box-sizing: border-box;
     white-space: pre-wrap;
   }
+
   a {
     color: $primary-color;
   }
+
+
+  // textarea::placeholder {
+  //   color: #B4AFA7;
+  //   font-style: italic;
+  // }
 }
 
 .secondary-container[data-refresh-gift-target="gift"] {
