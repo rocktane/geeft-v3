@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["icon"];
 
   connect() {
-    console.log("Icon Calendar controller connected");
   }
 
   openCalendar() {

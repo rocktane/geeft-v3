@@ -116,17 +116,6 @@ div[contenteditable] {
 }
 
 @media (max-width: 1024px) {
-  // .primary-container {
-  //   margin: 1em 0 0 0;
-  //   width: 100%;
-  //   & .title {
-  //     display: block;
-  //     font-family: $headers-font;
-  //     color: $primary-color;
-  //     font-size: 1.5em;
-  //     margin-bottom: 1em;
-  //   }
-  // }
   .body-container {
     // min-height: calc(105vh - 0px);
     display: flex;
@@ -135,9 +124,13 @@ div[contenteditable] {
     margin: 0em;
     padding: 0;
     padding-top: 1em;
-
-
   }
+
+  .primary-container {
+    margin: 1em 0 0 0;
+    width: 90%;
+  }
+
 
   .bc-home {
     min-height: calc(100vh - 0px);

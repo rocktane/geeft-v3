@@ -36,10 +36,12 @@
 @media (max-width: 1024px) {
 
 
-  .left-pane {
+  .dashboard-left {
     overflow-y: visible;
     position: relative;
-    min-height: 100vh
+    min-height: 100vh;
+    max-width: unset;
+
   }
 
   .dashboard {

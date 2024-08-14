@@ -32,6 +32,7 @@ class Gift < ApplicationRecord
             - Ne propose JAMAIS de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage, d'horloge murale
             - Ne JAMAIS ajouter de produits avec des motifs spécifiques (floral, animal, etc.)
             - Ne JAMAIS ajouter de tournures de phrases comme 'pour...' ça ne sert à rien d'expliquer à quoi ça servirait
+            - Soit concis et utilise un minimum de mots pour décrire les propositions
             - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
             - Ne propose JAMAIS de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
             - Évite les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'
@@ -63,6 +64,7 @@ class Gift < ApplicationRecord
             - Ne propose JAMAIS de mugs, de porte-clés, de cartes cadeaux, d'abonnements, de supports de livres, de lampes de lecture, de jeux de société de type escape room, de CD, de DVD, de gants de jardinage, d'horloge murale
             - Ne JAMAIS ajouter de produits avec des motifs spécifiques (floral, animal, etc.)
             - Ne JAMAIS ajouter de tournures de phrases comme 'pour...' ça ne sert à rien d'expliquer à quoi ça servirait
+            - Soit concis et utilise un minimum de mots pour décrire les propositions
             - Si tu proposes des marque-pages, assure-toi qu'ils soient en matériaux spécifiques et de qualité (par exemple en bois, en argent ou en or)
             - Ne propose JAMAIS de vaisselle ou de produits similaires (ex. ensemble de verres) sauf pour les crémaillères
             - Évite les descriptions comportant des adjectifs comme tendance, 'élégant', 'pratique', 'stylé' ou 'confortable', 'de qualité'

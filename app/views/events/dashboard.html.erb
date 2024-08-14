@@ -3,6 +3,8 @@
 
     <div class="dashboard-left">
       <%= render 'shared/calendar' %> <!-- Render Calendar -->
+
+
       <% if !@events.empty? %>
         <%= render 'shared/event_calendar' %> <!-- Render Event Calendar -->
       <% end %>

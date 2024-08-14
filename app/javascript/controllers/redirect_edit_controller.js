@@ -5,7 +5,7 @@ export default class extends Controller {
     event.preventDefault();
 
     const form = this.element.closest('form');
-    const userId = form.dataset.userId; // Assurez-vous que cet ID est correct
+    const userId = form.dataset.userId; // 
 
     if (!userId) {
       console.error("User ID is undefined");
