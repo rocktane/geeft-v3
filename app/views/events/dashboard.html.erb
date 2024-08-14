@@ -1,8 +1,10 @@
 <div class="body-container">
   <div class="dashboard">
 
-    <div class="annual-calendar left-pane">
+    <div class="dashboard-left">
       <%= render 'shared/calendar' %> <!-- Render Calendar -->
+
+
       <% if !@events.empty? %>
         <%= render 'shared/event_calendar' %> <!-- Render Event Calendar -->
       <% end %>
@@ -14,12 +16,5 @@
     <%= render 'shared/event_dashboard' %> <!-- Render Event Dashboard -->
     </div>
   </div>
-
-  <!--
-  <%= link_to new_event_path, :class=> "btn-mobile" do %>
-
-    <i class='fa-solid fa-square-plus'></i>
-  <% end %>
-   -->
 
 </div>

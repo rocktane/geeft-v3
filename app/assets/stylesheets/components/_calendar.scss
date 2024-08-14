@@ -51,18 +51,24 @@
 
 @media (max-width: 1024px) {
   .calendar {
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 31em;
-    aspect-ratio: 1 / 1;
   }
 
   #dashboard-calendar {
-    height: 100%;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    width: 90%;
+    max-width: 31em;
   }
+}
+
+@media (max-width: 340px) {
+
 
 
 }

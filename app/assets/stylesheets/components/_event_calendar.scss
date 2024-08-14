@@ -1,14 +1,15 @@
-// Container calendrier & Evenements sous le calendrier
-.annual-calendar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 21em;
-  height: 100%;
-  // margin-left: -0.3em;
-  // margin-top: -1.8em;
-}
+// .dashboard-left {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   width: 100%;
+//   max-width: 21em;
+//   height: 100vh;
+//   overflow-y: auto;
+//   position: fixed;
+//   // margin-left: -0.3em;
+//   // margin-top: -1.8em;
+// }
 
 .event-container-calendar {
   font-family: $body-font;
