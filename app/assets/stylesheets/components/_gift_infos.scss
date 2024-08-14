@@ -40,25 +40,22 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
+  &:hover .refresh-arrow {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+  }
 }
 
 .refresh-arrow {
-  // display: inline-block;
   display: flex;
-  transition: transform 0.5s ease;
-
+  transform: rotate(180deg);
+  transition: transform 0.3s ease 0.3s;
   & img {
     width: 1.5em;
   }
 }
 
 .refresh-text {
-  // position: absolute;
-  // left: 0;
-  // left: 0;
-  // padding-bottom: 0.2em;
-  // color: $accent-color;
-  // font-family: $headers-font;
   opacity: 0;
   pointer-events: none;
   background-color: #60365e;
@@ -66,20 +63,14 @@
   color: white;
   border-radius: 5px;
   position: absolute;
-  transform: translateX(5em);
-
+  right: 0px;
   transition: transform 0.3s ease 0.3s, opacity 0.3s ease 0.3s; /* Débuter l'animation après 0.5s */
 }
 
-.refresh-container:hover {
-  & .refresh-text {
-    transform: translateX(5em); /* Déplace le texte de droite à gauche */
-    opacity: 1;
-    // pointer-events: all;
-  }
-  & .refresh-arrow {
-    transform: rotate(180deg);
-  }
+.refresh-container:hover .refresh-text,
+.refresh-text:hover {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .gift-left {

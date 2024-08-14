@@ -23,7 +23,7 @@
         </div>
       </div>
     <% end %>
-
+  
   <% else %>
     <div class="dropdown-menu">
       <details id="menu-details">
@@ -52,7 +52,7 @@
           </li>
           <li>
             <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
-              <%= image_tag('logout.svg', alt: 'Log-Out', class:'menu-items') %>
+              <%= image_tag('exit', alt: 'Log-Out', class:'menu-items') %>
               Déconnexion
             <% end %>
           </li>

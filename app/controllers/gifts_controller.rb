@@ -64,9 +64,9 @@ class GiftsController < ApplicationController
     @gift = Gift.find(params[:id])
     @gift.generated_list = [params[:gift][:generated_list]].flatten
     if @gift.save
-      respond_to do |format|
-        format.json { render json: @gift }
-      end
+      # respond_to do |format|
+      #   format.json { render json: @gift }
+      # end
     else
       render :show, status: :unprocessable_entity
     end
