@@ -1,4 +1,3 @@
-// Style Dekstop
 .navbar {
   background-color: $secondary-color;
   font-family: $headers-font;
@@ -9,7 +8,7 @@
   height: 90px;
 }
 
-.chevron-mobile {
+.home-navbar {
   display: none;
 }
 
@@ -23,20 +22,8 @@
     height: 5em;
     margin: 0.4em 1.3em 0 0;
   }
-  & h1 {
-    margin-top: -0.2em;
-    font-size: 1.6em;
-    color: $primary-color;
-  }
 }
 
-.navbar-right {
-  margin-right: 1.5em;
-  font-size: 2.4em;
-  color: $primary-color;
-  display: flex;
-  align-items: center;
-}
 
 details summary {
   list-style: none;
@@ -44,7 +31,7 @@ details summary {
   cursor: pointer;
 }
 
-.menu {
+.icon-navbar {
   width: 3em;
   margin-right: 3em;
 }
@@ -111,20 +98,20 @@ details ul li:hover::after {
   opacity: 1;
 }
 
+
 // Style Mobile
-@media (max-width: 800px) {
-  body.home-page .navbar {
+@media (max-width: 1024px) {
+  .title {
     display: none;
   }
-  .navbar {
-    height: 10em;
+
+  .no-navbar .navbar {
+    display: none;
   }
 
-  .chevron-mobile {
-    display: block;
-    font-size: 2.4em;
-    color: $primary-color;
-    margin-left: 0.6em;
+  .navbar {
+    height: 10em;
+    padding: 1em;
   }
 
   .navbar-left {
@@ -139,40 +126,44 @@ details ul li:hover::after {
     }
   }
 
-  .navbar-right {
-    margin-right: 0.7em;
-  }
-}
+  .home-navbar {
+    background-color: $secondary-color;
+    font-family: $headers-font;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 14em;
+    padding: 1em;
 
-// Style Mobile
-@media (max-width: 800px) {
-  body.home-page .navbar {
-    display: none;
-  }
-  .navbar {
-    height: 10em;
   }
 
-  .chevron-mobile {
-    display: block;
-    font-size: 2.4em;
-    color: $primary-color;
-    margin-left: 0.6em;
-  }
-
-  .navbar-left {
+  .icon-navbar {
+    width: 50px;
     margin: 0;
-    & img {
-      width: 100%;
-      height: 9em;
-      margin: 0;
-    }
-    & h1 {
-      display: none;
-    }
+
   }
 
-  .navbar-right {
-    margin-right: 0.7em;
+  .logo-mobile {
+    margin: 0 O.5em;
+    position: relative;
+    z-index: 1;
+
+    & .logo-geeft {
+      width: 12.3em;
+      height: auto;
+    }
+
+    & .text-logo {
+      position: absolute;
+      z-index: 2;
+      top: 126px;
+      left: 53px;
+      color: $primary-color;
+      text-decoration: none;
+      font-style: italic;
+      font-family: $logo-font;
+      font-size: 19.8px;
+    }
   }
 }

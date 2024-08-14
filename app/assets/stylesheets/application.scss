@@ -12,7 +12,7 @@
 }
 
 // Ajout de la ligne pour pouvoir cacher la nav-bar sur la homepage mobile
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   body.home-page .navbar {
     display: none;
   }

@@ -1,19 +1,13 @@
 // Bouton de base
 .btn {
   font-family: $headers-font;
-  margin-top: 0.5em;
-  font-size: 1.1em;
-  // border: none;
+  font-size: 18px;
   border-radius: var(--border-radius);
   display: inline-block;
   text-decoration: none;
   padding: 0.5em;
   text-align: center;
   width: 100%;
-  margin-top: 0.5em;
-  // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  // transition: background-color 0.3s ease-in-out 0.1s,
-  //   color 0.3s ease-in-out 0.1s;
   border: none;
 
   &:hover {
@@ -21,17 +15,14 @@
   }
 }
 
+// Hover boutons
 .btn__theme {
-  // border-radius: 8px;
-  // margin: 40px auto;
   transition: background-color 300ms ease, box-shadow 300ms ease;
   animation: btn__scale-down 600ms ease;
   &:hover {
     cursor: pointer;
     transform: scale(1.05);
     animation: btn__scale-up 600ms ease;
-    // box-shadow: 0 5px 20px rgba(0, 70, 67, 0.2);
-    // background-color: $primary-color;
   }
   & button {
     cursor: pointer;
@@ -90,6 +81,31 @@
   }
 }
 
+//  button home login style
+.btn-home  {
+  font-family: $headers-font;
+  color: $primary-color;
+  font-size: 20px;
+  margin-left: 0em;
+}
+
+
+
+// button user cancel
+.cancel-user {
+  display: flex;
+  width: 20em;
+}
+.btn-cancel {
+  margin-top: 0.5em;
+  font-size: 12px;
+  width: 100%;
+  & .icon {
+    width: 1.3em;
+  }
+
+}
+
 // Bouton carré
 .btn-square {
   width: 3em;
@@ -102,23 +118,6 @@
   margin: 0;
 }
 
-// Boutons HomePage Log-in/out
-.btn-home {
-  margin-top: 0.3em;
-  font-family: $headers-font;
-  font-size: 1.5em;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  padding: 0.5em;
-  // justify-content: center;
-  display: flex;
-  width: 50%;
-
-  & img {
-    width: 1.5em;
-    gap: 0.5em;
-  }
-}
 
 // Bouton retour sur chaque page
 .btn-back {
@@ -138,7 +137,9 @@ a.btn-back {
   margin-bottom: 1em;
 }
 
-.action-buttons {
+
+// bouton dashboard right
+.dashboard-buttons {
   display: flex;
   gap: 1em;
   margin-top: 1em;
@@ -173,12 +174,27 @@ a.btn-back {
   }
 }
 
-// Bouton mobile
+
+.btn-desktop {
+  width: 307px;
+
+}
+
+// Boutons mobile
 .btn-mobile {
   display: none;
 }
 
-@media (max-width: 900px) {
+.btn-back-mobile {
+  display: none;
+}
+
+.btn-login {
+  margin-right: 3em;
+
+}
+
+@media (max-width: 1024px) {
   // Bouton mobile
   .btn-mobile {
     position: fixed;
@@ -191,21 +207,25 @@ a.btn-back {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 999;
 
-    & i {
-      font-size: 2em;
-      margin: 0.5em;
+    & .icon-mobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    & img {
+      width: 50px;
+    }
+
   }
 
   .btn-square {
     top: 0;
   }
 
-  .btn-home {
-    width: 6.5em;
-    font-size: 1.4em;
-  }
 
   .btn-calendar {
     display: none;
@@ -213,6 +233,10 @@ a.btn-back {
 
   .btn-back {
     display: none;
+  }
+
+  .btn-back-mobile {
+    display: block;
   }
 
   .btn-desktop {

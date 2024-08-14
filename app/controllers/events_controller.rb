@@ -3,17 +3,15 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:home]
   before_action :set_event, only: %i[show edit update destroy]
 
-	def home
-		if user_signed_in?
-				@user = User.find(current_user.id)
-				# Récupérer tous les évènements de l'utilisateur
-				if !Event.where(user: current_user.id).empty?
-					@events = Event.where(user: current_user.id).order(:date)
-				end
-		else
-				@user = 'guest'
-		end
-	end
+  def home
+    if user_signed_in?
+      @user = User.find(current_user.id)
+      # Récupérer tous les évènements de l'utilisateur
+      @events = Event.where(user: current_user.id).order(:date)
+    else
+      @user = 'guest'
+    end
+  end
 
   def dashboard
     @events = Event.where(user: current_user).order(:date)
