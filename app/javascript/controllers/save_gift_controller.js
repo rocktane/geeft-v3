@@ -31,8 +31,7 @@ export default class extends Controller {
 
     const url = `${env}/updatelist/${giftId}`;
     const origin = window.location.href;
-    let redirection;
-    let eventId;
+    let redirection, eventId;
 
     if (origin.includes("?event_id=")) {
       eventId = origin.split("?event_id=")[1];
@@ -54,11 +53,11 @@ export default class extends Controller {
         body: JSON.stringify({ generated_list: newList }), // A ADAPTER POUR LE generated_list au cas ou Gift
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Error data:", errorData);
-        throw new Error("Network response was not ok");
-      }
+      // if (!response.ok) {
+      //   const errorData = await response.json();
+      //   console.error("Error data:", errorData);
+      //   throw new Error("Network response was not ok");
+      // }
 
       window.setTimeout(() => {
         window.location.href = redirection;

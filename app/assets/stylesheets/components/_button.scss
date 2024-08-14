@@ -93,7 +93,8 @@
 // Bouton carré
 .btn-square {
   width: 3em;
-  height: 3em;
+  // height: 3em;
+  aspect-ratio: 1;
   display: flex;
   justify-content: center;
   align-items: center;
