@@ -4,7 +4,7 @@ import "flatpickr/dist/l10n/fr.js";
 
 export default class extends Controller {
   connect() {
-    console.log("Calendar controller connected");
+
 
 
 

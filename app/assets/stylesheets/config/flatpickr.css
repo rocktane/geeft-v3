@@ -413,6 +413,7 @@
   pointer-events: none;
 }
 .flatpickr-current-month .flatpickr-monthDropdown-months {
+  text-transform: capitalize;
   appearance: menulist;
   background: transparent;
   border: none;
@@ -919,5 +920,3 @@ span.flatpickr-weekday {
     font-size: 180%;
   }
 }
-
-

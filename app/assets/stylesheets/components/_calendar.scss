@@ -30,7 +30,7 @@
 }
 
 .flatpickr-current-month {
-  pointer-events: none;
+  // pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,6 +55,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
   }
 
   #dashboard-calendar {
@@ -65,10 +68,4 @@
     width: 90%;
     max-width: 31em;
   }
-}
-
-@media (max-width: 340px) {
-
-
-
 }
