@@ -29,17 +29,21 @@
                 autocomplete: "username" %>
           </div>
 
-          <div class="info-user">
-            <h2> Date d'anniversaire </h2>
-              <%= f.text_field :birthday,
-                  required: true,
-                  autofocus: true,
-                  autocomplete: "birthday",
-                  placeholder: "dd/mm/aaaa",
-                  value: @user.birthday&.strftime("%d/%m/%Y"),
-                  pattern: "\\d{2}/\\d{2}/\\d{4}",
-                  title: "Le format attendu est : dd/mm/aaaa" %>
+
+          <div class="info-user" style="position: relative;">
+            <h2>Date d'anniversaire</h2>
+            <%= f.date_field :birthday,
+                data: { controller: "calendar" },
+                required: true,
+                autofocus: true,
+                autocomplete: "birthday",
+                placeholder: "dd/mm/aaaa",
+                value: @user.birthday&.strftime("%d/%m/%Y"),
+                class: "date-input"
+            %>
+            <%= image_tag('calendar.svg', alt: 'Calendar icon', class: 'calendar-icon') %>
           </div>
+
 
 
           <div class="info-user">
