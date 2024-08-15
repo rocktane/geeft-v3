@@ -3,65 +3,68 @@
     <%= link_to '< Retour', :back %>
   </div>
 
-  <div class="form-mobile">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <div class="form-inputs">
-        <div class="container-inputs">
-          <div class="info-user">
-            <h2> Email </h2>
-            <%= f.email_field :email,
-                required: true,
-                autofocus: true,
-                autocomplete: "email" %>
-          </div>
+    <div class="form-mobile">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="form-inputs">
+          <div class="container-inputs">
+            <div class="info-user">
+              <h2> Email </h2>
+              <%= f.email_field :email,
+                  required: true,
+                  autofocus: true,
+                  autocomplete: "email" %>
+            </div>
 
-          <div class="info-user">
-            <h2> Nom d'utilisateur </h2>
-            <%= f.text_field :username,
-                required: true,
-                autofocus: true,
-                autocomplete: "username" %>
-          </div>
+            <div class="info-user">
+              <h2> Nom d'utilisateur </h2>
+              <%= f.text_field :username,
+                  required: true,
+                  autofocus: true,
+                  autocomplete: "username" %>
+            </div>
 
-          <div class="info-user">
-            <h2> Date d'anniversaire </h2>
-              <%= f.text_field :birthday,
+            <div class="info-user" style="position: relative;">
+              <h2>Date d'anniversaire</h2>
+              <%= f.date_field :birthday,
+                  data: { controller: "calendar" },
                   required: true,
                   autofocus: true,
                   autocomplete: "birthday",
                   placeholder: "dd/mm/aaaa",
                   value: @user.birthday&.strftime("%d/%m/%Y"),
-                  pattern: "\\d{2}/\\d{2}/\\d{4}",
-                  title: "Le format attendu est : dd/mm/aaaa" %>
-          </div>
-
-          <div class="info-user">
-            <h2> Mot de Passe </h2>
-            <% if @minimum_password_length %>
-            <% end %>
-            <%= f.password_field :password,
-                autocomplete: "new-password" %>
-            <em>(<%= @minimum_password_length %> caractères minimum)</em>
-          </div>
-
-          <div class="info-user">
-            <h2> Confirmation du mot de passe </h2>
-            <%= f.password_field :password_confirmation,
-                autocomplete: "new-password" %>
-          </div>
-        </div>
-
-        <div class="btn__theme">
-          <%= button_tag(type: 'submit') do %>
-            <div class="btn__content btn btn-green">
-              <%= image_tag('signup.svg', alt: 'Inscription') %>
-              <span class="text">Inscription</span>
+                  class: "date-input"
+              %>
+              <%= image_tag('calendar.svg', alt: 'Calendar icon', class: 'calendar-icon') %>
             </div>
-          <% end %>
+
+            <div class="info-user">
+              <h2> Mot de Passe </h2>
+              <% if @minimum_password_length %>
+              <% end %>
+              <%= f.password_field :password,
+                  autocomplete: "new-password" %>
+              <em>(<%= @minimum_password_length %> caractères minimum)</em>
+            </div>
+
+            <div class="info-user">
+              <h2> Confirmation du mot de passe </h2>
+              <%= f.password_field :password_confirmation,
+                  autocomplete: "new-password" %>
+            </div>
+          </div>
+
+          <div class="btn__theme">
+            <%= button_tag(type: 'submit') do %>
+              <div class="btn__content btn btn-green">
+                <%= image_tag('signup.svg', alt: 'Inscription') %>
+                <span class="text">Inscription</span>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
-    <%= render "devise/shared/links" %>
-  </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+
 </div>

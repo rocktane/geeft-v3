@@ -12,6 +12,7 @@ export default class extends Controller {
 
     if (this.iconTarget._flatpickr) {
       this.iconTarget._flatpickr.open();
+
     }
   }
 }
