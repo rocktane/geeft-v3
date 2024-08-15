@@ -342,6 +342,7 @@
   opacity: 1;
 }
 .flatpickr-current-month {
+  width: 100%;
   display: flex;
   font-family: Otomanopee;
   font-size: 135%;
@@ -350,11 +351,16 @@
   color: inherit;
   position: absolute;
   width: 75%;
-  left: 12.5%;
+  left: 15%;
   /* padding: 7.48px 0 0 0; */
   line-height: 1;
   height: 34px;
-  display: inline-block;
+  /* display: inline-block; */
+  display: flex;
+  padding-left: 0.7em;
+  /* justify-content: space-between; */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
@@ -371,9 +377,12 @@
   background: rgba(0, 0, 0, 0.05);
 }
 .flatpickr-current-month .numInputWrapper {
-  width: 4.5ch;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5em;
+  width: 6ch;
   width: 7ch\0;
-  display: inline-block;
+  /* display: inline-block; */
 }
 .flatpickr-current-month .numInputWrapper span.arrowUp:after {
   border-bottom-color: rgba(0, 0, 0, 0.9);
@@ -382,12 +391,14 @@
   border-top-color: rgba(0, 0, 0, 0.9);
 }
 .flatpickr-current-month input.cur-year {
+  margin-left: 0.1em;
+  width: 100%;
   background: transparent;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: inherit;
   cursor: text;
-  padding: 0 0 0 0.5ch;
+  padding: 0 0 0 0.6ch;
   margin: 0;
   display: inline-block;
   font-size: inherit;
@@ -413,6 +424,7 @@
   pointer-events: none;
 }
 .flatpickr-current-month .flatpickr-monthDropdown-months {
+  /* margin-left: -0.7em; */
   text-transform: capitalize;
   appearance: menulist;
   background: transparent;
@@ -421,12 +433,13 @@
   box-sizing: border-box;
   color: inherit;
   cursor: pointer;
-  font-size: inherit;
+  font-size: 17.5px;
+  /* font-size: inherit; */
   font-family: inherit;
   font-weight: 300;
   height: auto;
   line-height: inherit;
-  margin: -1px 0 0 0;
+  margin: 0 0 0 -9px;
   outline: none;
   padding: 0 0 0 0.5ch;
   position: relative;
@@ -917,6 +930,6 @@ span.flatpickr-weekday {
   }
 
   .flatpickr-current-month {
-    font-size: 180%;
+    font-size: 150%;
   }
 }

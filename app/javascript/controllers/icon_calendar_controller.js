@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = ["icon"];
 
   connect() {
+
   }
 
   openCalendar() {
