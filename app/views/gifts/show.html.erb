@@ -10,9 +10,9 @@
         <div class="gift-comment">
           <%= form_with(url: gift_path, method: :patch) do |f| %>
             <h2>Une modification à effectuer ?</h2>
-            <div class="form-comment">
+            <div class="form-comment" data-controller="loader-request">
               <%= f.text_field :comment, as: :text, placeholder: "Moins de coffrets, plus d'ateliers" %>
-              <%= f.button(type: 'submit', class: 'btn btn__theme btn-square btn-purple') do %>
+              <%= f.button(type: 'submit', class: 'btn btn__theme btn-square btn-purple', data: { action: "submit->loader-request#fetchApi" }) do %>
                 <div class="btn__content">
                   <%= image_tag('send.svg', alt: "Envoyer") %>
                 </div>
@@ -21,7 +21,6 @@
           <% end %>
         </div>
       <% end %>
-
       <% text = @event.id ? "Ajouter cette liste à l'évènement" : 'Ajouter à un évènement' %>
       <% svg_icon = image_tag('new-event.svg', alt: 'Ajouter') %>
       <% data_attributes = {
