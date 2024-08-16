@@ -11,10 +11,11 @@ class GiftsController < ApplicationController
     @gift = Gift.find(params[:id])
     @event = @gift.event_id ? Event.find(@gift.event_id) : Event.new
     @gifts_to_display = @gift.generated_list.take(5)
+		console
 
     respond_to do |format|
-      format.html # Render default template if HTML format is requested
-      format.json { render json: @gift } # Render JSON response if JSON format is requested
+      format.html
+      format.json { render json: @gift }
     end
   end
 
@@ -41,7 +42,9 @@ class GiftsController < ApplicationController
     ).split(/\d+\.\s+/).map(&:strip).compact_blank
 		respond_to do |format|
 				if @gift.save
-						format.json { render json: @gift, status: :created }
+						format.json { render json: @gift,
+																 status: :created,
+																 location: @event.persisted? ? event_gift_path(@event, @gift) : gift_path(@gift) }
 				else
 						format.json { render json: @gift.errors, status: :unprocessable_entity }
 				end
@@ -50,6 +53,7 @@ class GiftsController < ApplicationController
 
   def update
     @gift = Gift.find(params[:id])
+		@gift.comment = true
     comment = params[:comment]
     @gift.update(generated_list: @gift.update_gifts($client, comment,
                                                     @gift.interests).split(/\d+\.\s+/).map(&:strip).compact_blank)
@@ -64,9 +68,9 @@ class GiftsController < ApplicationController
     @gift = Gift.find(params[:id])
     @gift.generated_list = [params[:gift][:generated_list]].flatten
     if @gift.save
-      # respond_to do |format|
-      #   format.json { render json: @gift }
-      # end
+      respond_to do |format|
+        format.json { render json: @gift }
+      end
     else
       render :show, status: :unprocessable_entity
     end

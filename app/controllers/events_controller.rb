@@ -88,6 +88,15 @@ class EventsController < ApplicationController
     end
   end
 
+	def redirect
+		@gift = Gift.find(params[:id])
+		if @gift.event_id.present?
+			redirect_to event_path(@gift.event)
+		else
+			redirect_to new_gift_event_path(@gift)
+		end
+	end
+
   def destroy
     if @event.recurrent || Event.where(occurrence_from: @event.id).exists?
       # Si l'événement a des occurrences futures, les supprimer

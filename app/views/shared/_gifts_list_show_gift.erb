@@ -1,26 +1,24 @@
-<div data-controller="refresh-gift">
-  <ul>
-    <% @gifts_to_display.each do | gift | %>
-            <div class="secondary-container">
-              <li class="gift-container">
-                <div class="gift-left">
-                  <%= image_tag('open-gift.png', class: "icon-gift") %>
-                  <div class="gift" data-save-gift-target="gift">
-                    <%= gift %>
-                  </div>
+<ul data-controller="refresh-gift">
+  <% @gifts_to_display.each do | gift | %>
+          <div class="secondary-container">
+            <li class="gift-container">
+              <div class="gift-left">
+                <%= image_tag('open-gift.png', class: "icon-gift") %>
+                <div class="gift" data-save-gift-target="gift">
+                  <%= gift %>
                 </div>
-                <% if @user == @gift.user %>
-                  <span class="refresh-container" class ="gift-delete">
-                    <div class="refresh-arrow">
-                      <%= image_tag('refresh.svg') %>
-                    </div>
-                    <div class="refresh-text" data-action="click->refresh-gift#refresh" data-refresh-gift-target="refresh">
-                      Remplacer
-                    </div>
-                  </span>
-                <% end %>
-              </li>
-            </div>
-    <% end %>
-  </ul>
-</div>
+              </div>
+              <% if @user == @gift.user %>
+                <span class="refresh-container" class ="gift-delete">
+                  <div class="refresh-arrow">
+                    <%= image_tag('refresh.svg') %>
+                  </div>
+                  <div class="refresh-text" data-action="click->refresh-gift#refresh" data-refresh-gift-target="refresh">
+                    Remplacer
+                  </div>
+                </span>
+              <% end %>
+            </li>
+          </div>
+  <% end %>
+</ul>

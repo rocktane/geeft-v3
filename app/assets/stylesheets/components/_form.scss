@@ -132,8 +132,7 @@ i {
 }
 
 input[type="radio"],
-span.checkbox input[type="checkbox"],
-.secondary-container.recurrent input#event_recurrent {
+span.checkbox input[type="checkbox"] {
   display: none;
 }
 
@@ -219,7 +218,7 @@ span.checkbox input[type="checkbox"],
 
 .secondary-container input#event_recurrent {
   width: auto;
-  // display: none;
+  display: none;
 }
 
 .check {
