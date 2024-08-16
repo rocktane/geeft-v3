@@ -246,3 +246,10 @@ label[for="event_recurrent"] {
   transform: scale(-1, 1);
   pointer-events: none;
 }
+
+@media (max-width: 1024px) {
+  .date-and-recurrent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

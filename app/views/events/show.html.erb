@@ -4,74 +4,93 @@
       <i class="fa-solid fa-chevron-left"></i> Retour
     <% end %>
 
-    <div>
-      <h2>
-        <%= @event.name %>, le <%= @event.date.strftime('%d/%m/%Y') %>
-      </h2>
-      Cette évènement a lieu tous les ans
-    </div>
-
-
-    <div class="top-section">
-      <div class="date-section date-show">
-        <span id="date"><%= @event.date.strftime('%d/%m/%Y') %></span>
-        <%= image_tag('calendar.svg') %>
-        <%# <i class="fa-solid fa-calendar"></i> %>
-      </div>
-      <%= link_to edit_event_path(@event), class: "btn btn-square btn-green btn__theme" do %>
-        <div class="btn__content">
-          <%= image_tag('pen.svg', alt: 'Modifier') %>
+    <div class="event-id event-id-show">
+      <div class="top-section">
+        <div class="left">
+          <h2>
+            <%= @event.name %>, le <%= @event.date.strftime('%d/%m/%Y') %>
+          </h2>
+          <% if @event.recurrent == true %>
+            <div class="event-infos">
+              <h4> Évènement annuel </h4>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+        <%= link_to edit_event_path(@event), class: "btn btn-square btn-green btn__theme" do %>
+          <div class="btn__content">
+            <%= image_tag('pen.svg', alt: 'Modifier') %>
+          </div>
+        <% end %>
+      </div>
+        <div class="id-infos">
+
+          <% if @event.description.present? %>
+            <div class="event-infos memo">
+              <h4> Mémo </h4>
+              <%= @event.description %>
+            </div>
+          <% end %>
+          <% if @event.url.present? %>
+            <div class="event-infos url">
+              <div>
+                <h4> Cagnotte </h4>
+                  <% url = @event.url.gsub(/https?:\/\/(www\.)?/, "") %>
+                  <%= link_to url, @event.url, target: :_blank %>
+              </div>
+              </div>
+          <% end %>
+        </div>
+
+        <div class="event-id-buttons">
+          <%= link_to "#", class: "btn btn-desktop btn-small btn__theme btn-purple" do %>
+            <div class="btn__content">
+              <%= image_tag('share.svg', alt: 'Partager') %>
+              Partager
+            </div>
+          <% end %>
+        </div>
+
+        <div class="btn-mobile">
+          <%= link_to "#" do %>
+          <div class="icon-mobile">
+              <%= image_tag('share.svg', alt: 'Partager') %>
+          </div>
+          <% end %>
+        </div>
+
+
+
+
+
     </div>
 
-    <div class="secondary-container">
-      <h3>Nom de l'évènement</h3>
-      <%= @event.name %>
-    </div>
 
-    <% if @event.description.present? %>
-      <div class="secondary-container">
-        <h3>Description</h3>
-        <%= @event.description %>
-      </div>
-    <% end %>
-
-    <% if @event.url.present? %>
-      <div class="secondary-container">
-        <h3>Lien</h3>
-        <% url = @event.url.gsub(/https?:\/\/(www\.)?/, "") %>
-        <%= link_to url, @event.url, target: :_blank %>
-      </div>
-    <% end %>
-
-    <div class="gifts-event">
-        <% if @event.gift.present? %>
-          <h3>Les idées cadeaux</h3>
-          <ul>
-            <% @event.gift.generated_list.each do |gift| %>
-              <li data-save-gift-target="gift">
-                <div class="secondary-container">
-                  <div class="gift-container">
-                    <div class="gift-left">
-                      <%= image_tag('open-gift.png', class: 'icon-gift') %>
-                        <div class="gift">
-                          <%= gift %>
+      <div class="gifts-event">
+          <% if @event.gift.present? %>
+            <h3>Les idées cadeaux</h3>
+            <ul>
+              <% @event.gift.generated_list.each do |gift| %>
+                <li data-save-gift-target="gift">
+                  <div class="secondary-container">
+                    <div class="gift-container">
+                      <div class="gift-left">
+                        <%= image_tag('open-gift.png', class: 'icon-gift') %>
+                          <div class="gift">
+                            <%= gift %>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-              </li>
-            <% end %>
-          </ul>
-    </div>
-    <% else %>
-      <%= link_to new_event_gift_path(@event), class: 'btn btn__theme btn-green' do %>
-        <div class="btn__content">
-          <%= image_tag('close-gift.svg', alt: 'Ajouter un cadeau') %>
-          Trouver le cadeau parfait
-        </div>
+                </li>
+              <% end %>
+            </ul>
+      </div>
+      <% else %>
+        <%= link_to new_event_gift_path(@event), class: 'btn btn__theme btn-green' do %>
+          <div class="btn__content">
+            <%= image_tag('close-gift.svg', alt: 'Ajouter un cadeau') %>
+            Trouver le cadeau parfait
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
 </div>

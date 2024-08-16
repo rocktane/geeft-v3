@@ -138,9 +138,7 @@ a.btn-back {
   margin-bottom: 1em;
 }
 
-
-// bouton dashboard right
-.dashboard-buttons {
+.event-id-buttons {
   display: flex;
   gap: 1em;
   margin-top: 1em;
@@ -148,7 +146,7 @@ a.btn-back {
   justify-content: flex-end;
 }
 
-.btn-dashboard {
+.btn-small {
   display: flex;
   font-size: 0.9em;
   text-align: center;
@@ -176,10 +174,10 @@ a.btn-back {
 }
 
 
-.btn-desktop {
-  width: 307px;
+// .btn-desktop {
+//   width: 307px;
 
-}
+// }
 
 // Boutons mobile
 .btn-mobile {
@@ -218,7 +216,7 @@ a.btn-back {
     }
 
     & img {
-      width: 50px;
+      width: 40px;
     }
 
   }
