@@ -65,15 +65,31 @@ class GiftsController < ApplicationController
 
   def updatelist
     @gift = Gift.find(params[:id])
+		@event = Event.find(@gift.event_id) if @gift.event_id
+		if @event
+			redirect_url = event_path(@event)
+		else
+			redirect_url = new_event_path
+		end
     @gift.generated_list = [params[:gift][:generated_list]].flatten
     if @gift.save
       respond_to do |format|
-        format.json { render json: @gift }
+				format.json { render json: @gift, success: true, redirect_url: redirect_url }
       end
     else
       render :show, status: :unprocessable_entity
     end
   end
+
+	def deleteindex
+		@gift = Gift.find(params[:id])
+		index = params[:index].to_i
+		if @gift.generated_list.delete_at(index) && @gift.save
+			render json: { success: true, notice: "Cadeau supprimé avec succès" }
+		else
+			render json: { success: false, errors: @gift.errors.full_messages }, status: :unprocessable_entity
+		end
+	end
 
   private
 
