@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 	patch 'updatelist/:id' => 'gifts#updatelist', as: :updatelist
 	resources :gifts do
 			resources :events, only: %i[new create]
+			member do
+					delete 'deleteindex/:index', to: 'gifts#deleteindex', as: 'deleteindex'
+			end
 	end
 
 end

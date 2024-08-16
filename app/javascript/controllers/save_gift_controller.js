@@ -30,21 +30,8 @@ export default class extends Controller {
     }
 
     const url = `${env}/updatelist/${giftId}`;
-    const origin = window.location.href;
-    let redirection;
-
-    // if (origin.includes("events")) {
-    //   const regex = /events\/(\d+)\/gifts/;
-    //   const eventId = url.match(regex)[1];
-    //   redirection = `${env}/events/${eventId}`;
-    // } else {
-    //   redirection = `${env}/gifts/${giftId}/events/new`;
-    // }
-
-    const newList = this.newList();
 
     console.log(newList);
-    // console.log(redirection);
 
     try {
       const response = await fetch(url, {
@@ -63,20 +50,13 @@ export default class extends Controller {
         throw new Error("Network response was not ok");
       }
 
-      // window.setTimeout(() => {
-      //   window.location.href = redirection;
-      // }, 500);
+      const data = await response.json();
 
-      const redirect_url = `${env}/redirect/${giftId}`;
-
-      fetch(redirect_url, {
-        method: "PATCH",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "X-CSRF-Token": csrfToken,
-        },
-      });
+      if (data.success) {
+        window.location.href = data.redirect_url;
+      } else {
+        console.error("Update failed:", data.errors);
+      }
     } catch (error) {
       console.error("Une erreur s'est produite : ", error);
     }
