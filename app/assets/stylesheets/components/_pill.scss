@@ -27,8 +27,19 @@ input[type="checkbox"] + label {
 }
 
 .occasion input[type="radio"]:checked + label,
-.relationship input[type="radio"]:checked + label,
+.relationship input[type="radio"]:checked,
 .interests input[type="checkbox"]:checked + label {
+  background-color: $primary-color;
+  color: $secondary-color;
+  box-shadow: rgba(50, 50, 93, 0.5) 0px 8px 11px -4px,
+    rgba(0, 0, 0, 0.55) 0px 5px 9px -5px;
+  i {
+    color: $secondary-color;
+  }
+}
+
+.radio label:has(input[type="radio"]:checked),
+.checkbox label:has(input[type="checkbox"]:checked) {
   background-color: $primary-color;
   color: $secondary-color;
   box-shadow: rgba(50, 50, 93, 0.5) 0px 8px 11px -4px,

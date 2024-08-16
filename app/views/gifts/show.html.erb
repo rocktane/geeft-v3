@@ -6,7 +6,7 @@
 
     <%= render 'shared/gifts_list_show_gift' %>
 
-      <% if @user == @gift.user %>
+      <% if @user == @gift.user && @gift.comment == false %>
         <div class="gift-comment">
           <%= form_with(url: gift_path, method: :patch) do |f| %>
             <h2>Une modification à effectuer ?</h2>

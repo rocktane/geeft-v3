@@ -6,11 +6,14 @@ Rails.application.routes.draw do
 
 	get 'dashboard' => 'events#dashboard', as: :dashboard
 
+	patch 'redirect/:id' => 'events#redirect', as: :redirect
 	resources :events do
-			resources :gifts, only: %i[new create update]
+		resources :gifts, only: %i[new create update]
 	end
 
+	patch 'updatelist/:id' => 'gifts#updatelist', as: :updatelist
 	resources :gifts do
 			resources :events, only: %i[new create]
 	end
+
 end
