@@ -23,9 +23,9 @@
   margin-top: 0.5em;
 }
 
-input.input {
-  padding-top: 2px;
-}
+// input.input {
+//   padding-top: 2px;
+// }
 
 // input#event_name::placeholder,
 // input#event_description::placeholder,
@@ -244,4 +244,11 @@ label[for="event_recurrent"] {
 .fa-solid.fa-magnifying-glass {
   transform: scale(-1, 1);
   pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .date-and-recurrent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

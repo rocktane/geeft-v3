@@ -3,10 +3,10 @@
     <%= link_to dashboard_path, class: "btn-back" do %>
       <i class="fa-solid fa-chevron-left"></i> Retour
     <% end %>
-  <!--
-    <div class="form-container">
-    </div>
-  -->
+
+
+
+
   <% model_to_use = [@gift, @event] || @event %>
   <%= form_with(model: model_to_use, url: events_path(gift_id: @gift.id)) do |f| %>
   <div class="container-inputs">
@@ -32,12 +32,12 @@
     </div>
 
     <div class="secondary-container" data-controller="input-sizer">
-      <h4>Description</h4>
+      <h4>Mémo</h4>
       <%= f.text_area :description, class: 'no-box-input', data: { input_sizer_target: "text" }, placeholder: "Pour le cadeau commun de ..." %>
     </div>
 
     <div class="secondary-container">
-      <h4><%= f.label :url, "URL" %></h4>
+      <h4><%= f.label :url, "Cagnotte" %></h4>
     <%= f.text_field :url, class: 'no-box-input', placeholder: "leetchi.com" %>
     </div>
 
@@ -50,6 +50,9 @@
       <% end %>
     <% end %>
 
+
+  </div>
+    <!--
     <div class="gifts-event">
       <% if @gift[:id] %>
         <h4>La liste de cadeaux</h4>
@@ -71,7 +74,8 @@
         </ul>
       <% end %>
     </div>
-  </div>
+    -->
+
 
 
 

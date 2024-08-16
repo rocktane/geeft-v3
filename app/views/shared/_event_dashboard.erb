@@ -1,9 +1,8 @@
-
 <% if @events.empty? %>
-  <div class="event-container-dashboard">
-    <h1>Créer mon premier évènement</h1>
-    <div class="dashboard-buttons">
-      <%= link_to new_event_path, :class=> "btn btn-green btn__theme btn-desktop", id: "new-event" do %>
+  <div class="event-id">
+    <h1>Il n'y a pas d'évènements à venir</h1>
+    <div class="event-id-buttons">
+      <%= link_to new_event_path, class: "btn btn-green btn__theme btn-desktop", id: "new-event" do %>
         <div class="btn__content">
           <%= image_tag('new-event.svg', alt: 'Nouvel Évènement') %>
           Nouvel évènement
@@ -11,36 +10,56 @@
       <% end %>
     </div>
   </div>
-
-  <% else %>
-    <% @future_events.each do |event| %>
-      <div class="event-container-dashboard">
-        <%= link_to event_path(event) do %>
+<% else %>
+  <% @future_events.each do |event| %>
+    <div class="event-id">
+      <%= link_to event_path(event) do %>
+        <div class="title-event">
           <h2>
             <% day = event.date.strftime("%d") %>
             <% year = event.date.strftime("%Y") %>
-            <%= event.name %> - le <%= day %> <%= french_month(event.date) %> <%= year %>
+            <%= event.name %>, le <%= day %> <%= french_month(event.date) %> <%= year %>
           </h2>
-        <% end %>
-          <div class="event-dashboard-description">
-            <div><%= event.description %></div>
-          </div>
-          <div class="dashboard-buttons">
-
-            <%= link_to event_path(event), class: "btn btn-dashboard btn__theme btn-green" do %>
-              <div class="btn__content">
-                <%= image_tag('eye.svg' , alt:'Voir +')  %>
-                Voir en détails
-              </div>
-            <% end %>
-
-            <%= link_to "#", class: "btn btn-dashboard btn__theme btn-purple" do %>
-              <div class="btn__content">
-                <%= image_tag('share.svg', alt: 'Partager') %>
-                Partager
-              </div>
-            <% end %>
-          </div>
+          <% if event.recurrent == true %>
+            <div class="event-infos">
+              <h4> Évènement annuel </h4>
+            </div>
+          <% end %>
         </div>
+      <% end %>
+      <div class="id-infos">
+        <% if event.description.present? %>
+          <div class="event-infos memo">
+            <h4> Mémo </h4>
+            <%= event.description %>
+          </div>
+        <% end %>
+        <% if event.url.present? %>
+          <div class="event-infos url">
+          <%# <div class="separator"></div> %>
+          <div>
+            <h4> Cagnotte </h4>
+              <% url = event.url.gsub(/https?:\/\/(www\.)?/, "") %>
+              <%= link_to url, event.url, target: :_blank %>
+          </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="event-id-buttons">
+        <%= link_to event_path(event), class: "btn btn-small btn__theme btn-green" do %>
+          <div class="btn__content">
+            <%= image_tag('eye.svg', alt: 'Voir +') %>
+            Voir en détails
+          </div>
+        <% end %>
+
+        <%= link_to "#", class: "btn btn-small btn__theme btn-purple" do %>
+          <div class="btn__content">
+            <%= image_tag('share.svg', alt: 'Partager') %>
+            Partager
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 <% end %>
