@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 	get 'dashboard' => 'events#dashboard', as: :dashboard
 
-	patch 'redirect/:id' => 'events#redirect', as: :redirect
+	# patch 'redirect/:id' => 'events#redirect', as: :redirect
 	resources :events do
 		resources :gifts, only: %i[new create update]
 	end

@@ -69,16 +69,16 @@ class GiftsController < ApplicationController
 		if @event
 			redirect_url = event_path(@event)
 		else
-			redirect_url = new_event_path
+			redirect_url = new_gift_event_path(@gift)
 		end
     @gift.generated_list = [params[:gift][:generated_list]].flatten
-    if @gift.save
-      respond_to do |format|
-				format.json { render json: @gift, success: true, redirect_url: redirect_url }
-      end
-    else
-      render :show, status: :unprocessable_entity
-    end
+		respond_to do |format|
+    	if @gift.save
+				format.json { render json: { gift: @gift, success: true, redirect_url: redirect_url } }
+			else
+				format.json { render json: { gift: @gift, success: false, redirect_url: redirect_url, status: :unprocessable_entity } }
+			end
+		end
   end
 
 	def deleteindex

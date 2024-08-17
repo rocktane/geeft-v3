@@ -31,7 +31,7 @@ export default class extends Controller {
 
     const url = `${env}/updatelist/${giftId}`;
 
-    console.log(newList);
+    const newList = this.newList();
 
     try {
       const response = await fetch(url, {
@@ -45,12 +45,11 @@ export default class extends Controller {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Error data:", errorData);
         throw new Error("Network response was not ok");
       }
 
       const data = await response.json();
+      console.log("Response data:", data);
 
       if (data.success) {
         window.location.href = data.redirect_url;

@@ -38,6 +38,7 @@ class EventsController < ApplicationController
   def new
     @gift = params[:gift_id] ? Gift.find(params[:gift_id]) : Gift.new
     @event = Event.new(gift: @gift)
+		console
   end
 
   def create
@@ -88,14 +89,14 @@ class EventsController < ApplicationController
     end
   end
 
-	def redirect
-		@gift = Gift.find(params[:id])
-		if @gift.event_id.present?
-			redirect_to event_path(@gift.event)
-		else
-			redirect_to new_gift_event_path(@gift)
-		end
-	end
+	# def redirect
+	# 	@gift = Gift.find(params[:id])
+	# 	if @gift.event_id.present?
+	# 		redirect_to event_path(@gift.event)
+	# 	else
+	# 		redirect_to new_gift_event_path(@gift)
+	# 	end
+	# end
 
   def destroy
     if @event.recurrent || Event.where(occurrence_from: @event.id).exists?
