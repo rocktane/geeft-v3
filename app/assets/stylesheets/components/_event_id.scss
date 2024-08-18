@@ -8,45 +8,32 @@
    box-shadow: var(--container-shadow);
 }
 
-.id-infos {
+
+.url {
+  background-color: $accent-color;
+  padding: 0.5em;
+  width: fit-content;
+  border-radius: 5px;
+  box-shadow: var(--container-shadow);
+  font-family: $body-font;
+  font-size: 12px;
   margin-top: 0.5em;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 1em;
-  // display: flex;
-  // justify-content: space-between;
+  & img {
+    width: 10px;
+    margin-right: 0.25em;
+  }
+}
+
+.description {
+  margin-top: 0.5em;
   font-family: $body-font;
   color: $primary-color;
-
   & h4 {
-    margin-bottom: 0.5em;
     text-decoration: underline;
   }
 
-  & a {
-  color: $primary-color;
-  }
-
-
-  & .memo {
-    flex: 1;
-  }
-
-  & .separator {
-    background-color: $primary-color;
-    opacity: 58%;
-    width: 1px;
-    margin-right: 0.5em;
-    height: 100%;
-  }
-
-  & .url {
-    flex: 0;
-    display: flex;
-  }
-
-  & .url:empty {
-    display: none;
+  & .text {
+    margin-top: 0.3em;
   }
 
 }
