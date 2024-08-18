@@ -3,16 +3,24 @@
     <%= link_to dashboard_path, class: "btn-back" do %>
       <i class="fa-solid fa-chevron-left"></i> Retour
     <% end %>
-
     <div class="event-id event-id-show">
       <div class="top-section">
         <div class="left">
-          <h2>
-            <%= @event.name %>, le <%= @event.date.strftime('%d/%m/%Y') %>
-          </h2>
-          <% if @event.recurrent == true %>
-            <div class="event-infos">
+          <div class="title-event">
+            <h2>
+              <%= @event.name %>, le <%= @event.date.strftime('%d/%m/%Y') %>
+            </h2>
+            <% if @event.recurrent == true %>
               <h4> Évènement annuel </h4>
+            <% end %>
+          </div>
+          <% if @event.url.present? %>
+            <div class="url">
+              <% url = @event.url.gsub(/https?:\/\/(www\.)?/, "") %>
+              <%= link_to @event.url, target: :_blank do %>
+                <%= image_tag('link.svg', alt: 'Icon') %>
+                <%= url %>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -22,75 +30,50 @@
           </div>
         <% end %>
       </div>
-        <div class="id-infos">
-
-          <% if @event.description.present? %>
-            <div class="event-infos memo">
-              <h4> Mémo </h4>
-              <%= @event.description %>
-            </div>
-          <% end %>
-          <% if @event.url.present? %>
-            <div class="event-infos url">
-              <div>
-                <h4> Cagnotte </h4>
-                  <% url = @event.url.gsub(/https?:\/\/(www\.)?/, "") %>
-                  <%= link_to url, @event.url, target: :_blank %>
-              </div>
-              </div>
-          <% end %>
-        </div>
-
-        <div class="event-id-buttons">
-          <%= link_to "#", class: "btn btn-desktop btn-small btn__theme btn-purple" do %>
-            <div class="btn__content">
-              <%= image_tag('share.svg', alt: 'Partager') %>
-              Partager
-            </div>
-          <% end %>
-        </div>
-
-        <div class="btn-mobile">
-          <%= link_to "#" do %>
-          <div class="icon-mobile">
-              <%= image_tag('share.svg', alt: 'Partager') %>
+      <% if @event.description.present? %>
+        <div class="description" >
+          <h4> Mémo </h4>
+          <div class="text">
+            <%= @event.description %>
           </div>
-          <% end %>
         </div>
-
-
-
-
-
+      <% end %>
     </div>
 
+    <% if @event.gift.present? %>
+      <%= render "shared/gifts_list_event" %>
+      <%= link_to "#", class: "btn btn-desktop btn__theme btn-purple" do %>
+        <div class="btn__content">
+          <%= image_tag('share.svg', alt: 'Partager') %>
+          Partager
+        </div>
+      <% end %>
 
-      <div class="gifts-event">
-          <% if @event.gift.present? %>
-            <h3>Les idées cadeaux</h3>
-            <ul>
-              <% @event.gift.generated_list.each do |gift| %>
-                <li data-save-gift-target="gift">
-                  <div class="secondary-container">
-                    <div class="gift-container">
-                      <div class="gift-left">
-                        <%= image_tag('open-gift.png', class: 'icon-gift') %>
-                          <div class="gift">
-                            <%= gift %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </li>
-              <% end %>
-            </ul>
-      </div>
-      <% else %>
+    <% else %>
+
+      <div class="show-buttons">
         <%= link_to new_event_gift_path(@event), class: 'btn btn__theme btn-green' do %>
           <div class="btn__content">
             <%= image_tag('close-gift.svg', alt: 'Ajouter un cadeau') %>
             Trouver le cadeau parfait
           </div>
         <% end %>
+
+        <%= link_to "#", class: "btn btn-desktop btn__theme btn-purple" do %>
+          <div class="btn__content">
+            <%= image_tag('share.svg', alt: 'Partager') %>
+            Partager
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="btn-mobile">
+      <%= link_to "#" do %>
+      <div class="icon-mobile">
+          <%= image_tag('share.svg', alt: 'Partager') %>
+      </div>
       <% end %>
+    </div>
+  </div>
 </div>

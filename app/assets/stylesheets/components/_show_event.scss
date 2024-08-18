@@ -1,55 +1,11 @@
-.date-section.date-show {
+.show-buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  padding: 0.3em;
-  // padding-left: 0.6em;
-  // img {
-    //   padding-right: 0.6em;
-    //   padding-left: 0.3em;
-    //   width: 2.2em;
-    // }
-    span {
-    padding-right: 0.4em;
-    padding-top: 2px;
-  }
-}
-
-.date-section.date-edit {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  // i {
-  //   padding-right: 0.6em;
-  // }
-}
-.date-section {
-  border: 2px solid $primary-color;
-  border-radius: var(--border-radius);
-  height: 2.3em;
-  width: 7.2em;
-  background-color: $secondary-color;
-  font-family: $body-font;
-  color: $primary-color;
-  font-size: 1em;
-  text-align: center;
-
-  img {
-    padding-right: 0.2em;
-    width: 1.8em;
-    // display: none;
-  }
-}
-
-.date-section input {
-  color: $primary-color;
-  font-family: $body-font;
-}
-
-.top-section {
-  display: flex;
+  gap: 1em;
   justify-content: space-between;
-  align-items: flex-end;
+  width: 100%;
+  margin-top: 0.5em;
+}
 
+.gifts-event {
+  margin-bottom: 1em;
 }
