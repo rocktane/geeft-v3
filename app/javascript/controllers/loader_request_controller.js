@@ -94,7 +94,7 @@ export default class extends Controller {
 
     try {
       const response = await fetch(url, {
-        method: "POST",
+        method: this.formTarget.method,
         Accept: "application/json",
         body: formData,
       });

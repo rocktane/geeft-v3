@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 	get 'dashboard' => 'events#dashboard', as: :dashboard
 
-	patch 'redirect/:id' => 'events#redirect', as: :redirect
+	# patch 'redirect/:id' => 'events#redirect', as: :redirect
 	resources :events do
 		resources :gifts, only: %i[new create update]
 	end
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 	patch 'updatelist/:id' => 'gifts#updatelist', as: :updatelist
 	resources :gifts do
 			resources :events, only: %i[new create]
+			member do
+					delete 'deleteindex/:index', to: 'gifts#deleteindex', as: 'deleteindex'
+			end
 	end
 
 end
