@@ -42,7 +42,7 @@
 
     <% if @event.gift.present? %>
       <%= render "shared/gifts_list_event" %>
-      <%= link_to "#", class: "btn btn-desktop btn__theme btn-purple" do %>
+      <%= button_to "#", class: "btn btn-desktop btn__theme btn-purple", data: { controller: "share", share_url_value: @event_url, action: "click->share#share" } do %>
         <div class="btn__content">
           <%= image_tag('share.svg', alt: 'Partager') %>
           Partager

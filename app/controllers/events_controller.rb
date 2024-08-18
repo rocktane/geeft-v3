@@ -33,6 +33,7 @@ class EventsController < ApplicationController
 
   def show
     @gift = Gift.new
+		@event_url = request.original_url
   end
 
   def new
