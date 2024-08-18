@@ -25,12 +25,30 @@ export default class extends Controller {
     }).then((response) => {
       if (response.ok) {
         window.location.href = `/users/${userId}`;
-        // INJECT HTML TO DISPLAY NOTICE
+
+        this.showNotification("Utilisateur modifié avec succès.");
       } else {
         response.text().then((html) => {
           document.body.innerHTML = html;
         });
       }
     });
+  }
+
+  showNotification(message) {
+    const bodyContainer = document.getElementsByTagName("body")[0];
+    const flashContainer = document.createElement("ul");
+    flashContainer.insertAdjacentHTML(
+      "afterbegin",
+      `<li class="flash-success">${message}</li>`
+    );
+    bodyContainer.insertAdjacentElement("afterbegin", flashContainer);
+
+    // bodyContainer.style.display = "block";
+
+    // Masquer la notification après quelques secondes
+    setTimeout(() => {
+      bodyContainer.style.display = "none";
+    }, 3000);
   }
 }
