@@ -1,6 +1,21 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
+  connect() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const notification = urlParams.get("notification");
+    if (notification) {
+      const message = atob(notification); // Decode the message from base64
+      const flashContainer = document.createElement("ul");
+      flashContainer.classList.add("flashes");
+      flashContainer.innerHTML = `<li class="flash-success">${message}</li>`;
+      document.body.insertAdjacentElement("afterbegin", flashContainer);
+
+      // Optionally, remove the query parameter from the URL without reloading the page
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }
+
   redirectToShow(event) {
     event.preventDefault();
 
@@ -12,7 +27,6 @@ export default class extends Controller {
       return;
     }
 
-    // Soumettre le formulaire
     fetch(form.action, {
       method: form.method,
       body: new FormData(form),
@@ -24,8 +38,10 @@ export default class extends Controller {
       },
     }).then((response) => {
       if (response.ok) {
-        window.location.href = `/users/${userId}`;
-        // INJECT HTML TO DISPLAY NOTICE
+        // window.location.href = `/users/${userId}`;
+
+        const message = btoa("Utilisateur modifié avec succès."); // Encode the message into base64
+        window.location.href = `/users/${userId}/?notification=${message}`;
       } else {
         response.text().then((html) => {
           document.body.innerHTML = html;
