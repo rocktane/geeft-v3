@@ -39,7 +39,6 @@ class EventsController < ApplicationController
   def new
     @gift = params[:gift_id] ? Gift.find(params[:gift_id]) : Gift.new
     @event = Event.new(gift: @gift)
-		console
   end
 
   def create
