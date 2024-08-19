@@ -1,19 +1,18 @@
 <div class="monthly-events" data-controller="upcoming-events">
-
-
+  <div class="before">Avant le bouton desktop</div>
   <%= link_to new_event_path, :class=> "btn btn-green btn__theme btn-desktop", id: "new-event" do %>
     <div class="btn__content">
       <%= image_tag('new-event.svg', alt: 'Nouvel Évènement') %>
       Nouvel évènement
-      </div>
+    </div>
   <% end %>
+  <div class="after">Après le bouton desktop</div>
 
-
+  <div class="before">Avant le bouton mobile</div>
   <%= link_to new_event_path, :class=> "btn-mobile", id: "new-event-mob" do %>
     <%= image_tag('new-event.svg', alt: 'Nouvel Évènement') %>
   <% end %>
-
-
+  <div class="after">Après le bouton mobile</div>
 
   <% @range.each do |year| %>
     <ul class="upcoming-year">
