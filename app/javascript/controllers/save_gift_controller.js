@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["saveList", "gift"];
+  static values = { url: String };
 
   connect() {}
 
@@ -20,15 +21,7 @@ export default class extends Controller {
 
     const giftId = this.saveListTarget.dataset.giftId || "";
     const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
-    let env = this.saveListTarget.dataset.env || "";
-
-    // If the environment is not defined, we set it to development
-    if (env === "development") {
-      env = "http://localhost:3000";
-    } else {
-      env = "https://www.geeft.club";
-    }
-
+    const env = this.urlValue || "";
     const url = `${env}/updatelist/${giftId}`;
 
     const newList = this.newList();

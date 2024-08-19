@@ -6,6 +6,7 @@
   display: grid;
   align-items: end;
   grid-gap: 1em;
+  z-index: 999;
 }
 
 .flashes li,
@@ -64,4 +65,15 @@
 
 .flashes li:hover {
   animation-play-state: paused;
+}
+
+@media (max-width: 1024px) {
+  .flashes,
+  #error_explanation {
+    top: 123px;
+  }
+
+  .no-navbar + .flashes {
+    top: 236px;
+  }
 }

@@ -82,14 +82,12 @@
 }
 
 //  button home login style
-.btn-home  {
+.btn-home {
   font-family: $headers-font;
   color: $primary-color;
   font-size: 20px;
   margin-left: 0em;
 }
-
-
 
 // button user cancel
 .cancel-user {
@@ -104,7 +102,6 @@
   & .icon {
     width: 1.3em;
   }
-
 }
 
 // Bouton carré
@@ -118,7 +115,6 @@
   font-size: 1.1em;
   margin: 0;
 }
-
 
 // Bouton retour sur chaque page
 .btn-back {
@@ -173,7 +169,6 @@ a.btn-back {
   }
 }
 
-
 // .btn-desktop {
 //   width: 307px;
 
@@ -190,7 +185,6 @@ a.btn-back {
 
 .btn-login {
   margin-right: 3em;
-
 }
 
 @media (max-width: 1024px) {
@@ -206,7 +200,7 @@ a.btn-back {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(255, 243, 225, 0.6) 0px 0px 4px 2px;
     z-index: 999;
 
     & .icon-mobile {
@@ -218,13 +212,11 @@ a.btn-back {
     & img {
       width: 40px;
     }
-
   }
 
   .btn-square {
     top: 0;
   }
-
 
   .btn-calendar {
     display: none;

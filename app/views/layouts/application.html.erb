@@ -22,12 +22,15 @@
     <%= render "shared/footer" %>
     <%= render "shared/loader" %>
     <script>
-      document.addEventListener('click', function(event) {
+      function closeMenu(event) {
         const details = document.getElementById('menu-details');
         if (!details.contains(event.target)) {
           details.removeAttribute('open');
         }
-      });
+      }
+
+      document.addEventListener('click', closeMenu);
+      document.addEventListener('touchstart', closeMenu);
     </script>
   </body>
 </html>
