@@ -11,6 +11,7 @@ class GiftsController < ApplicationController
     @gift = Gift.find(params[:id])
     @event = @gift.event_id ? Event.find(@gift.event_id) : Event.new
     @gifts_to_display = @gift.generated_list.take(5)
+		@domain = request.host_with_port
 
     respond_to do |format|
       format.html
