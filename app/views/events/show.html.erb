@@ -40,6 +40,8 @@
       <% end %>
     </div>
 
+    <%= render "shared/gifts_list_event" if @event.gift.present? %>
+
     <div class="show-buttons">
       <% if @event.gift.nil? %>
           <%= link_to new_event_gift_path(@event), class: 'btn btn__theme btn-green' do %>
