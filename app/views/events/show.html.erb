@@ -40,36 +40,26 @@
       <% end %>
     </div>
 
-    <% if @event.gift.present? %>
-      <%= render "shared/gifts_list_event" %>
-      <%= button_to "#", class: "btn btn-desktop btn__theme btn-purple", data: { controller: "share", share_url_value: @event_url, action: "click->share#share" } do %>
+    <div class="show-buttons">
+      <% if @event.gift.nil? %>
+          <%= link_to new_event_gift_path(@event), class: 'btn btn__theme btn-green' do %>
+            <div class="btn__content">
+              <%= image_tag('close-gift.svg', alt: 'Ajouter un cadeau') %>
+              Trouver le cadeau parfait
+            </div>
+          <% end %>
+      <% end %>
+
+      <%= link_to @event_url, class: "btn btn-desktop btn__theme btn-purple", data: { controller: "share", share_url_value: @event_url, action: "click->share#share" } do %>
         <div class="btn__content">
           <%= image_tag('share.svg', alt: 'Partager') %>
           Partager
         </div>
       <% end %>
-
-    <% else %>
-
-      <div class="show-buttons">
-        <%= link_to new_event_gift_path(@event), class: 'btn btn__theme btn-green' do %>
-          <div class="btn__content">
-            <%= image_tag('close-gift.svg', alt: 'Ajouter un cadeau') %>
-            Trouver le cadeau parfait
-          </div>
-        <% end %>
-
-        <%= link_to "#", class: "btn btn-desktop btn__theme btn-purple" do %>
-          <div class="btn__content">
-            <%= image_tag('share.svg', alt: 'Partager') %>
-            Partager
-          </div>
-        <% end %>
       </div>
-    <% end %>
 
     <div class="btn-mobile">
-      <%= link_to "#" do %>
+      <%= link_to @event_url, data: { controller: "share", share_url_value: @event_url, action: "click->share#share" } do %>
       <div class="icon-mobile">
           <%= image_tag('share.svg', alt: 'Partager') %>
       </div>
