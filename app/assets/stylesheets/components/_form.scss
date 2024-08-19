@@ -251,4 +251,14 @@ label[for="event_recurrent"] {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .occasion div.input,
+  .relationship div.input,
+  .interests div.input {
+  box-sizing: border-box;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  }
 }
