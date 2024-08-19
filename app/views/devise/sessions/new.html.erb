@@ -9,8 +9,8 @@
       <div class="form-inputs">
         <div class="container-inputs">
           <div class="info-user">
-            <h2> Email </h2>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <h2> Email ou nom d'utilisateur </h2>
+            <%= f.text_field :login, autofocus: true, autocomplete: "login" %>
           </div>
 
           <div class="info-user">

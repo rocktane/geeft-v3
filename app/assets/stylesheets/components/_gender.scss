@@ -26,6 +26,7 @@
 .radio-button.male,
 .radio-button.female {
   position: relative;
+  cursor: pointer;
 }
 
 .radio-button:has(input[type="radio"]:checked) {
@@ -51,6 +52,7 @@ span.gender-info {
   font-family: $body-font;
   visibility: hidden;
   font-size: 0.8em;
+  line-height: 1.2em;
   padding: 0.25em 0.5em;
   position: absolute;
   translate: -60% 140%;
@@ -61,4 +63,15 @@ span.gender-info {
 .radio-button.male:hover span.gender-info.male,
 .radio-button.female:hover span.gender-info.female {
   visibility: visible;
+}
+
+label[for^="genre"] {
+  cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.5em;
+  font-size: 1.2em;
 }
