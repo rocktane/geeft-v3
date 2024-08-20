@@ -29,7 +29,6 @@
                 autocomplete: "username" %>
           </div>
 
-
           <div class="info-user" style="position: relative;">
             <h2>Date d'anniversaire</h2>
             <%= f.date_field :birthday,
@@ -38,13 +37,11 @@
                 autofocus: true,
                 autocomplete: "birthday",
                 placeholder: "dd/mm/aaaa",
-                value: @user.birthday&.strftime("%d/%m/%Y"),
+                value: @user.birthday&.strftime("%Y/%m/%d"),
                 class: "date-input"
             %>
             <%= image_tag('calendar.svg', alt: 'Calendar icon', class: 'calendar-icon') %>
           </div>
-
-
 
           <div class="info-user">
             <h2> Nouveau mot de passe </h2>
@@ -53,7 +50,6 @@
                 autocomplete: "new-password" %>
             <em>(<%= @minimum_password_length %> caractères minimum)</em>
           </div>
-
 
           <div class="info-user">
             <h2> Confirmation du mot de passe </h2>

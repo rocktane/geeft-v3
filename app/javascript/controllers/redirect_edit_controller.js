@@ -11,7 +11,7 @@ export default class extends Controller {
       flashContainer.innerHTML = `<li class="flash-success">${message}</li>`;
       document.body.insertAdjacentElement("afterbegin", flashContainer);
 
-      // Optionally, remove the query parameter from the URL without reloading the page
+      // Remove the query parameter from the URL without reloading the page
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   }

@@ -3,6 +3,11 @@
   <head>
     <title>Geeft</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,8 +22,6 @@
   </head>
 
   <body>
-
-
     <div class="<%= 'no-navbar' if current_page?(root_path) %>">
       <%= render 'shared/navbar' %>
     </div>
