@@ -28,7 +28,7 @@
     <%= render "shared/loader" %>
     <script>
       function closeMenu(event) {
-        const details = document.getElementById('menu-details');
+        const details = document.getElementsByClassName('menu-details');
         if (!details.contains(event.target)) {
           details.removeAttribute('open');
         }
