@@ -2,19 +2,17 @@
   <div class="dashboard">
 
     <div class="dashboard-left">
-      <%= render 'shared/calendar' %> <!-- Render Calendar -->
-
+      <%= render 'shared/calendar' %>
 
       <% if !@events.empty? %>
-        <%= render 'shared/event_calendar' %> <!-- Render Event Calendar -->
+        <%= render 'shared/event_calendar' %>
       <% end %>
     </div>
     <div class="dashboard-right">
       <%= link_to :back, class: "btn-back" do %>
         <i class="fa-solid fa-chevron-left"></i> Retour
       <% end %>
-    <%= render 'shared/event_dashboard' %> <!-- Render Event Dashboard -->
+      <%= render 'shared/event_dashboard' %>
     </div>
   </div>
-
 </div>
