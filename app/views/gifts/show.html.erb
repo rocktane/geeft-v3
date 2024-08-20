@@ -1,4 +1,4 @@
-<div class="body-container">
+<div class="body-container" data-controller="loader-request" data-loader-request-target="container">
   <div class="primary-container" data-controller="save-gift">
     <%= link_to dashboard_path, class: "btn-back" do %>
       <i class="fa-solid fa-chevron-left"></i> Retour
@@ -8,11 +8,11 @@
 
       <% if @user == @gift.user && @gift.comment == false %>
         <div class="gift-comment">
-          <%= form_with(url: gift_path, method: :patch) do |f| %>
+          <%= form_with(url: gift_path, method: :patch, data: { loader_request_target: "form" }) do |f| %>
             <h2>Une précision à apporter ?</h2>
-            <div class="form-comment" data-controller="loader-request">
+            <div class="form-comment">
               <%= f.text_field :comment, as: :text, placeholder: "Elle aime aussi..." %>
-              <%= f.button(type: 'submit', class: 'btn btn__theme btn-square btn-purple', data: { action: "submit->loader-request#fetchApi" }) do %>
+              <%= f.button(type: 'submit', class: 'btn btn__theme btn-square btn-purple', data: { target: "loader-request.button", action: "click->loader-request#fetchApi" }) do %>
                 <div class="btn__content">
                   <%= image_tag('send.svg', alt: "Envoyer") %>
                 </div>
@@ -25,7 +25,6 @@
       <% svg_icon = image_tag('new-event.svg', alt: 'Ajouter') %>
       <% data_attributes = {
         data: {
-          env: Rails.env,
           gift_id: @gift.id,
           url: @domain,
           action: "click->save-gift#save",

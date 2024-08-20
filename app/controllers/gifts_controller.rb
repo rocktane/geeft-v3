@@ -1,6 +1,8 @@
 class GiftsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:create]
+	before_action :check_user, only: [:show]
+	before_action :check_if_event, only: [:show]
 
   def index
     @gifts = Gift.all
@@ -25,43 +27,40 @@ class GiftsController < ApplicationController
     @gift.event = @event
   end
 
-  def create
-    @gift = Gift.new(gift_params)
-    @event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
-    @gift.event = @event
-    @gift.user = current_user
-    @gift.interests = @gift.interests.compact_blank
-    @gift.generated_list = @gift.gen_gifts(
-      $client,
-      @gift.budget,
-      @gift.age,
-      @gift.genre,
-      @gift.occasion,
-      @gift.interests,
-      @gift.relationship
-    ).split(/\d+\.\s+/).map(&:strip).compact_blank
+	def create
+		@gift = Gift.new(gift_params)
+		@event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
+		@gift.event = @event
+		@gift.user = current_user
+		@gift.interests = @gift.interests.compact_blank
+
+		@gift.generated_list = generate_list(@gift)
+
+		respond_to do |format|
+			if @gift.save
+				format.json { render json: @gift,
+														status: :created,
+														location: @event.persisted? ? event_gift_path(@event, @gift) : gift_path(@gift) }
+			else
+				format.json { render json: @gift.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+
+  def update
+    @gift = Gift.find(params[:id])
+    comment = params[:comment]
+    @gift.update(generated_list: @gift.update_gifts($client, comment,
+		@gift.interests).split(/\d+\.\s+/).map(&:strip).compact_blank)
 		respond_to do |format|
 				if @gift.save
 						format.json { render json: @gift,
-																 status: :created,
-																 location: @event.persisted? ? event_gift_path(@event, @gift) : gift_path(@gift) }
+																status: :created,
+																location: gift_path(@gift) }
 				else
 						format.json { render json: @gift.errors, status: :unprocessable_entity }
 				end
 		end
-  end
-
-  def update
-    @gift = Gift.find(params[:id])
-		@gift.comment = true
-    comment = params[:comment]
-    @gift.update(generated_list: @gift.update_gifts($client, comment,
-                                                    @gift.interests).split(/\d+\.\s+/).map(&:strip).compact_blank)
-    if @gift.save
-      redirect_to gift_path(@gift)
-    else
-      render :new
-    end
   end
 
   def updatelist
@@ -85,14 +84,46 @@ class GiftsController < ApplicationController
 	def deleteindex
 		@gift = Gift.find(params[:id])
 		index = params[:index].to_i
-		if @gift.generated_list.delete_at(index) && @gift.save
-			render json: { success: true, notice: "Cadeau supprimé avec succès" }
+		if @gift.generated_list.delete_at(index) && @gift.save && @gift.generated_list.length == 0
+			@gift.destroy
+			render json: { success: true, notice: "Cadeau supprimé avec succès." }
 		else
-			render json: { success: false, errors: @gift.errors.full_messages }, status: :unprocessable_entity
+			render json: { success: false, notice: @gift.errors.full_messages }, status: :unprocessable_entity
 		end
 	end
 
   private
+
+	def generate_list(gifts)
+		max_attempts = 3
+		attempts = 0
+		list = []
+
+		begin
+			Timeout.timeout(30) do
+				while list.length <= 1 && attempts < max_attempts
+					list = @gift.gen_gifts(
+						$client,
+						@gift.budget,
+						@gift.age,
+						@gift.genre,
+						@gift.occasion,
+						@gift.interests,
+						@gift.relationship
+					).split(/\d+\.\s+/).map(&:strip).compact_blank
+					attempts += 1
+				end
+			end
+		rescue Timeout::Error
+			Rails.logger.error "La génération de cadeaux a pris trop de temps."
+		rescue StandardError => e
+			Rails.logger.error "Une erreur est survenue: #{e.message}"
+		end
+
+		if list.length > 1
+			return list
+		end
+	end
 
   def gift_params
     params.require(:gift).permit(:budget, :age, :genre, :occasion, [interests: []], :relationship, :generated_list,
@@ -101,5 +132,20 @@ class GiftsController < ApplicationController
 
 	def set_client
 			$client = $client ? $client : OpenAI::Client.new
+	end
+
+	def check_user
+		@user = current_user
+		@gift = Gift.find(params[:id])
+		if @user != @gift.user
+			redirect_to root_path
+		end
+	end
+
+	def check_if_event
+		@gift = Gift.find(params[:id])
+		if @gift.event_id
+			redirect_to event_path(@gift.event_id)
+		end
 	end
 end

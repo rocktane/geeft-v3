@@ -1,26 +1,29 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
+  static values = { url: String };
+
   connect() {}
 
-  // Deletion of a gift on an event 'edit' page
+  flash(message) {
+    const flashContainer = document.createElement("ul");
+    flashContainer.classList.add("flashes");
+    flashContainer.innerHTML = `<li class="flash-success">${message}</li>`;
+    document.body.insertAdjacentElement("afterbegin", flashContainer);
+  }
+
   delete(gift) {
     const userConfirmed = confirm(
       "Êtes-vous sûr de vouloir supprimer ce cadeau ?"
     );
-    // if (userConfirmed) gift.target.parentElement.remove();
     if (userConfirmed) {
       const giftId = gift.target.dataset.giftid || "";
       const csrfToken = document.querySelector(
         'meta[name="csrf-token"]'
       ).content;
-      let env = gift.target.dataset.env || "";
-
-      // If the environment is not defined, we set it to development
-      if (env === "development") {
-        env = "http://localhost:3000";
-      } else {
-        env = "https://www.geeft.club";
+      let env = this.urlValue;
+      if (env == "localhost:3000") {
+        env = "http://" + env;
       }
 
       const giftIndex = gift.target.dataset.giftindex || "";
@@ -40,12 +43,11 @@ export default class extends Controller {
               `Erreur lors de la suppression : ${response.status}`
             );
           }
-          return response.json(); // Ou response.text() si aucune donnée JSON n'est retournée
+          return response.json();
         })
         .then((data) => {
-          // Traitez la réponse du serveur (si nécessaire)
-          // Mettez à jour l'interface utilisateur pour refléter la suppression
           gift.target.closest("li").remove();
+          this.flash(data.notice);
         })
         .catch((error) => {
           console.error("Erreur lors de la requête DELETE :", error);

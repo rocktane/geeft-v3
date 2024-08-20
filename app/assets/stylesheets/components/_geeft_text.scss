@@ -2,3 +2,7 @@
   font-family: $headers-font;
   color: $primary-color;
 }
+
+ul[data-controller="refresh-gift"] {
+  margin-bottom: 1em;
+}
