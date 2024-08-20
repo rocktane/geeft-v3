@@ -28,12 +28,13 @@
     <%= render "shared/loader" %>
     <script>
       function closeMenu(event) {
-        const details = document.getElementsByClassName('menu-details');
-        if (!details.contains(event.target)) {
-          details.removeAttribute('open');
-        }
+        const details = document.querySelectorAll('.menu-details');
+        details.forEach(function(detail) {
+          if (!detail.contains(detail.target)) {
+            detail.removeAttribute('open');
+          }
+        });
       }
-
       document.addEventListener('click', closeMenu);
       document.addEventListener('touchstart', closeMenu);
     </script>
