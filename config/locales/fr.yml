@@ -6,7 +6,7 @@ fr:
         confirmation_token: Clé de confirmation du mot de passe
         confirmed_at: Date de confirmation
         created_at: Date d'enregistrement
-        current_password: Mot de pass actuel
+        current_password: Mot de passe actuel
         current_sign_in_at: Date de la connexion actuelle
         current_sign_in_ip: IP de la connexion actuelle
         email: Email
@@ -24,7 +24,7 @@ fr:
         sign_in_count: Nombre des connexions
         unconfirmed_email: Email non confirmé
         unlock_token: Clé de déverrouillage
-        updated_at: Date de mise à jour
+        username: Nom d'utilisateur
     errors:
       models:
         user:
@@ -33,6 +33,21 @@ fr:
               blank: "requis"
             email:
               blank: "requis"
+              taken: ": l'adresse est déjà associée à un compte"
+            password:
+              blank: "requis"
+              confirmation: ": Les mots de passe saisis ne correspondent pas"
+              invalid: "est invalide"
+              too_short: "est trop court (au moins %{count} caractères)"
+            password_confirmation:
+              blank: "requis"
+              confirmation: ": Les mots de passe saisis ne correspondent pas"
+            username:
+              blank: "requis"
+              taken: ": Ce nom est déjà associé à un compte"
+            current_password:
+              invalid: "est incorrect"
+
     models:
       user: Utilisateur
   devise:
@@ -97,6 +112,7 @@ fr:
       send_paranoid_instructions: Si votre email existe dans notre base de données, vous recevrez un lien vous permettant de récupérer votre mot de passe.
       updated: Votre mot de passe a bien été modifié. Vous êtes maintenant connecté(e).
       updated_not_active: Votre mot de passe a bien été modifié.
+
     registrations:
       destroyed: Au revoir ! Votre compte a bien été supprimé. Nous espérons vous revoir bientôt.
       edit:
@@ -110,7 +126,7 @@ fr:
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour valider ces modifications
       new:
         sign_up: Inscription
-      signed_up: Bienvenue ! Vous vous êtes bien enregistré(e).
+      signed_up: Bienvenue ! Votre compte a été créé avec succès
       signed_up_but_inactive: Vous vous êtes bien enregistré(e). Cependant, nous n’avons pas pu vous connecter car votre compte n’a pas encore été activé.
       signed_up_but_locked: Vous vous êtes bien enregistré(e). Cependant, nous n’avons pas pu vous connecter car votre compte est verrouillé.
       signed_up_but_unconfirmed: Un message avec un lien de confirmation vous a été envoyé par mail. Veuillez suivre ce lien pour activer votre compte.

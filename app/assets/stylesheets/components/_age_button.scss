@@ -27,7 +27,8 @@
     box-shadow: rgba(50, 50, 93, 0.5) 0px 8px 11px -4px,
       rgba(0, 0, 0, 0.55) 0px 5px 9px -5px;
   }
-  button {
+  button,
+  button label {
     background-color: transparent;
     color: $secondary-color;
     border: none;
@@ -36,6 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   span {
     width: 1.8em;

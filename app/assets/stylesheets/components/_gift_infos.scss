@@ -1,9 +1,4 @@
 .gift-container {
-  // display: grid;
-  // align-items: center;
-  // justify-content: space-between;
-  // grid-template-areas: "gl . rf";
-  // grid-auto-rows: max-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,7 +6,6 @@
   & span {
     display: flex;
     flex-direction: row-reverse;
-    grid-area: rf;
     height: 100%;
     aspect-ratio: 1 / 1;
     align-items: center;
@@ -36,26 +30,29 @@
   }
 }
 
-.refresh-container {
+.refresh-container,
+.delete-container {
   position: relative;
   display: inline-block;
   cursor: pointer;
   &:hover .refresh-arrow {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
     transition: transform 0.3s ease;
   }
 }
 
-.refresh-arrow {
+.refresh-arrow,
+.trash-bin {
   display: flex;
-  transform: rotate(180deg);
+  transform: rotate(0deg);
   transition: transform 0.3s ease 0.3s;
   & img {
     width: 1.5em;
   }
 }
 
-.refresh-text {
+.refresh-text,
+.delete-text {
   opacity: 0;
   pointer-events: none;
   background-color: #60365e;
@@ -68,7 +65,9 @@
 }
 
 .refresh-container:hover .refresh-text,
-.refresh-text:hover {
+.delete-container:hover .delete-text,
+.refresh-text:hover,
+.delete-text:hover {
   opacity: 1;
   pointer-events: all;
 }
@@ -114,7 +113,6 @@
 }
 
 .gift-comment {
-  margin-top: 1em;
   margin-bottom: 1em;
   & h2 {
     color: $accent-color;
@@ -122,5 +120,13 @@
   }
 }
 
+.gift-form {
+  margin-bottom: 1em;
 
-
+@media screen and (max-width: 1024px) {
+  .refresh-text,
+  .delete-text {
+    display: none;
+    pointer-events: none;
+  }
+}

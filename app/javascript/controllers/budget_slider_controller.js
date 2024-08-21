@@ -5,6 +5,9 @@ export default class extends Controller {
   static targets = ["slider", "input"];
 
   connect() {
+    // this.updatePos();
+    this.updatePos = this.updatePos.bind(this);
+    window.addEventListener("resize", this.updatePos);
     this.updatePos();
   }
 
@@ -19,7 +22,7 @@ export default class extends Controller {
     const thumbSize = 50; // FIND THE VALUE IN BUDGET_SLIDER.SCSS
     const padding = 22; // FIND THE VALUE IN FORM.SCSS
 
-    input.style.top = "36px";
+    input.style.top = "44px";
     const startPoint = padding + thumbSize / 2 - inputSize / 2;
     const posCalculated =
       startPoint + (sliderElement.width - thumbSize) * percentage;
