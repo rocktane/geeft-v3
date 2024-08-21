@@ -29,6 +29,7 @@ class GiftsController < ApplicationController
 
 	def create
 		@gift = Gift.new(gift_params)
+		@params = params
 		@event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
 		@gift.event = @event
 		@gift.user = current_user
@@ -39,8 +40,7 @@ class GiftsController < ApplicationController
 		respond_to do |format|
 			if @gift.save
 				format.json { render json: @gift,
-														status: :created,
-														location: @event.persisted? ? event_gift_path(@event, @gift) : gift_path(@gift) }
+														status: :created }
 			else
 				format.json { render json: @gift.errors, status: :unprocessable_entity }
 			end
@@ -55,8 +55,7 @@ class GiftsController < ApplicationController
 		respond_to do |format|
 				if @gift.save
 						format.json { render json: @gift,
-																status: :created,
-																location: gift_path(@gift) }
+																status: :created }
 				else
 						format.json { render json: @gift.errors, status: :unprocessable_entity }
 				end

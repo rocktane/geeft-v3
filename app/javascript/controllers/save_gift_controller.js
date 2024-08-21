@@ -26,6 +26,8 @@ export default class extends Controller {
 
     const newList = this.newList();
 
+    console.log(newList);
+
     try {
       const response = await fetch(url, {
         method: "PATCH",
@@ -42,10 +44,9 @@ export default class extends Controller {
       }
 
       const data = await response.json();
-      console.log("Response data:", data);
 
       if (data.success) {
-        window.location.href = data.redirect_url;
+        window.location.href = `/gifts/${data.id}`;
       } else {
         console.error("Update failed:", data.errors);
       }

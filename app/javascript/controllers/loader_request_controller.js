@@ -92,19 +92,26 @@ export default class extends Controller {
     this.containerTarget.classList.add("blurred");
     loader.style.display = "flex";
 
-    try {
-      const response = await fetch(url, {
-        method: this.formTarget.method,
-        Accept: "application/json",
-        body: formData,
-      });
+    console.log("url fetchApi", url);
+    console.log("form fetchApi", formData);
+    console.log("method fetchApi", this.formTarget.method);
+    const test = document.getElementById("test");
+    console.log("test", test);
 
-      const data = await response.json();
-      window.setTimeout(() => {
-        window.location.href = `/gifts/${data.id}`;
-      }, 500);
-    } catch (error) {
-      console.error("Une erreur s'est produite :", error);
-    }
+    // try {
+    //   const response = await fetch(url, {
+    //     method: this.formTarget.method,
+    //     Accept: "application/json",
+    //     body: formData,
+    //   });
+
+    //   const data = await response.json();
+
+    //   window.setTimeout(() => {
+    //     window.location.href = `/gifts/${data.id}`;
+    //   }, 500);
+    // } catch (error) {
+    //   console.error("Une erreur s'est produite :", error);
+    // }
   }
 }
