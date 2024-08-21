@@ -8,13 +8,6 @@
       </div>
   <% end %>
 
-
-  <%= link_to new_event_path, :class=> "btn-mobile", id: "new-event-mob" do %>
-    <%= image_tag('new-event.svg', alt: 'Nouvel Évènement') %>
-  <% end %>
-
-
-
   <% @range.each do |year| %>
     <ul class="upcoming-year">
       <div data-upcoming-events-target="year">

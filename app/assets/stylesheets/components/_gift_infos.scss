@@ -1,9 +1,4 @@
 .gift-container {
-  // display: grid;
-  // align-items: center;
-  // justify-content: space-between;
-  // grid-template-areas: "gl . rf";
-  // grid-auto-rows: max-content;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -122,5 +117,7 @@
   }
 }
 
+.gift-form {
+  margin-bottom: 1em;
 
-
+}
