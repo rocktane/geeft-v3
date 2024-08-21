@@ -2,17 +2,22 @@
   <div class="dashboard">
 
     <div class="dashboard-left">
-      <%= render 'shared/calendar' %>
+      <%= render 'shared/calendar' %> <!-- Render Calendar -->
+      <%= link_to new_event_path, :class=> "btn-mobile", id: "new-event-mob" do %>
+        <%= image_tag('new-event.svg', alt: 'Nouvel Évènement') %>
+      <% end %> 
 
       <% if !@events.empty? %>
         <%= render 'shared/event_calendar' %>
       <% end %>
     </div>
+    
     <div class="dashboard-right">
       <%= link_to :back, class: "btn-back" do %>
         <i class="fa-solid fa-chevron-left"></i> Retour
       <% end %>
       <%= render 'shared/event_dashboard' %>
     </div>
+    
   </div>
 </div>

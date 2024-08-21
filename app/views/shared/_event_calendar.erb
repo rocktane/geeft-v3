@@ -1,4 +1,12 @@
 <div class="monthly-events" data-controller="upcoming-events">
+
+  <%= link_to new_event_path, :class=> "btn btn-green btn__theme btn-desktop", id: "new-event" do %>
+    <div class="btn__content">
+      <%= image_tag('new-event.svg', alt: 'Nouvel Évènement') %>
+      Nouvel évènement
+      </div>
+  <% end %>
+
   <% @range.each do |year| %>
     <ul class="upcoming-year">
       <div data-upcoming-events-target="year">

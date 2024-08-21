@@ -23,7 +23,11 @@ private
 def events_titles
   case action_name
 		when "home"
-			"> Trouve le cadeau parfait"
+      if @current_user.nil?
+        "> Bienvenue sur Geeft"
+      else
+        "> Hello " + @user.username + " !"
+      end
     when "dashboard"
       "> Calendrier"
     when "new"
