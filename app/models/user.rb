@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, uniqueness: { message: 'est déjà utilisé. Veuillez en choisir un autre.' }
-
+  validates :username, uniqueness: true, presence: true
 
   has_many :gifts, dependent: :destroy
   has_many :events, dependent: :destroy
