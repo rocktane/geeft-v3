@@ -1,22 +1,29 @@
 <% if !@event.gift.nil? %>
   <div class="gifts-event">
     <h3>Les idées cadeaux</h3>
-    <ul data-controller="delete-gift">
+    <ul data-controller="delete-gift" data-delete-gift-url-value="<%= @domain %>">
       <% index = 0 %>
       <% @event.gift.generated_list.each do |gift| %>
         <li data-update-event-target="gift">
           <div class="secondary-container">
-          <div class="gift-container">
-            <div class="gift-left">
-                <%= image_tag('open-gift.png', alt: 'Cadeau', class:"icon-gift") %>
-              <div class="gift">
-                <%= gift %>
+            <div class="gift-container">
+              <div class="gift-left">
+                  <%= image_tag('open-gift.png', alt: 'Cadeau', class:"icon-gift") %>
+                <div class="gift">
+                  <%= gift %>
+                </div>
               </div>
+            <% if current_user.id == @event.user_id %>
+              <span class="delete-container" class ="gift-delete">
+                <div class="trash-bin" data-action="click->delete-gift#delete">
+                  <%= image_tag'bin2.svg', data: { giftId: @event.gift.id, giftIndex: index } %>
+                </div>
+                <div class="delete-text" data-action="click->delete-gift#delete" data-refresh-gift-target="button">
+                  Supprimer
+                </div>
+              </span>
+            <% end %>
             </div>
-            <div class="delete-container" data-action="click->delete-gift#delete">
-              <%= image_tag'bin2.svg', data: { env: Rails.env, giftId: @event.gift.id, giftIndex: index } %>
-          </div>
-          </div>
           </div>
         </li>
       <% end %>

@@ -1,6 +1,5 @@
 <div class="monthly-events" data-controller="upcoming-events">
 
-
   <%= link_to new_event_path, :class=> "btn btn-green btn__theme btn-desktop", id: "new-event" do %>
     <div class="btn__content">
       <%= image_tag('new-event.svg', alt: 'Nouvel Évènement') %>
@@ -11,36 +10,34 @@
   <% @range.each do |year| %>
     <ul class="upcoming-year">
       <div data-upcoming-events-target="year">
-        <h3>
-          <%= year %>
-        </h3>
+        <h3><%= year %></h3>
       </div>
       <% @all_months.each do |month| %>
         <% next if month.year != year %>
-        <% if !(@events_by_month[month].empty?) %>
-          <li class="upcoming-month event-container-calendar" data-upcoming-events-target='upcomingMonth' month="<%= month.month %>">
-            <h2>En <%= french_month(month) %></h2>
-              <ul>
-                <% @events_by_month[month].each do |event| %>
-                  <%= link_to event_path(event) do %>
-                    <div class="event-infos-calendar">
-                      <li data-upcoming-events-target="event" data-event-date-year="<%= event.date.year %>" data-event-date-month="<%= event.date.month %>" data-event-date-day="<%= event.date.day %>">
-                        <div class="event-infos">
-                          <div class="event-name"><%= event.name %></div>
-                          <div class="event-date"><%= event.date.strftime("%d/%m") %></div>
-                        </div>
-                      </li>
-                    </div>
+          <% if !(@events_by_month[month].empty?) %>
+            <li class="upcoming-month event-container-calendar" data-upcoming-events-target='upcomingMonth' month="<%= month.month %>">
+              <h2>En <%= french_month(month) %></h2>
+                <ul>
+                  <% @events_by_month[month].each do |event| %>
+                    <%= link_to event_path(event) do %>
+                      <div class="event-infos-calendar">
+                        <li data-upcoming-events-target="event" data-event-date-year="<%= event.date.year %>" data-event-date-month="<%= event.date.month %>" data-event-date-day="<%= event.date.day %>">
+                          <div class="event-infos">
+                            <div class="event-name"><%= event.name %></div>
+                            <div class="event-date"><%= event.date.strftime("%d/%m") %></div>
+                          </div>
+                        </li>
+                      </div>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </ul>
-            <% elsif month >= @today.beginning_of_month %>
-                <li class="upcoming-month event-container-calendar" data-upcoming-events-target='upcomingMonth' month="<%= month.month %>">
+                </ul>
+          <% elsif month >= @today.beginning_of_month %>
+            <li class="upcoming-month event-container-calendar" data-upcoming-events-target='upcomingMonth' month="<%= month.month %>">
               <h2>En <%= french_month(month) %></h2>
               <p class="no-event">Aucun évènement ce mois-ci.</p>
-            <% end %>
+          <% end %>
           </li>
-      <% end %>
+        <% end %>
     </ul>
   <% end %>
 </div>

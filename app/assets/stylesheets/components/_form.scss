@@ -21,6 +21,9 @@
 
 .new-form-section .input {
   margin-top: 0.5em;
+  &:has(#budget-slider) {
+    margin-top: 1em;
+  }
 }
 
 // input.input {
@@ -151,12 +154,6 @@ span.checkbox input[type="checkbox"] {
 .occasion div.input,
 .relationship div.input,
 .interests div.input {
-  // MOBILE
-  // box-sizing: border-box;
-  // overflow-x: auto;
-  // white-space: nowrap;
-  // padding-bottom: 1em;
-  // padding-left: 1em;
   // DESKTOP
   padding-bottom: 1em;
   padding-left: 1em;
@@ -255,10 +252,12 @@ label[for="event_recurrent"] {
   .occasion div.input,
   .relationship div.input,
   .interests div.input {
-  box-sizing: border-box;
-  overflow-x: auto;
-  white-space: nowrap;
-  padding-bottom: 1em;
-  padding-left: 1em;
+    box-sizing: border-box;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    display: block;
+    gap: unset;
   }
 }

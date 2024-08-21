@@ -1,0 +1,15 @@
+{
+  "name": "Geeft - trouves le cadeau parfait",
+  "short_name": "Geeft",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#bacdcc",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512.png",
+      "type": "image/png"
+    }
+  ]
+}
