@@ -26,6 +26,20 @@ export default class extends Controller {
 
     const newList = this.newList();
 
+    console.log(env);
+    console.log(url);
+    console.log(newList);
+    console.log(this.saveListTarget.dataset);
+
+    let redirect_url;
+
+    if (this.saveListTarget.dataset.eventId) {
+      const eventId = this.saveListTarget.dataset.eventId;
+      redirect_url = `/events/${eventId}`;
+    } else {
+      redirect_url = `/gifts/${giftId}`;
+    }
+
     try {
       const response = await fetch(url, {
         method: "PATCH",
@@ -42,10 +56,9 @@ export default class extends Controller {
       }
 
       const data = await response.json();
-      console.log("Response data:", data);
 
       if (data.success) {
-        window.location.href = data.redirect_url;
+        window.location.href = redirect_url;
       } else {
         console.error("Update failed:", data.errors);
       }

@@ -4,7 +4,21 @@
     <title>Geeft</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <!-- Open Graph -->
+    <meta property="og:title" content="<%= content_for?(:title) ? yield(:name) : 'Geeft' %>" />
+    <meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "Trouve le cadeau parfait" %>" />
+    <meta property="og:image" content="<%= content_for?(:image) ? yield(:image) : image_url('geeft-share.png') %>" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%= content_for?(:title) ? yield(:name) : 'Geeft' %>" />
+    <meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : "Trouve le cadeau parfait" %>" />
+    <meta name="twitter:image" content="<%= content_for?(:image) ? yield(:image) : image_url('geeft-share.png') %>" />
+    <meta name="twitter:url" content="<%= request.original_url %>" />
+
+    <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -33,7 +47,7 @@
       function closeMenu(event) {
         const details = document.querySelectorAll('.menu-details');
         details.forEach(function(detail) {
-          if (!detail.contains(detail.target)) {
+          if (!detail.contains(event.target)) {
             detail.removeAttribute('open');
           }
         });
