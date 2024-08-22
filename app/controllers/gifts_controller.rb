@@ -2,7 +2,7 @@ class GiftsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:create]
 	before_action :check_user, only: [:show]
-	before_action :check_if_event, only: [:show]
+	# before_action :check_if_event, only: [:show]
 
   def index
     @gifts = Gift.all
@@ -39,8 +39,7 @@ class GiftsController < ApplicationController
 		respond_to do |format|
 			if @gift.save
 				format.json { render json: @gift,
-														status: :created,
-														location: @event.persisted? ? event_gift_path(@event, @gift) : gift_path(@gift) }
+														status: :created }
 			else
 				format.json { render json: @gift.errors, status: :unprocessable_entity }
 			end
@@ -55,8 +54,7 @@ class GiftsController < ApplicationController
 		respond_to do |format|
 				if @gift.save
 						format.json { render json: @gift,
-																status: :created,
-																location: gift_path(@gift) }
+																status: :created }
 				else
 						format.json { render json: @gift.errors, status: :unprocessable_entity }
 				end
@@ -142,10 +140,10 @@ class GiftsController < ApplicationController
 		end
 	end
 
-	def check_if_event
-		@gift = Gift.find(params[:id])
-		if @gift.event_id
-			redirect_to event_path(@gift.event_id)
-		end
-	end
+	# def check_if_event
+	# 	@gift = Gift.find(params[:id])
+	# 	if @gift.event_id
+	# 		redirect_to event_path(@gift.event_id)
+	# 	end
+	# end
 end

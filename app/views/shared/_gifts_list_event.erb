@@ -1,9 +1,9 @@
-<% if !@event.gift.nil? %>
+<% if @gifts_to_display %>
   <div class="gifts-event">
     <h3>Les idées cadeaux</h3>
     <ul data-controller="delete-gift" data-delete-gift-url-value="<%= @domain %>">
       <% index = 0 %>
-      <% @event.gift.generated_list.each do |gift| %>
+      <% @gifts_to_display.each do |gift| %>
         <li data-update-event-target="gift">
           <div class="secondary-container">
             <div class="gift-container">

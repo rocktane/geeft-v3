@@ -32,7 +32,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    @gift = Gift.new
+    @gift = @event.gift.nil? ? Gift.new : @event.gift
+		@gifts_to_display = @gift.generated_list.take(5) if @gift
 		@event_url = request.original_url
 		@domain = request.host_with_port
   end

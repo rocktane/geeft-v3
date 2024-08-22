@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 // Connects to data-controller="loader-request"
 export default class extends Controller {
   static targets = ["form", "container"];
+  static values = { event: Number };
 
   connect() {}
 
@@ -92,6 +93,12 @@ export default class extends Controller {
     this.containerTarget.classList.add("blurred");
     loader.style.display = "flex";
 
+    // console.log("url fetchApi", url);
+    // console.log("form fetchApi", formData);
+    // console.log("method fetchApi", this.formTarget.action);
+    // console.log("eventId", this.eventValue);
+    // console.log("newUrl", url + "?event_id=" + this.eventValue);
+
     try {
       const response = await fetch(url, {
         method: this.formTarget.method,
@@ -100,8 +107,9 @@ export default class extends Controller {
       });
 
       const data = await response.json();
+
       window.setTimeout(() => {
-        window.location.href = `/gifts/${data.id}`;
+        window.location.href = `/gifts/${data.id}?event_id=${this.eventValue}`;
       }, 500);
     } catch (error) {
       console.error("Une erreur s'est produite :", error);
