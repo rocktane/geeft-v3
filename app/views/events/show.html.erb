@@ -60,7 +60,7 @@
       <% end %>
       </div>
 
-    <div class="btn-mobile">
+    <div class="btn-mobile" data-controller="floating-button" data-floating-button-target="button">
       <%= link_to @event_url, data: { controller: "share", share_url_value: @event_url, action: "click->share#share" } do %>
       <div class="icon-mobile">
           <%= image_tag('share.svg', alt: 'Partager') %>

@@ -1,11 +1,10 @@
 .body-container {
   background-color: $background-color;
-  padding: 1em 3.2em 5em 3.2em;
-  min-height: calc(100vh - 90px);
+  padding: 1em 3.2em 3em 3.2em;
+  min-height: calc(100vh - 152px);
   width: 100%;
   overflow-y: auto;
 
-  // overflow: hidden;
   & a {
     text-decoration: none;
     color: $secondary-color;
@@ -13,9 +12,6 @@
 }
 
 .primary-container {
-  // margin: 1em 0 0 21.4em;
-  // margin: 0 10% auto 20%;
-  // position: relative;
   width: 100%;
   max-width: 50em;
 

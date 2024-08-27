@@ -4,6 +4,7 @@
   top: 100px;
   right: 12px;
   display: grid;
+  justify-items: end;
   align-items: end;
   grid-gap: 1em;
   z-index: 999;
@@ -23,6 +24,10 @@
   justify-self: end;
   cursor: default;
   animation: slideInOut 10s ease-in-out forwards;
+  margin-left: auto;
+  margin-bottom: 0.5em;
+  max-width: 90vw;
+  // text-wrap: balance;
 }
 
 .flash:has(.alert),
