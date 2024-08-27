@@ -7,7 +7,7 @@
     </div>
 
     <% model_to_use = [@event, @gift] || @gift %>
-    <%= simple_form_for(model_to_use, url: event_gifts_path(@event) || gifts_path,
+    <%= simple_form_for(model_to_use, url: gifts_path(event_id: @event),
       html: { class: "criteria-form"},
       data: { loader_request_target: "form", action: "submit->loader-request#checkForm" })  do |f| %>
 
