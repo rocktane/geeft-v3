@@ -1,23 +1,24 @@
 .footer {
   background-color: $secondary-color;
-  height: 40px;
+  height: 60px;
   font-family: $body-font;
   color: $primary-color;
   display: flex;
   justify-content: space-between;
 
   & img {
-    width: 21px;
+    width: 16px;
   }
 
   & a {
     color: $primary-color;
-    text-decoration: none;
+    text-decoration: underline;
+    display: flex;
+    align-items: flex-start;
     cursor: pointer;
-
+    gap: 0.2em;
+    text-underline-offset: 0.2em;
   }
-
-
 }
 
 .footer-left {
@@ -42,9 +43,9 @@
 
 
 .stabilo {
-  display: inline-block;
+  // display: inline-block;
   position: relative;
-  cursor: pointer;
+  z-index: 0;
 }
 
 .stabilo::before {
@@ -56,13 +57,32 @@
   background-color: $accent-color;
   height: 12px;
   opacity: 20%;
-  z-index: 0;
+  z-index: -1;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
 .stabilo:hover::before {
   transform: scaleX(1);
+}
+
+
+@media (max-width: 1024px) {
+  .footer {
+    flex-direction: column;
+    height: 110px;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.7em;
+  }
+
+  .footer-left {
+    margin-left: 0;
+  }
+
+  .footer-right {
+    margin-right: 0;
+  }
+
 }

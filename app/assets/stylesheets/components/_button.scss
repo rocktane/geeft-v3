@@ -201,7 +201,9 @@ a.btn-back {
     justify-content: center;
     align-items: center;
     box-shadow: rgba(255, 243, 225, 0.6) 0px 0px 4px 2px;
-    z-index: 999;
+    z-index: 1000;
+
+
 
     & .icon-mobile {
       display: flex;
