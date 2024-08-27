@@ -53,6 +53,7 @@ class GiftsController < ApplicationController
 		@gift.interests).split(/\d+\.\s+/).map(&:strip).compact_blank)
 		respond_to do |format|
 				if @gift.save
+					@gift.update(comment: true)
 						format.json { render json: @gift,
 																status: :created }
 				else
