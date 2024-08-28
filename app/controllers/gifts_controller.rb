@@ -12,7 +12,11 @@ class GiftsController < ApplicationController
     @user = current_user
     @gift = Gift.find(params[:id])
     @event = @gift.event_id ? Event.find(@gift.event_id) : Event.new
-    @gifts_to_display = @gift.generated_list.take(5)
+		if @gift.generated_list.class == Array
+			@gifts_to_display = @gift.generated_list.take(5)
+		else
+			redirect_to "/422.html"
+		end
 		@domain = request.host_with_port
 
     respond_to do |format|
@@ -94,12 +98,12 @@ class GiftsController < ApplicationController
   private
 
 	def generate_list(gifts)
-		max_attempts = 3
+		max_attempts = 5
 		attempts = 0
 		list = []
 
-		begin
-			Timeout.timeout(30) do
+		# begin
+		# 	Timeout.timeout(30) do
 				while list.length <= 1 && attempts < max_attempts
 					list = @gift.gen_gifts(
 						$client,
@@ -112,16 +116,16 @@ class GiftsController < ApplicationController
 					).split(/\d+\.\s+/).map(&:strip).compact_blank
 					attempts += 1
 				end
-			end
-		rescue Timeout::Error
-			Rails.logger.error "La génération de cadeaux a pris trop de temps."
-		rescue StandardError => e
-			Rails.logger.error "Une erreur est survenue: #{e.message}"
-		end
+			# end
+		# rescue Timeout::Error
+		# 	Rails.logger.error "La génération de cadeaux a pris trop de temps."
+		# rescue StandardError => e
+		# 	Rails.logger.error "Une erreur est survenue: #{e.message}"
+		# end
 
-		if list.length > 1
+		# if list.length > 1
 			return list
-		end
+		# end
 	end
 
   def gift_params
