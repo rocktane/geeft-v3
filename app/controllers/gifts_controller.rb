@@ -17,7 +17,7 @@ class GiftsController < ApplicationController
 		else
 			redirect_to "/422.html"
 		end
-		@domain = request.host_with_port
+		# @domain = request.host_with_port
 
     respond_to do |format|
       format.html
@@ -28,13 +28,14 @@ class GiftsController < ApplicationController
   def new
     @event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
     @gift = Gift.new
-    @gift.event = @event
+    # @gift.event = @event
   end
 
 	def create
 		@gift = Gift.new(gift_params)
-		@event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
-		@gift.event = @event
+		# @event = params[:event_id] ? Event.find(params[:event_id]) : Event.new
+		# @gift.event = @event
+		@event = Event.new
 		@gift.user = current_user
 		@gift.interests = @gift.interests.compact_blank
 
@@ -68,8 +69,9 @@ class GiftsController < ApplicationController
 
   def updatelist
     @gift = Gift.find(params[:id])
-		@event = Event.find(@gift.event_id) if @gift.event_id
+		@event = Event.find(params[:event_id]) if params[:event_id]
 		if @event
+			@gift.event = @event
 			redirect_url = event_path(@event)
 		else
 			redirect_url = new_gift_event_path(@gift)
@@ -84,16 +86,25 @@ class GiftsController < ApplicationController
 		end
   end
 
-	def deleteindex
-		@gift = Gift.find(params[:id])
-		index = params[:index].to_i
-		if @gift.generated_list.delete_at(index) && @gift.save && @gift.generated_list.length == 0
-			@gift.destroy
-			render json: { success: true, notice: "Cadeau supprimé avec succès." }
-		else
-			render json: { success: false, notice: @gift.errors.full_messages }, status: :unprocessable_entity
-		end
-	end
+def deleteindex
+  @gift = Gift.find(params[:id])
+  index = params[:index].to_i
+  @gift.generated_list.delete_at(index)
+
+  if @gift.generated_list.empty?
+    if @gift.destroy
+      render json: { success: true, notice: "Cadeau supprimé avec succès.", gift_destroyed: true }
+    else
+      render json: { success: false, notice: "Erreur lors de la suppression du cadeau." }, status: :unprocessable_entity
+    end
+  else
+    if @gift.save
+      render json: { success: true, notice: "Élément supprimé avec succès.", gift_destroyed: false }
+    else
+      render json: { success: false, notice: @gift.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+end
 
   private
 

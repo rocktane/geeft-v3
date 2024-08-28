@@ -72,6 +72,14 @@
   pointer-events: all;
 }
 
+.hover-disabled .refresh-container:hover .refresh-text,
+.hover-disabled .delete-container:hover .delete-text,
+.hover-disabled .refresh-text:hover,
+.hover-disabled .delete-text:hover {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .gift-left {
   display: flex;
   align-items: center;
@@ -123,9 +131,6 @@
 .gift-form {
   margin-bottom: 1em;
 }
-
-
-
 
 @media screen and (max-width: 1024px) {
   .refresh-text,

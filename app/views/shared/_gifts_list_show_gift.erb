@@ -9,11 +9,11 @@
           </div>
         </div>
         <% if @user == @gift.user %>
-          <span class="refresh-container" class ="gift-delete">
-            <div class="refresh-arrow">
+          <span class="refresh-container" class ="gift-delete" data-action="click->refresh-gift#refresh">
+            <div class="refresh-arrow" data-refresh-gift-target="refresh">
               <%= image_tag('refresh.svg') %>
             </div>
-            <div class="refresh-text" data-action="click->refresh-gift#refresh" data-refresh-gift-target="refresh">
+            <div class="refresh-text" data-action="click->refresh-gift#refresh">
               Remplacer
             </div>
           </span>

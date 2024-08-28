@@ -20,9 +20,9 @@ export default class extends Controller {
   async shareMenu(url) {
     try {
       await navigator.share({
-        title: "Partager",
-        text: "Partagez cet évènement !",
+        title: "Hey, regardes ce que j'ai trouvé !",
         url: url,
+        text: "Partagez cet évènement !",
       });
     } catch (error) {
       console.error("Le partage a échoué:", error);

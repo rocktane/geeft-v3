@@ -21,7 +21,7 @@
           <% end %>
         </div>
       <% end %>
-      <% text = @event.id ? "Ajouter cette liste à l'évènement" : 'Ajouter à un évènement' %>
+      <% text = params[:event_id] ? "Ajouter cette liste à l'évènement" : 'Ajouter à un évènement' %>
       <% svg_icon = image_tag('new-event.svg', alt: 'Ajouter') %>
       <% data_attributes = {
         data: {
@@ -32,7 +32,7 @@
         },
         class: "btn btn__theme btn-green"
       } %>
-      <% data_attributes[:data][:event_id] = @event.id if @event.id %>
+      <% data_attributes[:data][:event_id] = params[:event_id] if params[:event_id] %>
       <%= link_to new_gift_event_path(@gift), data_attributes do %>
         <div class="btn__content">
           <%= raw("#{svg_icon} #{text}") %>
