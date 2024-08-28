@@ -41,6 +41,8 @@
 .search {
   position: relative;
   display: inline-flex;
+  align-items: center;
+
 }
 
 #searchRelationshipInput,
@@ -60,7 +62,7 @@
   left: -8px;
   width: 0;
   z-index: 0;
-  transition: width 1s ease;
+  // transition: width 1s ease;
   background-color: $secondary-color;
 }
 
@@ -87,9 +89,9 @@
   }
 }
 
-#x-mark {
-  margin-left: 15em;
-}
+// #x-mark {
+//   margin-left: 15em;
+// }
 
 #x-mark,
 #reset {
@@ -110,7 +112,7 @@
     color: $primary-color;
     cursor: pointer;
   }
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in-out;
 }
 
 i {
@@ -160,6 +162,7 @@ span.checkbox input[type="checkbox"] {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
+
   &:hover {
     overflow-y: scroll;
   }
@@ -243,6 +246,10 @@ label[for="event_recurrent"] {
   pointer-events: none;
 }
 
+
+
+
+
 @media (max-width: 1024px) {
   .date-and-recurrent {
     flex-direction: column;
@@ -260,4 +267,19 @@ label[for="event_recurrent"] {
     display: block;
     gap: unset;
   }
+
+
+  .occasion,
+  .relationship,
+  .interests {
+
+    input {
+      max-width: 50vw;
+      white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    }
+
+  }
+
+
+
 }

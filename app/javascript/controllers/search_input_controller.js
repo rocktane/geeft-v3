@@ -7,55 +7,67 @@ export default class extends Controller {
     "relationshipInput",
     "occasionInput",
     "interestsInput",
+    "buttons" // Ajout d'une target pour les boutons
   ];
+
   connect() {}
 
   animate(event) {
     const section = event.target.dataset.searchInputValue;
-    const searchIcon = document.querySelector(
-      `span.search-icon[data-search-input-value="${section}"]`
-    );
-    const searchInput = searchIcon.parentElement.querySelector("input");
+    const searchInput = this[`${section}InputTarget`];
+    const buttons = this.buttonsTarget;
     const xMark = document.querySelector("#x-mark");
     const reset = document.querySelector("#reset");
 
     searchInput.style.border = "1px solid #ccc";
+
+
     if (searchInput.style.width === "0px" || searchInput.style.width === "") {
       searchInput.focus();
-      // Measure the final width by setting the width to 'auto' temporarily
-      searchInput.style.width = "auto";
-      searchInput.style.padding = "0.25em 0.5em 0.25em 2.5em";
-      const finalWidth = searchInput.getBoundingClientRect().width + "px";
-      searchInput.style.padding = "0.25em 0em 0.25em 1em";
-      searchInput.style.width = "0px"; // Reset to 0 to start the animation
-      // searchInput.style.marginLeft = "0.5em";
-      searchInput.style.padding = "0.25em 0em 0.25em 1em";
 
-      setTimeout(function () {
+
+
+      // Utilisation de requestAnimationFrame pour gérer les transitions
+      requestAnimationFrame(() => {
+        searchInput.style.width = "auto";
         searchInput.style.padding = "0.25em 0.5em 0.25em 2.5em";
-        if (section === "interests") {
-          xMark.style.opacity = "1";
-          reset.style.opacity = "1";
-        }
-      }, 1000);
+        const finalWidth = searchInput.getBoundingClientRect().width + "px";
+        searchInput.style.padding = "0.25em 0em 0.25em 1em";
+        searchInput.style.width = "0px"; // Réinitialisation
 
-      // Force a reflow to apply the reset width
-      // eslint-disable-next-line no-unused-expressions
-      searchInput.offsetHeight;
+        requestAnimationFrame(() => {
+          searchInput.style.transition = "width 1s ease-in-out, padding 1s ease-in-out";
+          searchInput.style.padding = "0.25em 0.5em 0.25em 2.5em";
+          searchInput.style.width = finalWidth;
 
-      // Set the final width to trigger the animation
-      searchInput.style.width = finalWidth;
+          // Afficher les boutons après l'animation de l'ouverture du champ
+          setTimeout(() => {
+            buttons.style.opacity = "1"; // Affiche les boutons après l'animation
+            buttons.style.marginLeft = `calc(${finalWidth} - 27px)`;
+
+
+            if (section === "interests") {
+              xMark.style.opacity = "1";
+              reset.style.opacity = "1";
+            }
+          }, 500); // Durée de l'animation
+        });
+      });
     } else {
-      // Collapse the div back to 0 width
+      // Fermer le champ et réinitialiser la position des boutons
       searchInput.value = "";
       searchInput.style.width = "0px";
       searchInput.style.padding = "0.25em 0em 0.25em 1em";
+      buttons.style.transition = "opacity 1s ease-in-out";
+      buttons.style.opacity = "0"; // Masque les boutons
+
       if (section === "interests") {
         xMark.style.opacity = "0";
         reset.style.opacity = "0";
       }
     }
   }
+
 
   normalizeText(text) {
     return text
@@ -65,7 +77,7 @@ export default class extends Controller {
       .toUpperCase();
   }
 
-  filterList(section) {
+  filterList(event) {
     this.deleteUnchecked();
 
     let input,
@@ -77,21 +89,37 @@ export default class extends Controller {
       span,
       sectionName;
 
-    sectionName =
-      event.target.parentElement.querySelector("span").dataset.searchInputValue;
+    const spanElement = event.target.parentElement.querySelector("span");
 
-    input = this[sectionName + "InputTarget"];
+    if (!spanElement) {
+      console.error("Impossible de trouver l'élément span ou son dataset.");
+      return;
+    }
+
+    sectionName = spanElement.dataset.searchInputValue;
+
+    if (!sectionName) {
+      console.error("Le dataset 'searchInputValue' est manquant.");
+      return;
+    }
+
+    input = this[`${sectionName}InputTarget`];
     filter = this.normalizeText(input.value);
     ul = document.querySelector(`.gift_${sectionName}`);
-    span = ul.getElementsByTagName("span");
+    span = ul?.getElementsByTagName("span");
+
+    if (!span) {
+      console.error("Impossible de trouver les éléments span pour la liste.");
+      return;
+    }
 
     for (i = 0; i < span.length; i++) {
       txtValue = span[i].textContent || span[i].innerText;
       if (this.normalizeText(txtValue).indexOf(filter) > -1) {
-        span[i].style.display = "";
+        span[i].style.display = ""; // Afficher l'élément
         atLeastOneVisible = true;
       } else {
-        span[i].style.display = "none";
+        span[i].style.display = "none"; // Masquer l'élément
       }
     }
 
@@ -135,7 +163,13 @@ export default class extends Controller {
   empty() {
     this.interestsInputTarget.value = "";
     this.interestsInputTarget.focus();
-    this.filterList("interests");
+    this.filterList({ target: this.interestsInputTarget }); // Passer directement l'input
+
+    // Rendre tous les éléments `span` visibles
+    const spans = document.querySelectorAll(".gift_interests span.checkbox");
+    spans.forEach(span => {
+        span.style.display = ""; // Réinitialiser le display
+    });
   }
 
   reset() {
@@ -151,6 +185,13 @@ export default class extends Controller {
         newGift.parentElement.remove();
       });
     }
+
+    // Rendre tous les éléments `span` visibles
+    const spans = document.querySelectorAll(".gift_interests span.checkbox");
+    spans.forEach(span => {
+        span.style.display = ""; // Réinitialiser le display
+    });
+
     this.empty();
   }
 
