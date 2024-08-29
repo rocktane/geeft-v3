@@ -25,7 +25,7 @@
   cursor: default;
   animation: slideInOut 10s ease-in-out forwards;
   margin-left: auto;
-  margin-bottom: 0.5em;
+  // margin-bottom: 0.5em;
   max-width: 90vw;
   // text-wrap: balance;
 }
@@ -65,6 +65,7 @@
   100% {
     transform: translateX(100%);
     opacity: 0;
+    visibility: hidden;
   }
 }
 
