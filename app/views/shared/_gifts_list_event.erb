@@ -1,7 +1,7 @@
 <% if @gifts_to_display %>
   <div class="gifts-event">
     <h3>Les idées cadeaux</h3>
-    <ul data-controller="delete-gift" data-delete-gift-url-value="<%= @domain %>">
+    <ul data-controller="delete-gift" data-delete-gift-id-value="<%= @event.gift.id %>">
       <% index = 0 %>
       <% @gifts_to_display.each do |gift| %>
         <li data-update-event-target="gift">
@@ -16,9 +16,9 @@
             <% if current_user.id == @event.user_id %>
               <span class="delete-container" class ="gift-delete">
                 <div class="trash-bin" data-action="click->delete-gift#delete">
-                  <%= image_tag'bin2.svg', data: { giftId: @event.gift.id, giftIndex: index } %>
+                  <%= image_tag'bin2.svg' %>
                 </div>
-                <div class="delete-text" data-action="click->delete-gift#delete" data-refresh-gift-target="button">
+                <div class="delete-text" data-action="click->delete-gift#delete" data-refresh-gift-target="button" data-giftindex="<%= index %>">
                   Supprimer
                 </div>
               </span>
@@ -26,8 +26,8 @@
             </div>
           </div>
         </li>
-      <% end %>
       <% index += 1 %>
+      <% end %>
     </ul>
   </div>
 <% end %>
