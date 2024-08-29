@@ -16,7 +16,7 @@
             <% if current_user.id == @event.user_id %>
               <span class="delete-container" class ="gift-delete">
                 <div class="trash-bin" data-action="click->delete-gift#delete">
-                  <%= image_tag'bin2.svg' %>
+                  <%= image_tag 'bin2.svg', data: { giftindex:index }%>
                 </div>
                 <div class="delete-text" data-action="click->delete-gift#delete" data-refresh-gift-target="button" data-giftindex="<%= index %>">
                   Supprimer
