@@ -25,6 +25,9 @@ export default class extends Controller {
 
       const data = await response.json();
       this.bonusGifts = Array.from(data.generated_list.slice(5));
+      if (this.bonusGifts.length === 0) {
+        this.greyOutRefresh();
+      }
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
     }
@@ -59,8 +62,10 @@ export default class extends Controller {
 
   greyOutRefresh() {
     this.refreshTargets.forEach((icon) => {
-      icon.style.opacity = "0.2";
-      icon.style.cursor = "not - allowed";
+      const parent = this.findParentWithClass(icon, "refresh-container");
+      parent.style.opacity = "0.2";
+      parent.classList.add("hover-disabled");
+      parent.style.pointerEvents = "none";
     });
   }
 

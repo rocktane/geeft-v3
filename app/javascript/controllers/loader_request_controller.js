@@ -5,13 +5,45 @@ export default class extends Controller {
   static targets = ["form", "container"];
   static values = { event: Number };
 
-  connect() {}
+  connect() {
+    if (typeof Turbolinks !== "undefined") {
+      document.addEventListener("turbolinks:before-cache", this.hideLoader());
+    }
+  }
+
+  disconnect() {
+    if (typeof Turbolinks !== "undefined") {
+      document.removeEventListener("turbolinks:before-cache");
+    }
+    this.hideLoader();
+  }
+
+  hideLoader() {
+    // Votre code existant pour cacher le loader et supprimer le flou
+    const navbar = document.querySelector(".navbar");
+    const loader = document.querySelector(".loader-wrapper");
+    navbar.style.transition = "";
+    navbar.classList.remove("blurred");
+    this.containerTarget.style.transition = "";
+    this.containerTarget.classList.remove("blurred");
+    loader.style.display = "none";
+  }
+
+  // disconnect() {
+  //   // Unblur tout + cache le loader
+  //   const navbar = document.querySelector(".navbar");
+  //   const loader = document.querySelector(".loader-wrapper");
+  //   navbar.style.transition = "";
+  //   navbar.classList.remove("blurred");
+  //   this.containerTarget.style.transition = "";
+  //   this.containerTarget.classList.remove("blurred");
+  //   loader.style.display = "none";
+  // }
 
   checkForm(event) {
     event.preventDefault();
 
     const form = event.target; // Formulaire cible
-    // const formData = new FormData(form);
 
     // Réinitialiser les erreurs précédentes
     clearErrors(form);
@@ -93,12 +125,6 @@ export default class extends Controller {
     this.containerTarget.classList.add("blurred");
     loader.style.display = "flex";
 
-    // console.log("url fetchApi", url);
-    // console.log("form fetchApi", formData);
-    // console.log("method fetchApi", this.formTarget.action);
-    // console.log("eventId", this.eventValue);
-    // console.log("newUrl", url + "?event_id=" + this.eventValue);
-
     try {
       const response = await fetch(url, {
         method: this.formTarget.method,
@@ -109,7 +135,11 @@ export default class extends Controller {
       const data = await response.json();
 
       window.setTimeout(() => {
-        window.location.href = `/gifts/${data.id}?event_id=${this.eventValue}`;
+        if (this.eventValue === 0) {
+          window.location.href = `/gifts/${data.id}`;
+        } else {
+          window.location.href = `/gifts/${data.id}?event_id=${this.eventValue}`;
+        }
       }, 500);
     } catch (error) {
       console.error("Une erreur s'est produite :", error);
