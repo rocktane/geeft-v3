@@ -30,10 +30,6 @@ export default class extends Controller {
 
       const url = `/gifts/${giftId}/deleteindex/${giftIndex}`;
 
-      console.log(gift.target);
-
-      console.log(url);
-
       fetch(url, {
         method: "DELETE",
         headers: {

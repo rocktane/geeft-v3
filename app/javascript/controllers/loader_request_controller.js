@@ -40,6 +40,24 @@ export default class extends Controller {
   //   loader.style.display = "none";
   // }
 
+  flash(message) {
+    let flashContainer = document.querySelector(".flashes");
+    if (!flashContainer) {
+      flashContainer = document.createElement("ul");
+      flashContainer.classList.add("flashes");
+      document.body.insertAdjacentElement("afterbegin", flashContainer);
+    }
+
+    const flashMessage = document.createElement("li");
+    flashMessage.classList.add("flash-success");
+    flashMessage.textContent = message;
+
+    flashContainer.appendChild(flashMessage);
+    setTimeout(() => {
+      flashContainer.removeChild(flashMessage);
+    }, 10000);
+  }
+
   checkForm(event) {
     event.preventDefault();
 
@@ -83,15 +101,14 @@ export default class extends Controller {
     if (isValid) {
       this.fetchApi(event);
     } else {
-      console.log("Formulaire invalide");
       if (selectedInterests.length === 0) {
-        console.log("Aucun choix de centre d'intérêts");
+        this.flash("Aucune passion n'a été indiquée !");
       }
       if (selectedRelationship.length === 0) {
-        console.log("Aucun choix de relation");
+        this.flash("Il manque la relation !");
       }
       if (selectedOccasion.length === 0) {
-        console.log("Aucune choix d'occasion");
+        this.flash("Il manque l'occasion !");
       }
     }
 
