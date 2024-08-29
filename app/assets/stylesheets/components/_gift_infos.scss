@@ -139,3 +139,7 @@
     pointer-events: none;
   }
 }
+
+video {
+  border-radius: var(--border-radius);
+}

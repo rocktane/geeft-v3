@@ -3,11 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static values = { id: String };
 
-  connect() {
-    // impossible de faire autoplay si pas d'interaction de l'utilisateur après l'insertion
-    document.querySelector(".gifts-event").innerHTML =
-      "<video id='myVideo' width=100% controls autoplay playsinline name='media'><source src='https://shattereddisk.github.io/rickroll/rickroll.mp4' type='video/mp4'></video>";
-  }
+  connect() {}
 
   flash(message) {
     const flashContainer = document.createElement("ul");
@@ -58,7 +54,7 @@ export default class extends Controller {
           this.flash(data.notice);
           if (data.gift_destroyed) {
             document.querySelector(".gifts-event").innerHTML =
-              "<video width = 100% autoplay> <source src='https://shattereddisk.github.io/rickroll/rickroll.mp4' type='video/mp4'> </video>";
+              "<video width=100% controls autoplay playsinline name='media'><source src='https://shattereddisk.github.io/rickroll/rickroll.mp4' type='video/mp4'></video>";
           }
         })
         .catch((error) => {
