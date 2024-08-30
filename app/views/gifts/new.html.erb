@@ -91,22 +91,6 @@
           <div id="budget-value" data-budget-slider-target="input">50</div>
         </div>
 
-
-        <!--
-        <div class="new-form-section interests">
-          <%= f.label :interests, "Passions", class: "criteria-title" %>
-          <div class="background"></div>
-          <div class="search">
-            <span class="search-icon" data-action="click->search-input#animate" data-search-input-value="interests">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </span>
-            <input type="text" id="searchInterestInput" data-action="input->search-input#filterList" data-search-input-target="interestsInput">
-          </div>
-          <i class="fa-solid fa-xmark" id="x-mark" data-action="click->search-input#empty"></i>
-          <i class="fa-solid fa-rotate-right" id="reset" data-action="click->search-input#reset"></i>
-          <%= f.input :interests, collection: Gift::INTERESTS.sort, as: :check_boxes, label: false, required: false %>
-        </div>
-        -->
       <div class="new-form-section interests">
         <%= f.label :interests, "Passions", class: "criteria-title" %>
         <div class="background"></div>
