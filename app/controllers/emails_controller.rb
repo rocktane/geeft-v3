@@ -4,7 +4,7 @@ class EmailsController < ApplicationController
   def send_test_email
     email = {
       from: 'no-reply@geeft.club',
-      to: 'y.gouiran@gmail.com',
+      to: 'email@domain.example',
       subject: 'Test Email',
       html: '<strong>Ceci est un email de test envoyé depuis Resend.</strong>'
     }
