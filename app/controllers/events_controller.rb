@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   # before_action :set_cache_headers
   before_action :authenticate_user!, except: [:home]
+	before_action :owner, only: %i[edit update destroy]
   before_action :set_event, only: %i[show edit update destroy]
 
   def home
@@ -27,8 +28,8 @@ class EventsController < ApplicationController
 				unless @events.select { |e| e.date.beginning_of_month == month }.nil?
 					[month, @events.select { |e| e.date.beginning_of_month == month }]
 				end
-			end.to_h
-    end
+			end
+		end.to_h
   end
 
   def show
@@ -145,6 +146,12 @@ class EventsController < ApplicationController
   def set_event
     @event = Event.find(params[:id])
   end
+
+	def owner
+		@event = Event.find(params[:id])
+		@user = User.find(@event.user_id)
+		redirect_to root_path unless current_user == @user
+	end
 
   # def set_cache_headers
   #   response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
