@@ -11,6 +11,9 @@ module GeeftV3
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
+		# Resend configuration
+		config.autoload_paths += %W(#{config.root}/app/mailers)
+
 		# Ajout des fonts locales
 		config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
