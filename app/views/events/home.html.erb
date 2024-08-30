@@ -28,6 +28,8 @@
               </div>
             <% end %>
 
+            <%= button_to "Test", send_test_email_path, method: :get, class: "btn btn-primary" %>
+
             <%= link_to new_gift_path, class: "btn btn-home btn__theme btn-purple" do %>
               <div class="btn__content">
                 <%= image_tag('close-gift.svg', alt: 'Cadeau') %>
