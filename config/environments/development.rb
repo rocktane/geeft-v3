@@ -37,16 +37,10 @@ Rails.application.configure do
   config.active_storage.service = :local
 
 	# Resend configuration
+	config.action_mailer.perform_deliveries = true
+	config.action_mailer.raise_delivery_errors = true
+	config.action_mailer.default_url_options = { host: 'geeft.club', protocol:"https" }
 	config.action_mailer.delivery_method = :resend
-	config.action_mailer.default_url_options = { host: 'geeft.club' }
-	config.action_mailer.resend_settings = {
-		api_key: ENV['RESEND_API_KEY']
-	}
-
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.perform_caching = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

@@ -12,8 +12,6 @@ class EmailsController < ApplicationController
     begin
       response = Resend::Emails.send(email)
       Rails.logger.info "Resend API Response: #{response.inspect}"
-
-      # Convertissons la réponse en hash pour un accès plus facile
       response_hash = response.parsed_response.is_a?(Hash) ? response.parsed_response : JSON.parse(response.body)
 
       if response_hash[:id] || response_hash['id']
@@ -21,7 +19,7 @@ class EmailsController < ApplicationController
       else
         flash[:alert] = "Échec de l'envoi de l'email."
       end
-    rescue => e
+    rescue
       flash[:alert] = "Erreur lors de l'envoi de l'email."
     end
 

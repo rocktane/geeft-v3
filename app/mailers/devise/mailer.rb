@@ -1,6 +1,6 @@
 require 'resend'
 
-class Devise::Mailer < Devise::Mailer
+class Devise::Mailer < Devise.parent_mailer.constantize
   default from: 'no-reply@geeft.club'
 
   def confirmation_instructions(record, token, opts={})
@@ -34,7 +34,7 @@ class Devise::Mailer < Devise::Mailer
     template = render_to_string(template_path: "devise/mailer", template_name: action)
 
     email = {
-      from: default[:from],
+      from: 'no-reply@geeft.club',
       to: record.email,
       subject: I18n.t("devise.mailer.#{action}.subject"),
       html: template
