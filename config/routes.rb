@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	# get 'send_test_email', to: 'emails#send_test_email'
   devise_for :users
 	root to: "events#home"
   resources :users, only: [:show]

@@ -1,12 +1,8 @@
 class GiftsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:create]
-	before_action :check_user, only: [:show]
+	before_action :check_user, only: [:show, :update, :updatelist]
 	# before_action :check_if_event, only: [:show]
-
-  def index
-    @gifts = Gift.all
-  end
 
   def show
     @user = current_user
@@ -78,7 +74,7 @@ class GiftsController < ApplicationController
 		end
     @gift.generated_list = [params[:gift][:generated_list]].flatten
 		respond_to do |format|
-    	if @gift.save
+			if @gift.save
 				format.json { render json: { gift: @gift, success: true, redirect_url: redirect_url } }
 			else
 				format.json { render json: { gift: @gift, success: false, redirect_url: redirect_url, status: :unprocessable_entity } }
