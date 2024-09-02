@@ -28,8 +28,8 @@ class EventsController < ApplicationController
 				unless @events.select { |e| e.date.beginning_of_month == month }.nil?
 					[month, @events.select { |e| e.date.beginning_of_month == month }]
 				end
-			end
-		end.to_h
+			end.to_h
+		end
   end
 
   def show
