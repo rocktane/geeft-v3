@@ -1,7 +1,7 @@
 class GiftsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:create]
-	before_action :check_user
+	before_action :check_user, only: [:show, :update, :updatelist]
 	# before_action :check_if_event, only: [:show]
 
   def show
